@@ -1,0 +1,80 @@
+body {
+    background-color: #f8f9fa;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    padding: 20px;
+}
+
+.btn {
+    margin: 10px;
+}
+
+.image-container {
+    width: 100%; /* 容器宽度为100% */
+    height: 45vh; /* 高度为视口高度的三分之一 */
+    overflow: hidden; /* 隐藏超出容器部分的图片 */
+    position: relative;
+    padding-top: 0; /* 移除顶部的padding */
+}
+
+.img-fluid {
+    width: 100%; /* 图片宽度为100% */
+    height: 100%; /* 高度也设置为100%，但因为容器已经限制，所以实际上是33vh */
+    object-fit: cover; /* 确保图片覆盖整个容器，不留空白 */
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* 主页文字 */
+h1 {
+    color: #0056b3; /* 深蓝色 */
+    font-size: 2.5em; /* 字体大小 */
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+p {
+    color: #0056b3;
+    font-size: 1.2em;
+    padding: 10px;
+    border-radius: 10px; /* 边角圆滑 */
+}
+
+/* 导航栏背景色 */
+.navbar {
+    background-color: #f8f9fa; /* 可以设置为任何喜欢的颜色 */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* 添加一些阴影效果 */
+}
+
+/* 导航链接样式 */
+.nav-link {
+    color: #555; /* 默认颜色 */
+    font-weight: bold;
+    transition: color 0.3s ease; /* 平滑过渡效果 */
+}
+
+/* 链接在鼠标悬停时的颜色 */
+.nav-link:hover {
+    color: #ff5722; /* 橙色 */
+}
+
+/* 当前活动链接的样式 */
+.nav-link.active {
+    color: #0056b3; /* 深蓝色 */
+}
+
+/* 导航品牌样式 */
+.navbar-brand {
+    color: #0056b3; /* 绿色 */
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* 导航栏按钮 */
+.navbar-toggler {
+    border-color: #0056b3; /* 使汉堡菜单按钮变成绿色 */
+}
+
