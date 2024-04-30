@@ -35,4 +35,23 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Registration attempted for ' + fullName);
         });
     }
+
+    // 初始化 Bootstrap Dropdown
+    var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'));
+    var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
+        return new bootstrap.Dropdown(dropdownToggleEl);
+    });
+    
+    <script>
+    function filterResults() {
+    // 可以在这里添加筛选逻辑，或者使用Ajax向服务器发送请求
+    console.log("Filtering by:",
+        document.getElementById('locationSelect').value,
+        document.getElementById('priceMin').value,
+        document.getElementById('priceMax').value);
+    alert('Filters applied. Check console for details.');
+}
+</script>
+    
 });
+

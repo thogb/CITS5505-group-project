@@ -4,10 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dreamers Market - Home</title>
+    <title>Browse Items - Dreamers Market</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="navbar.css">
-    <script src="navbar.js"></script>
 </head>
 
 <body>
@@ -54,58 +53,14 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <div class="image-container text-center">
-        <img src="image1.jpg" alt="Dreamers Market" class="img-fluid">
-    </div>
-
+    <!-- Page Content -->
     <div class="container text-center mt-5">
-        <h1>Welcome to Dreamers Market!</h1>
-        <p>Your go-to place for treasured finds and cherished goods.</p>
-        <div>
-            <a href="browse_items.html" class="btn btn-primary">Buy</a>
-            <a href="Post an Ad.html" class="btn btn-success">Sell</a>
-        </div>
-    </div>
-
-    <!-- Filter & Refine Section -->
-    <div class="container text-center mt-3">
-        <h2>Filter & Refine</h2>
-
-        <!-- Categories already implemented in the navbar -->
-        
-        <!-- Location Filter -->
-        <div class="mb-3">
-            <label for="locationSelect" class="form-label">Location</label>
-            <select class="form-select" id="locationSelect">
-                <option selected>Choose...</option>
-                <option value="Perth Central">Perth Central</option>
-                <option value="Northbridge">Northbridge</option>
-                <option value="Cottesloe">Cottesloe</option>
-                <option value="Fremantle">Fremantle</option>
-                <option value="Scarborough">Scarborough</option>
-            </select>
-        </div>
-
-        <!-- Price Range Filter -->
-        <div class="mb-3">
-            <label for="priceMin" class="form-label">Price Range</label>
-            <input type="number" class="form-control" id="priceMin" placeholder="$ Min">
-            <input type="number" class="form-control mt-2" id="priceMax" placeholder="$ Max">
-            <button class="btn btn-primary mt-2" type="button" onclick="filterResults()">Go</button>
-        </div>
+        <h1>Browse Items</h1>
+        <!-- Place your item list and filters here -->
     </div>
 
     <!-- Include Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script>
-        function filterResults() {
-            console.log("Filtering by:", document.getElementById('locationSelect').value, document.getElementById('priceMin').value, document.getElementById('priceMax').value);
-            alert('Filters applied. Check console for details.');
-        }
-    </script>
-
 </body>
 
 </html>
