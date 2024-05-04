@@ -29,6 +29,18 @@
       {% endblock %}
     </div>
 
+    {% import 'macros/toast.html' as toast %}
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div class="toast-container position-absolute bottom-0 end-0 p-3">
+          {% for category, message in messages %}
+            {{ toast.render_toast(type=category, message=message) }}
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
     <!-- Popper JS -->
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"

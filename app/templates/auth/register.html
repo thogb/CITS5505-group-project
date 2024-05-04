@@ -3,6 +3,8 @@
 {% block title %} Register {% endblock %}
 <!--  -->
 {% block content %}
+
+<!-- TODO: remove, for testing -->
 <div
   class="h-100"
   style="
@@ -14,26 +16,26 @@
 >
   <form action="" method="post">
     {{ form.csrf_token() }}
-    <div class="form-group">
-      {{ form.email.label }} {{ form.email(class="form-control") }}
+    <div>
+      {{ form.email.label }} {{ form.email(class="form-control") }} 
     </div>
-    <div class="form-group">
+    <div>
       {{ form.first_name.label }} {{ form.first_name(class="form-control") }}
     </div>
-    <div class="form-group">
+    <div>
       {{ form.last_name.label }} {{ form.last_name(class="form-control") }}
     </div>
-    <div class="form-group">
+    <div>
       {{ form.password.label }} {{ form.password(class="form-control") }}
     </div>
-    <div class="form-group">
+    <div>
       {{ form.confirm_password.label }} {{
       form.confirm_password(class="form-control") }}
     </div>
-    <div class="form-group">{{ form.submit(class="btn btn-primary")}}</div>
+    <div>{{ form.submit(class="btn btn-primary")}}</div>
   </form>
 
-  <!-- for debugging -->
+  <!-- TODO: remove, for debugging -->
   {% if form.errors %} {{ form.errors }} {% endif %}
 </div>
 {% endblock %}

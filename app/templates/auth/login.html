@@ -4,15 +4,27 @@
 <!--  -->
 <!--  -->
 {% block content %}
+
+<!-- TODO: remove, for testing functionality -->
 <div
   class="h-100"
-  style="display: flex; align-items: center; justify-content: center"
+  style="
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  "
 >
-  <h1>Login</h1>
   <form method="post">
-    <div>testasd</div>
-    {{ form.csrf_token }}
-    <button type="submit">Login</button>
+    {{ form.csrf_token() }}
+    <div>{{ form.email.label }} {{ form.email(class="form-control") }}</div>
+    <div>
+      {{ form.password.label }} {{ form.password(class="form-control") }}
+    </div>
+    <div>{{ form.submit(class="btn btn-primary") }}</div>
   </form>
+
+  <!-- TODO: remove, for debugging -->
+  {% if form.errors %} {{ form.errors }} {% endif %}
 </div>
 {% endblock %} `

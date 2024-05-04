@@ -1,3 +1,4 @@
+import datetime
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import db
@@ -13,8 +14,8 @@ class User(UserMixin, db.Model):
     last_name = db.Column(db.String(100), nullable=False)
     password = db.Column(db.String(255), nullable=False)
     phone_number = db.Column(db.String(20))
-    join_date = db.Column(db.Date, nullable=False, default=db.func.now())
-    last_login = db.Column(db.Date, nullable=False, default=db.func.now())
+    join_date = db.Column(db.DateTime(), nullable=False, default=datetime.datetime.now)
+    last_login = db.Column(db.DateTime(), nullable=False, default=datetime.datetime.now)
     
     saved_items = db.relationship("UserItemSaved", backref="user", lazy="dynamic")
     comments = db.relationship('Comment', backref='user', lazy="dynamic")
@@ -73,14 +74,14 @@ class Item(db.Model):
     title = db.Column(db.String(255), nullable=False)
     description = db.Column(db.Text)
     used = db.Column(db.Boolean, nullable=False, default=False)
-    create_time = db.Column(db.Date, nullable=False, default=db.func.now())
+    create_time = db.Column(db.DateTime(), nullable=False, default=datetime.datetime.now)
     price = db.Column(db.Float, nullable=False, default=0.0)
 
     photos = db.relationship('Photo', backref='item', lazy="dynamic")
     comments = db.relationship('Comment', backref='item', lazy="dynamic")
     item_auction = db.relationship('ItemAuction', backref='item', uselist=False)
     saved_users = db.relationship('UserItemSaved', backref='item', lazy="dynamic")
-    bids = db.relationship('Bid', backref='item', lazy="dynamic")
+    # bids = db.relationship('Bid', backref='item', lazy="dynamic")
 
 class ItemAuction(db.Model):
     __tablename__ = 'item_auction'
@@ -88,10 +89,11 @@ class ItemAuction(db.Model):
     current_bid_id = db.Column(db.Integer, db.ForeignKey('bid.id'), unique=True, nullable=True)
     start_price = db.Column(db.Float)
     current_price = db.Column(db.Float)
-    end_time = db.Column(db.Date)
+    end_time = db.Column(db.DateTime())
 
-    current_bid = db.relationship('Bid', backref='item_auction', uselist=False)
-    bids = db.relationship('Bid', backref='item_auction', lazy="dynamic")
+    current_bid = db.relationship('Bid', uselist=False, foreign_keys=[current_bid_id])
+    bids = db.relationship('Bid', backref='item_auction', lazy="dynamic", foreign_keys="Bid.item_auction_id")
+    # bids = db.relationship('Bid', back_populates='item_auction', lazy="dynamic")
 
 class Bid(db.Model):
     __tablename__ = 'bid'
@@ -99,14 +101,16 @@ class Bid(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     item_auction_id = db.Column(db.Integer, db.ForeignKey('item_auction.id'))
     price = db.Column(db.Float)
-    time = db.Column(db.Date, nullable=False, default=db.func.now())
+    time = db.Column(db.DateTime(), nullable=False, default=datetime.datetime.now)
+
+    # item_auction = db.relationship('ItemAuction', back_populates='bids')
 
 class Comment(db.Model):
     __tablename__ = 'comment'
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     item_id = db.Column(db.Integer, db.ForeignKey('item.id'))
-    create_time = db.Column(db.Date, nullable=False, default=db.func.now())
+    create_time = db.Column(db.DateTime(), nullable=False, default=datetime.datetime.now)
     description = db.Column(db.String(255))
 
 class Photo(db.Model):
@@ -121,4 +125,4 @@ class UserItemSaved(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     saved_id = db.Column(db.Integer, db.ForeignKey('item.id'))
-    create_time = db.Column(db.Date, nullable=False, default=db.func.now())
+    create_time = db.Column(db.DateTime(), nullable=False, default=datetime.datetime.now)
