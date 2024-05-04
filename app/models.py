@@ -22,6 +22,12 @@ class User(UserMixin, db.Model):
     address = db.relationship('Address', backref='user', uselist=False)
     bids = db.relationship('Bid', backref='user', lazy="dynamic")
 
+    def __init__(self, email, first_name, last_name, password) -> None:
+        self.email = email
+        self.first_name = first_name
+        self.last_name = last_name
+        self.password = password
+
     def set_password(self, password):
         self.password = generate_password_hash(password)
 
