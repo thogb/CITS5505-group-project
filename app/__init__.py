@@ -26,7 +26,7 @@ def create_app(config_class=Config):
     me_create_module(app)
     item_create_module(app)
 
-    @app.route("/test")
+    @app.route("/test",)
     def test():
         return "<div>Hello, World!</div>"
 
