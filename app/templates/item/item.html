@@ -11,7 +11,7 @@
             <div id="carouselExampleIndicators" class="carousel slide">
                 <div class="carousel-inner">
                     {% for photo in item.photos %}
-                        <div class="carousel-item active">
+                        <div class="carousel-item {{ 'active' if loop.first }}">
                             <img src="{{ photo.photo_url }}" class="d-block w-100" style="height: 400px;" alt="image" onerror="this.src='/static/img/not-found.webp'">
                         </div>
                     {% endfor %}
