@@ -1,0 +1,33 @@
+{% extends 'me/me-base.html' %}
+
+{% block title %} Profile {% endblock %}
+
+{% set active_page = "me" %}
+
+{% block right_content %}
+    <div class="card border-info">
+        <div class="card-body">
+            <form action="" method="post">
+                {{ form.csrf_token() }}
+    
+                <div>
+                    {{ form.email.label }} {{ form.email(class="form-control") }} 
+                  </div>
+                  <div>
+                    {{ form.first_name.label }} {{ form.first_name(class="form-control") }}
+                  </div>
+                  <div>
+                    {{ form.last_name.label }} {{ form.last_name(class="form-control") }}
+                  </div>
+                  <div>
+                    {{ form.address.label }} {{ form.address(class="form-control") }}
+                  </div>
+                  <div>
+                    {{ form.city.label }} {{ form.city(class="form-control") }}
+                  </div>
+     
+                  <div>{{ form.submit(class="btn btn-primary mt-3")}}</div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

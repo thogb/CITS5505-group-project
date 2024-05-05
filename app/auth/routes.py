@@ -1,3 +1,4 @@
+import datetime
 from functools import wraps
 from flask import (Blueprint, flash, redirect, render_template, request, url_for)
 from flask_login import current_user, login_required, login_user, logout_user
@@ -31,6 +32,10 @@ def login():
             return redirect(url_for('auth.login'))
         
         login_user(user)
+
+        user.last_login = datetime.datetime.now()
+        
+        db.session.commit()
 
         flash("Successfully logged in", category="success")
 

@@ -23,6 +23,9 @@
     />
   </head>
   <body style="height: 100%">
+    {% block navbar %}
+      {% include 'navbar.html' %}
+    {% endblock %}
     <div class="container h-100">
       {% block content %}
       <div>test</div>
