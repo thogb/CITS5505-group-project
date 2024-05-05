@@ -53,13 +53,15 @@ class State(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), unique=True, nullable=False)
 
-    cities = db.relationship('City', backref='state', lazy="dynamic")
+    # cities = db.relationship('City', backref='state', lazy="dynamic")
 
 class City(db.Model):
     __tablename__ = 'city'
     id = db.Column(db.Integer, primary_key=True)
     state_id = db.Column(db.Integer, db.ForeignKey('state.id'))
     name = db.Column(db.String(100), unique=True, nullable=False)
+
+    state = db.relationship('State', backref='cities', uselist=False)
 
 class Category(db.Model):
     __tablename__ = 'category'
@@ -81,11 +83,25 @@ class Item(db.Model):
     create_time = db.Column(db.DateTime(), nullable=False, default=datetime.datetime.now)
     price = db.Column(db.Float, nullable=False, default=0.0)
 
-    photos = db.relationship('Photo', backref='item', lazy="dynamic")
+    # photos = db.relationship('Photo', backref='item', lazy="dynamic")
+    photos = db.relationship('Photo', backref='item')
     comments = db.relationship('Comment', backref='item', lazy="dynamic")
     item_auction = db.relationship('ItemAuction', backref='item', uselist=False)
     saved_users = db.relationship('UserItemSaved', backref='item', lazy="dynamic")
+    city = db.relationship('City', backref='items', uselist=False)
     # bids = db.relationship('Bid', backref='item', lazy="dynamic")
+
+    thumb_photo_url=None
+    posted_date=None
+
+    def __init__(self, title, user_id, city_id, category_id, description, used, price=None) -> None:
+        self.title = title
+        self.user_id = user_id
+        self.city_id = city_id
+        self.category_id = category_id
+        self.description = description
+        self.used = used
+        self.price = price
 
 class ItemAuction(db.Model):
     __tablename__ = 'item_auction'
@@ -123,6 +139,14 @@ class Photo(db.Model):
     item_id = db.Column(db.Integer, db.ForeignKey('item.id'))
     original_name = db.Column(db.String(255))
     extension = db.Column(db.String(10))
+
+    photo_file=None
+    photo_url=None
+
+    def __init__(self, original_name, extension, photo_file) -> None:
+        self.original_name = original_name
+        self.extension = extension
+        self.photo_file = photo_file
 
 class UserItemSaved(db.Model):
     __tablename__ = 'user_item_saved'

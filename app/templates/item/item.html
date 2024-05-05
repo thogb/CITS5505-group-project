@@ -1,0 +1,41 @@
+<!-- TODO: Update this with good UI -->
+
+{% extends 'base.html' %}
+
+{% block title %} {{ item.title }} {% endblock %}
+
+{% block content %}
+<div class="card mt-4">
+    <div class="row">
+        <div class="col-sm-12 col-lg-5">
+            <div id="carouselExampleIndicators" class="carousel slide">
+                <div class="carousel-inner">
+                    {% for photo in item.photos %}
+                        <div class="carousel-item active">
+                            <img src="{{ photo.photo_url }}" class="d-block w-100" style="height: 400px;" alt="image" onerror="this.src='/static/img/not-found.webp'">
+                        </div>
+                    {% endfor %}
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                    <span class="material-symbols-outlined" style="font-size: 50px; color: black;">chevron_left</span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                    <span class="material-symbols-outlined" style="font-size: 50px; color: black;">chevron_right</span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+        <div class="col-sm-12 col-lg-7 bg-light">
+            <h5 class="card-title">{{ item.title }}</h5>
+            <p class="card-text">{{ item.description }}</p>
+            <p class="card-text">{{ item.price }}</p>
+            <p class="card-text">{{ item.create_time }}</p>
+            <p class="card-text">{{ item.used }}</p>
+            <p class="card-text">{{ item.category.name }}</p>
+            <p class="card-text">{{ item.city.name }}</p>
+            <p class="card-text">{{ item.city.state.name }}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
