@@ -5,3 +5,8 @@ from app.models import City
 def getCities():
     cities = db.session.query(City).all()
     return cities
+
+def checkIfCityExists(id):
+    check_Data = City.query.filter_by(id=id).first()
+
+    return check_Data is not None

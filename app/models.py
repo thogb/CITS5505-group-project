@@ -44,6 +44,10 @@ class Address(db.Model):
     address = db.Column(db.String(255), nullable=False)
     city_id = db.Column(db.Integer, db.ForeignKey('city.id'))
 
+    def __init__(self, address, city_id) -> None:
+        self.address = address
+        self.city_id = city_id
+
 class State(db.Model):
     __tablename__ = 'state'
     id = db.Column(db.Integer, primary_key=True)
