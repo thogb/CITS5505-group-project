@@ -2,12 +2,14 @@ from flask import Flask
 from flask_caching import Cache
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
+from .services.awsS3 import AWSS3
 
 from config import Config
 
 db = SQLAlchemy()
 migrate = Migrate()
 cache = Cache()
+awsS3 = AWSS3()
 
 def create_app(config_class=Config):
     app = Flask(__name__)
@@ -16,6 +18,7 @@ def create_app(config_class=Config):
     db.init_app(app)
     migrate.init_app(app, db)
     cache.init_app(app)
+    awsS3.create_from_app(app)
 
     from .models import State, City, Category, Item, User, Address, UserItemSaved, ItemAuction, Comment, Bid, Photo, UserItemSaved
 
