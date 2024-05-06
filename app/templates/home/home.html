@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+<!-- TODO: remove and replace with -->
+<div class="card border-secondary">
+    <div class="card-header">
+        Links
+    </div>
+    <div class="card-body p-0 list-group">
+        <a href="{{ url_for('me.me') }}" class="list-group-item list-group-item-action " >me</a>
+        <a href="{{ url_for('me.me') }}" class="list-group-item list-group-item-action " >me</a>
+        <a href="{{ url_for('me.me') }}" class="list-group-item list-group-item-action " >me</a>
+    </div>
+</div>
+{% endblock %}

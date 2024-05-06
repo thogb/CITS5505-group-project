@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_caching import Cache
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 
@@ -6,6 +7,7 @@ from config import Config
 
 db = SQLAlchemy()
 migrate = Migrate()
+cache = Cache()
 
 def create_app(config_class=Config):
     app = Flask(__name__)
@@ -13,6 +15,7 @@ def create_app(config_class=Config):
 
     db.init_app(app)
     migrate.init_app(app, db)
+    cache.init_app(app)
 
     from .models import State, City, Category, Item, User, Address, UserItemSaved, ItemAuction, Comment, Bid, Photo, UserItemSaved
 
@@ -26,7 +29,7 @@ def create_app(config_class=Config):
     me_create_module(app)
     item_create_module(app)
 
-    @app.route("/test")
+    @app.route("/test",)
     def test():
         return "<div>Hello, World!</div>"
 
