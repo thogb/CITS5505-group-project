@@ -4,7 +4,7 @@ from flask_login import current_user, login_required
 from app import db
 from app.item.forms import NewItemForm
 from app.item.items_filtering_parameters import ItemFilteringParameters
-from app.models import Item, Photo
+from app.models import Item, Photo, UserItemSaved
 from app import awsS3
 from app.services.category import getAllCategories
 from app.services.city import getCities
@@ -29,12 +29,25 @@ def items():
         per_page=filter.per_page
     )
 
-    for item in items:
-        photo = len(item.photos) > 0 and item.photos[0]
-        if photo:
-            # photo.photo_url = awsS3.generate_presigned_url(f"{photo.id}.{photo.extension}")
-            item.thumb_photo_url = awsS3.generate_presigned_url(f"{photo.id}.{photo.extension}")
-            print(item.thumb_photo_url)
+    item_ids = [ item.id for item in items.items ]
+    
+    # Find out which items are saved by the user
+    if len(item_ids) > 0:
+        user_item_saved = UserItemSaved\
+            .query\
+            .with_entities(UserItemSaved.item_id)\
+            .filter(UserItemSaved.item_id.in_(item_ids), UserItemSaved.user_id == current_user.id)\
+            .all()
+        saved_item_id_set = set([ item.item_id for item in user_item_saved ])
+        print(saved_item_id_set)
+        for item in items.items:
+            item.saved_by_user = item.id in saved_item_id_set
+
+    # for item in items:
+    #     photo = len(item.photos) > 0 and item.photos[0]
+    #     if photo:
+    #         # photo.photo_url = awsS3.generate_presigned_url(f"{photo.id}.{photo.extension}")
+    #         item.thumb_photo_url = awsS3.generate_presigned_url(f"{photo.id}.{photo.extension}")
 
     return render_template('item/items.html', items=items, filter=filter)
 

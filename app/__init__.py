@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, abort, request
 from flask_caching import Cache
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
@@ -35,6 +35,12 @@ def create_app(config_class=Config):
     @app.route("/test",)
     def test():
         return "<div>Hello, World!</div>"
+
+    @app.route("/test-two", methods=["GET"])
+    def test_two():
+        print(request.is_json)
+        print("test")
+        return "test two"
 
     # blue prints
 

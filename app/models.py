@@ -93,6 +93,7 @@ class Item(db.Model):
 
     thumb_photo_url=None
     posted_date=None
+    saved_by_user=False
 
     def __init__(self, title, user_id, city_id, category_id, description, used, price=None) -> None:
         self.title = title
@@ -151,6 +152,10 @@ class Photo(db.Model):
 class UserItemSaved(db.Model):
     __tablename__ = 'user_item_saved'
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    saved_id = db.Column(db.Integer, db.ForeignKey('item.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    item_id = db.Column(db.Integer, db.ForeignKey('item.id'), nullable=False)
     create_time = db.Column(db.DateTime(), nullable=False, default=datetime.datetime.now)
+
+    __table_args__ = (
+        db.UniqueConstraint('user_id', 'item_id', name='unique_user_item_saved_user_id_item_id'),
+    )
