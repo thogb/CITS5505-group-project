@@ -9,6 +9,16 @@
     <link rel="stylesheet" href="navbar.css">
 </head>
 
+<script>
+    function filterResults() {
+        console.log("Filtering by:",
+            document.getElementById('locationSelect').value,
+            document.getElementById('priceMin').value,
+            document.getElementById('priceMax').value);
+        alert('Filters applied. Check console for details.');
+    }
+</script>
+
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
