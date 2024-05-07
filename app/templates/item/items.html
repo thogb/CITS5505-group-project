@@ -1,0 +1,17 @@
+<!-- TODO: come up with UI design and replace -->
+
+{% extends 'base.html' %}
+
+{% block title %} Items {% endblock %}
+
+{% import 'item/macros/item_card.html' as item_card %}
+{% import 'macros/pagination.html' as pagination %}
+
+{% block content %}
+    <div class="row my-4">
+        {% for item in items %}
+            {{ item_card.render_item_card(item) }}
+        {% endfor %}
+    </div>
+    {{ pagination.render_pagination('item.items', items, filter) }}
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %} New Item {% endblock %}
+
+{% block content %}
+<!-- TODO: Need update, this is here for testing -->
+<form action="" method="post" enctype="multipart/form-data">
+    {{ form.csrf_token() }}
+    <div class="mb-3">
+        {{ form.title.label }}
+        {{ form.title(class="form-control") }}
+    </div>
+    <div class="mb-3">
+        {{ form.city.label }}
+        {{ form.city(class="form-control") }}
+    </div>
+    <div class="mb-3">
+        {{ form.category.label }}
+        {{ form.category(class="form-control") }}
+    </div>
+    <div class="mb-3">
+        {{ form.used.label }}
+        {{ form.used(class="form-check") }}
+    </div>
+    <div class="mb-3">
+        {{ form.description.label }}
+        {{ form.description(class="form-control") }}
+    </div>
+    <div class="mb-3">
+        {{ form.price.label }}
+        {{ form.price(class="form-control") }}
+    </div>
+    <!-- TODO: For more interactive file uploads needs javascript involved -->
+    <div class="mb-3">
+        {{ form.photos.label }}
+        {{ form.photos(class="form-control") }}
+    </div>
+
+    <!-- TODO: multi photo update over here -->
+
+    <div>{{ form.submit(class="btn btn-primary mt-3")}}</div>
+</form>
+{% endblock %}
