@@ -1,5 +1,5 @@
 body {
-    background-color: #6d96f6;
+    background-color: #f8f7f6e8;
     color: #333;
     font-family: 'Arial', sans-serif;
 }
@@ -51,19 +51,7 @@ p {
 }
 
 /* 时间和天气信息框样式 */
-.container.d-flex {
-    border: 1px solid #ddd; /* 边框 */
-    border-radius: 5px; /* 边框圆角 */
-    background-color: #f4cc7c; /* 背景颜色 */
-    padding: 1px; /* 内边距 */
-    margin-top: 1px; /* 上外边距，根据实际情况调整 */
-    margin-bottom: 10px; /* 下外边距，根据实际情况调整 */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* 阴影效果 */
-    max-width: 500px; /* 最大宽度，根据实际情况调整 */
-    width: 100%; /* 宽度，确保在小屏幕上的兼容性 */
-    margin-left: auto; /* 水平居中 */
-    margin-right: auto; /* 水平居中 */
-}
+
 
 #currentTime {
     color: #0056b3; /* 调整颜色以适应新背景 */
@@ -156,6 +144,38 @@ p {
 /* 导航栏按钮 */
 .navbar-toggler {
     border-color: #0056b3; /* 使汉堡菜单按钮变成绿色 */
+}
+
+/* 倒计时 */
+.countdown-card {
+    position: relative;
+    text-align: center;
+    color: white;
+    background-color: #007BFF; /* Bootstrap primary color */
+    border-color: #007BFF; /* Keep consistent with background */
+}
+
+.countdown-card .card-img-top {
+    opacity: 0.3; /* Lighten the image so text is readable */
+}
+
+.countdown-card .card-body {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-top: 10px;
 }
 
 /* 调整输入框的宽度 */

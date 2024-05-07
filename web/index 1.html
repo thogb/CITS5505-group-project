@@ -7,6 +7,7 @@
     <title>Dreamers Market - Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="navbar.js"></script>
 </head>
 
@@ -80,98 +81,104 @@
         </div>
     </div>
 </nav>
+  
+<!-- Cards Section -->
+<div class="hero-image text-center">
+    <h1>Welcome to Dreamers Market!</h1>
+    <p>Your premier destination for prized second-hand treasures</p>
 
-    
-    <!-- Hero Section -->
-    <div class="image-container text-center">
-        <img src="image1.jpg" alt="Dreamers Market" class="img-fluid">
-    </div>
-    
-    <!-- 时间 天气 -->
-    <div class="container d-flex justify-content-between flex-column align-items-center mt-3">
-        <p id="currentTime" style="font-size: 1.2rem; text-align: center; color:rgb(89, 152, 245);"></p>
-        <button id="weather-btn" class="btn btn-primary">Check real-time weather</button>
-        <a href="https://www.weatherapi.com/" style="font-style: italic; font-size: 1rem;">(Learn more from Weather API)</a>
-        <div id="weather" style="font-size: 1.2rem; color: black; padding: 10px;"></div>
-        <p id="curlocation"></p>
-        <p id="temp"></p>
-        <p id="sunny"></p>
-    </div>
-    
-    
-
-    <!-- Cards Section -->
-    <div class="hero-image text-center">
-        <h1>Welcome to Dreamers Market!</h1>
-        <p>Your go-to place for treasured finds and cherished goods.</p>
-
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card">
-                        <img src="product1.jpg" class="card-img-top" alt="Product 1">
-                        <div class="card-body">
-                            <h5 class="card-title">Product Title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Product 2 Card -->
-                <div class="col-md-4">
-                    <div class="card">
-                        <img src="product2.jpg" class="card-img-top" alt="Product 2">
-                        <div class="card-body" id="notificationArea">
-                            <p>Special Offer: Get 50% off on all electronics!</p>
-                            <p>Flash Sale: Books at up to 40% off!</p>
-                            <p>Deal Alert: Furniture sets starting from $99!</p>
-                            <h5 class="card-title">Flash Sale: Books up to 40% Off</h5>
-                            <p class="card-text">Explore our wide range of educational and leisure books at unbeatable prices.</p>
-                            <a href="#" class="btn btn-primary">Shop Now</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- 即时通知区域 -->
-    <!-- <div class="container text-center mt-5">
-        <div id="notificationArea">
-            <h3>Hot Deals</h3>
-            
-            <div id="notificationMessages">
-            
-            
-        </div>
-    </div> -->
-                <!-- Product 3 Card -->
-                <div class="col-md-4">
-                    <div class="card">
-                        <img src="weather.jpg" class="card-img-top" alt="Weather and Time">
-                        <div class="card-body">
-                            <h5 class="card-title">Real-Time Weather and Time</h5>
-                            <p class="card-text">Stay updated with the current time and weather conditions wherever you are.</p>
-                            <button id="weather-btn" class="btn btn-primary">Check Weather</button>
-                            <div id="weather-info">
-                                <p id="currentTime" style="font-size: 1.2rem; color: rgb(89, 152, 245); text-align: center;"></p>
-                                <p id="curlocation"></p>
-                                <p id="temp"></p>
-                                <p id="sunny"></p>
+    <div class="container">
+        <div class="row">
+            <!-- Product 1 Card -->
+            <div class="col-md-3">
+                <div class="card">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="product1_seller1.gif" class="card-img-top" alt="Holiday Season Sale">
+                                <div class="card-body">
+                                    <h5 class="card-title">Holiday Season Sale</h5>
+                                    <p class="card-text">Unwrap the joy of savings with our spectacular holiday discounts on electronics!</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="product1_seller2.gif" class="card-img-top" alt="End of Season Extravaganza">
+                                <div class="card-body">
+                                    <h5 class="card-title">End of Season Extravaganza</h5>
+                                    <p class="card-text">It's time to upgrade! Enjoy unbeatable prices on the latest products.</p>
+                                </div>
                             </div>
                         </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2 Card -->
+            <div class="col-md-3">
+                <div class="card">
+                    <img src="product2.jpg" class="card-img-top" alt="Product 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Hot Deals</h5>
+                        <p class="card-text">Special Offer: Get 50% off on all electronics!</p>
+                        <a href="#" class="btn btn-primary">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3 Card -->
+            <div class="col-md-3">
+                <div class="card">
+                    <img src="weather.jpg" class="card-img-top" alt="Weather and Time">
+                    <div class="card-body">
+                        <h5 class="card-title">Local Weather</h5>
+                        <p id="currentTime" class="card-text">Time here.</p>
+                        <button id="weather-btn" class="btn btn-primary">Check Weather</button>
+                        <a href="https://www.weatherapi.com/" style="font-style: italic; font-size: 1rem;">(Learn more from Weather API)</a>
+                        <div id="weather" style="font-size: 1.2rem; color: black; padding: 10px;"></div>
+                        <p id="curlocation"></p>
+                        <p id="temp"></p>
+                        <p id="sunny"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 4 Card - End of Season Sale Countdown -->
+            <div class="col-md-3">
+                <div class="card">
+                    <img src="countdown.jpg" class="card-img-top" alt=" ">
+                    <div class="card-body">
+                        <h5 class="card-title">End of Season Sale Countdown</h5>
+                        <p id="countdown-timer" class="card-text">Loading countdown...</p>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- Search Bar -->
-        <div class="search-bar-container">
-            <input type="text" class="search-input" placeholder="What are you looking for?" aria-label="Search">
-            <button class="search-button">Search</button>
-        </div>
-        <!-- Action Buttons -->
-        <div>
-            <a href="browse_items.html" class="btn btn-primary">Buy</a>
-            <a href="Post an Ad.html" class="btn btn-success">Sell</a>
-        </div>
     </div>
+</div>
+
+
+   
+
+<!-- Search Bar -->
+  <div class="search-bar-container">
+        <input type="text" class="search-input" placeholder="What are you looking for?" aria-label="Search">
+        <button class="search-button">Search</button>
+    </div>
+    <!-- Action Buttons -->
+    <div>
+        <a href="browse_items.html" class="btn btn-primary">Buy</a>
+        <a href="Post an Ad.html" class="btn btn-success">Sell</a>
+    </div>
+</div>
+
 
     <!-- Filter & Refine Section -->
     <div class="container text-center mt-3 filter-refine">
@@ -195,7 +202,7 @@
         </div>
     </div>
     <!-- Contact Us Section -->
-    <div class="container text-center mt-5">
+    <div id="contact" class="container text-center mt-5">
         <h2>Contact Us</h2>
         <form>
             <div class="mb-3">
@@ -219,6 +226,74 @@
             <p>CITS5505 Agile Web Development Project 2</p>
         </div>
     </div>
+
+    <!-- Hero Section -->
+    <div class="image-container text-center">
+        <img src="image1.jpg" alt="Dreamers Market" class="img-fluid">
+    </div>
+</body> 
+
+
+<!-- Footer -->
+<footer class="bg-light text-center text-lg-start">
+    <div class="container p-4">
+        <!--Grid row-->
+        <div class="row">
+            <!--Grid column-->
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <h5 class="text-uppercase">Tips & Help</h5>
+                <ul class="list-unstyled mb-0">
+                    <li><a href="about.html" class="text-dark">About Dreamers Market</a></li>
+                    <li><a href="help.html" class="text-dark">Help</a></li>
+                    <li><a href="register.html" class="text-dark">Register</a></li>
+                </ul>
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <h5 class="text-uppercase">For Business</h5>
+                <ul class="list-unstyled mb-0">
+                    <li><a href="display-ads.html" class="text-dark">Display Ads</a></li>
+                </ul>
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <h5 class="text-uppercase">Top Categories</h5>
+                <ul class="list-unstyled mb-0">
+                    <li><a href="electronics.html" class="text-dark">Electronics</a></li>
+                    <li><a href="books-learning.html" class="text-dark">Books & Learning Materials</a></li>
+                    <li><a href="furniture-decor.html" class="text-dark">Furniture & Home Decor</a></li>
+                    <li><a href="clothing-accessories.html" class="text-dark">Clothing & Accessories</a></li>
+                    <li><a href="sports-outdoors.html" class="text-dark">Sports & Outdoors</a></li>
+                    <li><a href="all-categories.html" class="text-dark">All Categories</a></li>
+                </ul>
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <h5 class="text-uppercase">Follow Us</h5>
+                <a href="https://facebook.com/yourfacebookpage" target="_blank" class="social-icon">
+                    <i class="fa-brands fa-facebook" style="font-size: 24px; color: #333;"></i>
+                </a>
+                <a href="https://instagram.com/yourinstagramhandle" target="_blank" class="social-icon">
+                    <i class="fab fa-instagram" style="font-size: 24px; color: #333;"></i>
+                </a>
+            </div>
+            <!--Grid column-->
+        </div>
+        <!--Grid row-->
+    </div>
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+        © 2007-2024 Dreamers Market. All Rights Reserved.
+    </div>
+</footer>
+
 
     <!-- Include Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
