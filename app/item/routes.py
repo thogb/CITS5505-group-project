@@ -2,8 +2,10 @@ from multiprocessing.pool import ThreadPool
 from flask import (Blueprint, flash, redirect, render_template, request, url_for)
 from flask_login import current_user, login_required
 from app import db
+from app.decorators.only_json import validate_json
 from app.item.forms import NewItemForm
 from app.item.items_filtering_parameters import ItemFilteringParameters
+from app.item.service import ItemService
 from app.models import Item, Photo, UserItemSaved
 from app import awsS3
 from app.services.category import getAllCategories
@@ -60,12 +62,18 @@ def item(item_id):
 
     return render_template('item/item.html', item=item)
 
+@item_blueprint.route('/<int:item_id>/save/<int:save_status>', methods=['POST'])
+@validate_json
+def item_save(item_id, save_status):
+    return ItemService.save(item_id, save_status);
+
 @item_blueprint.route('/new', methods=['GET', 'POST'])
 def item_new():
     form = NewItemForm()
 
     form.city.choices = [(city.id, city.name) for city in getCities()]
     form.category.choices = [(category.id, category.name) for category in getAllCategories()]
+    print(getAllCategories())
 
     if form.validate_on_submit():
         try:

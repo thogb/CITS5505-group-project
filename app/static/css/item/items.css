@@ -1,0 +1,11 @@
+.i-btn-save-item {
+  cursor: pointer;
+
+  &[data-item-saved="true"] {
+    color: orange;
+  }
+
+  &:hover {
+    color: orange;
+  }
+}

@@ -1,7 +1,10 @@
-{% macro render_item_card(item) %}
+{% macro render_item_card(item, posted_by_user, saved_by_user) %}
+    {% set icon_class = 'fa-solid' if saved_by_user else 'fa-regular' %}
+    {% set data_item_saved = 'true' if saved_by_user else 'false' %}
+
     <div class="col-sm-4 mb-3 mb-sm-0">
         <div class="card">
-            <img class="card-img-top" alt="image" onerror="this.src='/static/img/not-found.webp'" src="{{ item.thumb_photo_url }}" style="height: 300px;">
+            <img class="card-img-top" alt="image" onerror="this.src='/static/img/not-found.webp'" src="{{ item.thumb_photo_url if item.thumb_photo_url else '/static/img/not-found.webp' }}" style="height: 300px;">
             <hr/>
             <div class="card-body">
                 <a href="{{ url_for('item.item', item_id=item.id) }}">
@@ -15,7 +18,10 @@
                 <p class="card-text">{{ item.city.name }}</p>
                 <p class="card-text">{{ item.city.state.name }}</p>
                 <span>
-                    <i class="fa-solid fa-bookmark"></i>
+                    <!-- User can only save item that is posted by some one else -->
+                    {% if not posted_by_user %}
+                        <i class="{{ icon_class }} fa-bookmark i-btn-save-item" data-item-saved="{{ data_item_saved }}" data-item-id="{{ item.id }}"></i>
+                    {% endif %}
                 </span>
             </div>
         </div>

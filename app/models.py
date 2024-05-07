@@ -156,6 +156,10 @@ class UserItemSaved(db.Model):
     item_id = db.Column(db.Integer, db.ForeignKey('item.id'), nullable=False)
     create_time = db.Column(db.DateTime(), nullable=False, default=datetime.datetime.now)
 
+    def __init__(self, user_id, item_id) -> None:
+        self.user_id = user_id
+        self.item_id = item_id
+
     __table_args__ = (
         db.UniqueConstraint('user_id', 'item_id', name='unique_user_item_saved_user_id_item_id'),
     )

@@ -4,14 +4,28 @@
 
 {% block title %} Items {% endblock %}
 
+{% block css_scripts %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/item/items.css') }}">
+{% endblock %}
+
 {% import 'item/macros/item_card.html' as item_card %}
 {% import 'macros/pagination.html' as pagination %}
 
 {% block content %}
     <div class="row my-4">
-        {% for item in items %}
-            {{ item_card.render_item_card(item) }}
+        {% for item in items %}         
+            {% set posted_by_user = item.user_id == current_user.id %}
+            {% set saved_by_user = item.saved_by_user %}
+
+            {{ item_card.render_item_card(item, posted_by_user, saved_by_user) }}
         {% endfor %}
     </div>
+
     {{ pagination.render_pagination('item.items', items, filter) }}
+{% endblock %}
+
+{% block js_scripts %}
+    {{ super() }}
+    <script src="{{ url_for('static', filename='js/item/items.js') }}"></script>
 {% endblock %}
