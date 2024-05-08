@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dreamers Market - Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="navbar.js"></script>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">Dreamers Market</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Post an Ad.html">Post an Ad</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Categories
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">Electronics</a></li>
+                        <li><a class="dropdown-item" href="#">Books & Learning Materials</a></li>
+                        <li><a class="dropdown-item" href="#">Furniture & Home Decor</a></li>
+                        <li><a class="dropdown-item" href="#">Clothing & Accessories</a></li>
+                        <li><a class="dropdown-item" href="#">Sports & Outdoors</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about_us.html">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="acknowledgement.html">Acknowledgement</a>
+                </li>
+            </ul>
+            <!-- My Market Dropdown -->
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="myMarketDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        My Market
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="myMarketDropdown">
+                        <li class="dropdown-item-text px-2 text-muted">
+                            Welcome to Gumtree. Sign in or Register to:
+                            <ul>
+                                <li>Send and receive messages</li>
+                                <li>Post and manage your ads</li>
+                                <li>Rate other users</li>
+                            </ul>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="login.html">Login</a></li>
+                        <li><a class="dropdown-item" href="register.html">Register</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+  
+<!-- Cards Section -->
+<div class="hero-image text-center">
+    <h1>Welcome to Dreamers Market!</h1>
+    <p>Your premier destination for prized second-hand treasures</p>
+
+    <div class="container">
+        <div class="row">
+            <!-- Product 1 Card -->
+            <div class="col-md-3">
+                <div class="card">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="product1_seller1.gif" class="card-img-top" alt="Holiday Season Sale">
+                                <div class="card-body">
+                                    <h5 class="card-title">Holiday Season Sale</h5>
+                                    <p class="card-text">Unwrap the joy of savings with our spectacular holiday discounts on electronics!</p>
+                                    <button id="weather-btn" class="btn btn-primary">Check Weather</button>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="product1_seller2.gif" class="card-img-top" alt="End of Season Extravaganza">
+                                <div class="card-body">
+                                    <h5 class="card-title">End of Season Extravaganza</h5>
+                                    <p class="card-text">It's time to upgrade! Enjoy unbeatable prices on the latest products.</p>
+                                    <button id="weather-btn" class="btn btn-primary">Check Weather</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button> -->
+                        
+                       
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- Product 2 Card -->
+            <div class="col-md-3">
+                <div class="card">
+                    <img src="product2.jpg" class="card-img-top" alt="Product 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Hot Deals</h5>
+                        <p class="card-text">Special Offer: Get 50% off on all electronics!</p>
+                        <a href="#" class="btn btn-primary">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3 Card -->
+            <div class="col-md-3">
+                <div class="card">
+                    <img src="weather.jpg" class="card-img-top" alt="Weather and Time">
+                    <div class="card-body">
+                        <h5 class="card-title">Local Weather</h5>
+                        <p id="currentTime" class="card-text">Time here.</p>
+                        <button id="weather-btn" class="btn btn-primary">Check Weather</button>
+                        <a href="https://www.weatherapi.com/">(Learn more from Weather API)</a>
+                        <div id="weather"></div>
+                        <p id="curlocation"></p>
+                        <p id="temp"></p>
+                        <p id="sunny"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 4 Card - End of Season Sale Countdown -->
+            <div class="col-md-3">
+                <div class="card">
+                    <img src="countdown.jpg" class="card-img-top" alt=" ">
+                    <div class="card-body">
+                        <h5 class="card-title">End of Season Sale Countdown</h5>
+                        <p id="countdown-timer" class="card-text">Loading countdown...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+   
+
+<!-- Search Bar -->
+  <div class="search-bar-container">
+        <input type="text" class="search-input" placeholder="What are you looking for?" aria-label="Search">
+        <button class="search-button">Search</button>
+    </div>
+    <!-- Action Buttons -->
+    <div>
+        <a href="browse_items.html" class="btn btn-primary">Buy</a>
+        <a href="Post an Ad.html" class="btn btn-success">Sell</a>
+    </div>
+</div>
+
+
+    <!-- Filter & Refine Section -->
+    <div class="container text-center mt-3 filter-refine">
+        <h2>Filter & Refine</h2>
+        <div class="mb-3">
+            <label for="locationSelect" class="form-label">Location</label>
+            <select class="form-select" id="locationSelect">
+                <option selected>Choose...</option>
+                <option value="Perth Central">Perth Central</option>
+                <option value="Northbridge">Northbridge</option>
+                <option value="Cottesloe">Cottesloe</option>
+                <option value="Fremantle">Fremantle</option>
+                <option value="Scarborough">Scarborough</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="priceMin" class="form-label">Price Range</label>
+            <input type="number" class="form-control" id="priceMin" placeholder="$ Min">
+            <input type="number" class="form-control mt-2" id="priceMax" placeholder="$ Max">
+            <button class="btn btn-primary mt-2" type="button" onclick="filterResults()">Go</button>
+        </div>
+    </div>
+    <!-- Contact Us Section -->
+    <div id="contact" class="container text-center mt-5">
+        <h2>Contact Us</h2>
+        <form>
+            <div class="mb-3">
+                <label for="contactName" class="form-label">Name:</label>
+                <input type="text" class="form-control" id="contactName" required>
+            </div>
+            <div class="mb-3">
+                <label for="contactEmail" class="form-label">E-mail:</label>
+                <input type="email" class="form-control" id="contactEmail" required>
+            </div>
+            <div class="mb-3">
+                <label for="contactMessage" class="form-label">Message:</label>
+                <textarea class="form-control" id="contactMessage" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <!-- Student Information -->
+        <div class="mt-3 text-center"> <!-- 使用text-center类使内容居中 -->
+            <p>Students Name: Hao Bao & Tao Hu</p> <!-- 注意学生姓名之间添加了空格 -->
+            <p>Students ID: 23888818 & 23805764</p> <!-- 注意学生ID之间添加了空格 -->
+            <p>CITS5505 Agile Web Development Project 2</p>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="image-container text-center">
+        <img src="image1.jpg" alt="Dreamers Market" class="img-fluid">
+    </div>
+
+<!-- <button id="backToTopBtn" title="Go to top" style="display: none; position: fixed; bottom: 20px; right: 30px; z-index: 99; font-size: 18px; border: none; outline: none; background-color: rgba(0, 123, 255, 0.75); color: white; cursor: pointer; padding: 15px; border-radius: 10px;">
+    <i class="fas fa-arrow-up"></i>
+</button> -->
+
+    <!-- Back to top bottom -->
+    <a href="#" class="back-to-top"><img src="top.png" alt="back to top"></a>
+    <br>
+
+      
+</body> 
+
+
+
+<!-- Footer -->
+<footer class="bg-light text-center text-lg-start">
+    <div class="container p-4">
+        <!--Grid row-->
+        <div class="row">
+            <!--Grid column-->
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <h5 class="text-uppercase">Tips & Help</h5>
+                <ul class="list-unstyled mb-0">
+                    <li><a href="about_us.html" class="text-dark">About Dreamers Market</a></li>
+                    <li><a href="help.html" class="text-dark">Help</a></li>
+                    <li><a href="register.html" class="text-dark">Register</a></li>
+                </ul>
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <h5 class="text-uppercase">For Business</h5>
+                <ul class="list-unstyled mb-0">
+                    <li><a href="display-ads.html" class="text-dark">Display Ads</a></li>
+                </ul>
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <h5 class="text-uppercase">Top Categories</h5>
+                <ul class="list-unstyled mb-0">
+                    <li><a href="electronics.html" class="text-dark">Electronics</a></li>
+                    <li><a href="books-learning.html" class="text-dark">Books & Learning Materials</a></li>
+                    <li><a href="furniture-decor.html" class="text-dark">Furniture & Home Decor</a></li>
+                    <li><a href="clothing-accessories.html" class="text-dark">Clothing & Accessories</a></li>
+                    <li><a href="sports-outdoors.html" class="text-dark">Sports & Outdoors</a></li>
+                    <li><a href="all-categories.html" class="text-dark">All Categories</a></li>
+                </ul>
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <h5 class="text-uppercase">Follow Us</h5>
+                <a href="https://facebook.com/yourfacebookpage" target="_blank" class="social-icon">
+                    <i class="fa-brands fa-facebook" style="font-size: 24px; color: #333;"></i>
+                </a>
+                <a href="https://instagram.com/yourinstagramhandle" target="_blank" class="social-icon">
+                    <i class="fab fa-instagram" style="font-size: 24px; color: #333;"></i>
+                </a>
+            </div>
+            <!--Grid column-->
+        </div>
+        <!--Grid row-->
+    </div>
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+        © 2007-2024 Dreamers Market. All Rights Reserved.
+    </div>
+</footer>
+
+
+    <!-- Include Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- WebSocket连接和通知处理 -->
+<script>
+    // 创建WebSocket连接
+    const socket = new WebSocket('ws://localhost:3000');
+
+    // 当连接打开时，向服务器发送消息
+    socket.addEventListener('open', function (event) {
+        socket.send('Hello Server!');
+    });
+
+    // 监听来自服务器的消息
+    socket.addEventListener('message', function (event) {
+        console.log('Message from server:', event.data);
+        // 在通知区域显示收到的消息
+        document.getElementById('notificationArea').innerHTML += `<p>${event.data}</p>`;
+    });
+</script>
+     
+    
