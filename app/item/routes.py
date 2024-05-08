@@ -56,7 +56,7 @@ def items():
 @item_blueprint.route('/<int:item_id>', methods=['GET'])
 def item(item_id):
     item = Item.query.get_or_404(item_id)
-
+    
     for photo in item.photos:
         photo.photo_url = awsS3.generate_presigned_url(f"{photo.id}.{photo.extension}")
 

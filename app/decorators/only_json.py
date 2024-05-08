@@ -12,7 +12,7 @@ def validate_json(f):
             
             # request.json on empty payload throws errors, make sure that body 
             # is not empty before perform a json parse.
-            if request.get_data() is not None:
+            if request is not None and len(request.get_data()) > 0:
                 request.json
         except :
             # msg = "payload must be a valid json"

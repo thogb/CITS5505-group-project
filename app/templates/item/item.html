@@ -17,11 +17,13 @@
                     {% endfor %}
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                    <span class="material-symbols-outlined" style="font-size: 50px; color: black;">chevron_left</span>
+                    <!-- <span class="material-symbols-outlined" style="font-size: 50px; color: black;">chevron_left</span> -->
+                    <i class="fa-solid fa-chevron-left text-black"></i>
                     <span class="visually-hidden">Previous</span>
                 </button>
                 <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                    <span class="material-symbols-outlined" style="font-size: 50px; color: black;">chevron_right</span>
+                    <!-- <span class="material-symbols-outlined" style="font-size: 50px; color: black;">chevron_right</span> -->
+                    <i class="fa-solid fa-chevron-right text-black "></i>
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
@@ -35,7 +37,7 @@
             <p class="card-text">{{ item.category.name }}</p>
             <p class="card-text">{{ item.city.name }}</p>
             <p class="card-text">{{ item.city.state.name }}</p>
-
+            <p class="card-text">{{ item.user.first_name + " " + item.user.last_name}}</p>
         </div>
     </div>
 </div>

@@ -7,5 +7,8 @@ class BasePaginationParameters:
         self.per_page = per_page
 
     def from_request(self, request) -> None:
-        self.page = int(request.args.get('page', 1))
-        self.per_page = int(request.args.get('per_page', 9))
+        try:
+            self.page = int(request.args.get('page', 1))
+            self.per_page = int(request.args.get('per_page', 9))
+        except:
+            return

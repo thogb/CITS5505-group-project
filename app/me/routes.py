@@ -60,3 +60,15 @@ def me():
         
 
     return render_template('me/me.html', form=form)
+
+@me_blueprint.route('/saved', methods=['GET'])
+def saved():
+    return render_template('me/saved.html')
+
+@me_blueprint.route('/items', methods=['GET'])
+def items():
+    return render_template('me/items.html')
+
+@me_blueprint.route('/bids', methods=['GET'])
+def bids():
+    return render_template('me/bids.html')
