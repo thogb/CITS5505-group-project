@@ -6,6 +6,14 @@
     Items
 {% endblock %}
 
+{% import 'me/macros/item-card.html' as item_card %}
+{% import 'macros/pagination.html' as pagination %}
+
 {% block right_content %}
-    items
+    <div class="gap-3 row">
+        {% for item in items %}
+            {{ item_card.render_item_card(item) }}
+        {% endfor %}
+    </div>
+    {{ pagination.render_pagination('me.items', items, filter) }}
 {% endblock %}

@@ -9,7 +9,21 @@
     Saved
 {% endblock %}
 
+{% block css_styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/me/saved.css') }}">
+{% endblock %}
+
 {% block right_content %}
-    {{ saved_item_card.render_saved_item_card() }}
-    {{ pagination.render_pagination('me.saved', [], "") }}
+    <div class="gap-3 row">
+        {% for item in saved_items %}
+            {{ saved_item_card.render_saved_item_card(item) }}
+        {% endfor %}
+    </div>
+    {{ pagination.render_pagination('me.saved', saved_items, filter) }}
+{% endblock %}
+
+{% block js_scripts %}
+    {{ super() }}
+    <script src="{{ url_for('static', filename='js/me/saved.js') }}"></script>
 {% endblock %}

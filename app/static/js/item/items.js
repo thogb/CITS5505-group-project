@@ -1,7 +1,6 @@
 const attrDataItemSaved = "data-item-saved";
 
 function onItemSavedClick(e) {
-  console.log("ran");
   const icon_btn = $(this);
 
   // Using data attribute to check if item is saved or not

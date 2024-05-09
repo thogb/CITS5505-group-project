@@ -3,7 +3,7 @@
 {% set filter_str = filter.filter_to_url_for_string() %}
 {% set filter_and = "" if filter_str == "" else "&" %}
 
-<nav class="pb-4" aria-label="Page navigation example">
+<nav class="pb-4 pt-4" aria-label="Page navigation example">
   <ul class="pagination justify-content-center">
     <li class="page-item">
       <a class="page-link {{ 'disabled' if not pagination.has_prev }}" href="{{ url_for(route_name, page=pagination.prev_num) }}{{ filter_and }}{{ filter_str }}">Previous</a>

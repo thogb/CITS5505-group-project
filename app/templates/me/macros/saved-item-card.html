@@ -1,3 +1,26 @@
-{% macro render_saved_item_card(andfg) %}
-<div>test123</div>
+{% macro render_saved_item_card(saved_item) %}
+    <div class="card saved-item-card" data-item-id="{{ saved_item.item.id }}">
+        <div class="row">
+            <div class="col-5">
+                <img class="card-img" src="{{ saved_item.item.thumb_photo_url }}" alt="saved image" onerror="this.src='/static/img/not-found.webp'" style="max-height: 400px;">
+            </div>
+            <div class="col-7">
+                <h5 class="card-title">{{ saved_item.title }}</h5>
+                <p class="card-text">{{ saved_item.item.description }}</p>
+                <p class="card-text">{{ saved_item.item.price }}</p>
+                <p class="card-text">{{ saved_item.item.used }}</p>
+                <p class="card-text">{{ saved_item.item.category.name }}</p>
+                <p class="card-text">{{ saved_item.item.city.name }}</p>
+                <p class="card-text">{{ saved_item.item.city.state.name }}</p>
+                <p class="card-text">Posted by {{ saved_item.item.user.first_name + " " + saved_item.item.user.last_name }} at {{ saved_item.item.create_time }}</p>
+                <p class="card-text">Saved at {{ saved_item.create_time }}</p>
+                <span>
+                    <!-- User can only save item that is posted by some one else -->
+                    {% if not posted_by_user %}
+                        <i class="fa-solid fa-bookmark i-btn-save-item" data-item-id="{{ saved_item.item.id }}" data-action="unSave"></i>
+                    {% endif %}
+                </span>
+            </div>
+        </div>
+    </div>
 {% endmacro %}

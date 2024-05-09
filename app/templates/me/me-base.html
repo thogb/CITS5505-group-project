@@ -4,6 +4,10 @@
     Profile
 {% endblock %}
 
+{% block css_styles %}
+    {{ super() }}
+{% endblock %}
+
 {% block content %} 
     <!-- TODO: Need update, this is here for testing -->
     <div class="row mt-5">
@@ -26,3 +30,7 @@
         </div>
     </div>
 {% endblock %}s
+
+{% block js_scripts %}
+    {{ super() }}
+{% endblock %}

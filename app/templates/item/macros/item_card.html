@@ -23,6 +23,11 @@
                         <i class="{{ icon_class }} fa-bookmark i-btn-save-item" data-item-saved="{{ data_item_saved }}" data-item-id="{{ item.id }}"></i>
                     {% endif %}
                 </span>
+                {% if posted_by_user %}
+                    <p class="card-text">Posted by you</p>
+                {% else %}
+                    <p class="card-text">Posted by {{ item.user.first_name + " " + item.user.last_name }}</p>
+                {% endif %}
             </div>
         </div>
     </div>
