@@ -2,10 +2,14 @@
 
 {% set active_page = "me/saved" %}
 
+{% import 'me/macros/saved-item-card.html' as saved_item_card %}
+{% import 'macros/pagination.html' as pagination %}
+
 {% block title %}
     Saved
 {% endblock %}
 
 {% block right_content %}
-    test
+    {{ saved_item_card.render_saved_item_card() }}
+    {{ pagination.render_pagination('me.saved', [], "") }}
 {% endblock %}
