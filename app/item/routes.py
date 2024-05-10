@@ -31,6 +31,8 @@ def items():
         per_page=filter.per_page
     )
 
+    print(filter.page)
+
     item_ids = [ item.id for item in items.items ]
     
     # Find out which items are saved by the user

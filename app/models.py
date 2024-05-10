@@ -18,6 +18,7 @@ class User(UserMixin, db.Model):
     last_login = db.Column(db.DateTime(), nullable=False, default=datetime.datetime.now)
     
     saved_items = db.relationship("UserItemSaved", backref="user", lazy="dynamic")
+    item_requests = db.relationship('ItemRequest', backref='user', lazy="dynamic")
     comments = db.relationship('Comment', backref='user', lazy="dynamic")
     items = db.relationship('Item', backref='user', lazy="dynamic")
     address = db.relationship('Address', backref='user', uselist=False)
@@ -88,6 +89,7 @@ class Item(db.Model):
     comments = db.relationship('Comment', backref='item', lazy="dynamic")
     item_auction = db.relationship('ItemAuction', backref='item', uselist=False)
     saved_users = db.relationship('UserItemSaved', backref='item', lazy="dynamic")
+    item_requests = db.relationship('ItemRequest', backref='item', lazy="dynamic")
     city = db.relationship('City', backref='items', uselist=False)
     # bids = db.relationship('Bid', backref='item', lazy="dynamic")
 
@@ -163,3 +165,15 @@ class UserItemSaved(db.Model):
     __table_args__ = (
         db.UniqueConstraint('user_id', 'item_id', name='unique_user_item_saved_user_id_item_id'),
     )
+
+class ItemRequest(db.Model):
+    __table_name = 'item_request'
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    item_id = db.Column(db.Integer, db.ForeignKey('item.id'))
+    create_time = db.Column(db.DateTime(), nullable=False, default=datetime.datetime.now)
+    message = db.Column(db.String(512))
+    offer_amount = db.Column(db.Float, nullable=False, default=0.0)
+
+
+
