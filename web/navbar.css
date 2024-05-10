@@ -4,188 +4,187 @@ body {
     font-family: 'Arial', sans-serif;
 }
 
-.container {
+.container, .image-container, .filter-refine {
     padding: 20px;
 }
 
-.btn {
-    margin: 10px;
-}
-
 .image-container {
-    width: 100%; /* 容器宽度为100% */
-    height: 45vh; /* 高度为视口高度的三分之一 */
-    overflow: hidden; /* 隐藏超出容器部分的图片 */
+    width: 100%;
+    height: 45vh;
+    overflow: hidden;
     position: relative;
-    padding-top: 0; /* 移除顶部的padding */
 }
 
 .img-fluid {
-    width: 100%; /* 图片宽度为100% */
-    height: 100%; /* 高度也设置为100%，但因为容器已经限制，所以实际上是33vh */
-    object-fit: cover; /* 确保图片覆盖整个容器，不留空白 */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     position: absolute;
     top: 0;
     left: 0;
 }
 
-/* 主页文字 */
-h1 {
-    color: #0056b3; /* 深蓝色 */
-    font-size: 2.5em; /* 字体大小 */
+/* 文字样式 */
+h1, p {
+    color: #0056b3;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
+h1 {
+    font-size: 2.5em;
+}
+
 p {
-    color: #0056b3;
     font-size: 1.2em;
-    margin-top: 0px;
+    margin-top: 0;
     padding: 10px;
-    border-radius: 10px; /* 边角圆滑 */
+    border-radius: 10px;
 }
-/* 调整 My Market 下拉菜单的宽度 */
+
+/* 下拉菜单样式 */
 #myMarketDropdown + .dropdown-menu {
-    min-width: 300px; /* 增加最小宽度，你可以根据需要调整这个值 */
-    right: -14px; /* 保持下拉菜单靠近右侧 */
-    left: auto; /* 取消左侧自动位置，使其靠右展开 */
+    min-width: 300px;
+    right: -14px;
+    left: auto;
 }
 
-/* 时间和天气信息框样式 */
-#currentTime {
-    color: #0056b3; /* 调整颜色以适应新背景 */
-    margin-bottom: 5px; /* 底部外边距 */
-    font-size: 1.2rem; /* 调整字体大小 */
-    text-align: center; /* 文本居中 */
-}
-
-#weather-btn {
-    margin-top: 5px; /* 按钮上外边距 */
-    margin-bottom: 5px; /* 按钮下外边距 */
+/* 时间和天气信息样式 */
+#currentTime, #weather p {
+    color: #0056b3;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    text-align: center;
 }
 
 #weather a {
-    display: block; /* 让链接显示为块级元素 */
-    margin-bottom: 5px; /* 链接下外边距 */
-    color: #ff5722; /* 链接颜色 */
+    display: block;
+    margin-bottom: 5px;
+    color: #ff5722;
     font-style: italic;
 }
 
-#weather p {
-    color: #480bf1; /* 文本颜色 */
-    margin-bottom: 5px; /* 段落底部外边距 */
-}
-
-/* 实时通知区域的样式 */
+/* 通知区域样式 */
 #notificationArea {
-    border: 1px solid #ccc; /* 设置边框 */
-    background-color: #f4cc7c; /* 背景色 */
-    padding: 10px; /* 内边距 */
-    margin-top: 10px; /* 上外边距 */
-    margin-bottom: 10px; /* 下外边距，根据实际情况调整 */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* 添加轻微的阴影效果 */
-    font-size: 1.1rem; /* 字体大小 */
-    color:#0056b3; /* 文本颜色 */
-    text-align: center; /* 文本居中显示 */
-    max-width: 700px; /* 最大宽度，根据实际情况调整 */
-    width: 100%; /* 宽度，确保在小屏幕上的兼容性 */
-    margin-left: auto; /* 水平居中 */
-    margin-right: auto; /* 水平居中 */
+    border: 1px solid #ccc;
+    background-color: #f4cc7c;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    font-size: 1.1rem;
+    text-align: center;
+    max-width: 700px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* 通知文本的样式 */
 #notificationArea p {
-    margin: 5px 0; /* 段落上下外边距 */
-    padding: 10px; /* 段落内边距 */
-    background-color: #f4cc7c; /* 轻灰色背景 */
-    border-radius: 10px; /* 圆角边框 */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* 轻微的阴影效果 */
-    transition: background-color 0.3s; /* 背景颜色变化的过渡效果 */
+    margin: 5px 0;
+    padding: 10px;
+    background-color: #f4cc7c;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s;
 }
 
-
-/* 鼠标悬停时通知文本的背景颜色变化 */
-#notificationArea p:hover {
-    background-color: #dde; /* 鼠标悬停时的背景颜色 */
-}
-
-
-/* 导航栏背景色 */
+/* Navbar Styles */
 .navbar {
-    background-color: #f8f9fa; /* 可以设置为任何喜欢的颜色 */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* 添加一些阴影效果 */
+    background-color: #82baf6; /* 主色调为Bootstrap的蓝色 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 轻微阴影效果增加深度感 */
+    border: none; /* 去除默认边框 */
+    padding: 0.8rem 1rem; /* 调整内边距 */
+    font-size: 1.1rem; /* 字体大小调整 */
+    font-family: 'Arial', sans-serif; /* 字体风格统一 */
+    color: #007bff; /* 字体颜色为白色 */
 }
 
-/* 导航链接样式 */
-.nav-link {
-    color: #555; /* 默认颜色 */
-    font-weight: bold;
+.nav-link, .navbar-brand {
+    color: rgb(76, 81, 234); /* 链接颜色 */
+    background-color: #e9c266; /* 背景颜色 */
+    padding: 10px 15px; /* 增加内边距 */
+    margin: 5px; /* 增加外边距 */
     transition: color 0.3s ease; /* 平滑过渡效果 */
+    border: 2px solid white; /* 添加白色边框 */
+    border-radius: 50px; /* 边框圆角 */
 }
 
-/* 链接在鼠标悬停时的颜色 */
-.nav-link:hover {
-    color: #ff5722; /* 橙色 */
+.nav-link:hover, .navbar-brand:hover {
+    color: #007bff; /* 鼠标悬停时文字颜色改变 */
+    background-color: white; /* 鼠标悬停时背景颜色变为白色 */
+    border-color: #007bff; /* 鼠标悬停时边框颜色变为蓝色 */
 }
 
-/* 当前活动链接的样式 */
-.nav-link.active {
-    color: #0056b3; /* 深蓝色 */
+/* 导航栏下拉菜单样式 */
+.navbar .dropdown-menu {
+    background-color: #007bff; /* 下拉菜单背景颜色与导航栏一致 */
+    border: none; /* 去除边框 */
+    box-shadow: 0 6px 10px rgba(0,0,0,0.1); /* 添加阴影 */
 }
 
-/* 导航品牌样式 */
-.navbar-brand {
-    color: #0056b3; /* 绿色 */
-    font-size: 1.5em;
-    font-weight: bold;
+.dropdown-item {
+    color: white; /* 下拉项字体颜色 */
+    transition: background-color 0.2s; /* 背景色变化的过渡效果 */
 }
 
-/* 导航栏按钮 */
+.dropdown-item:hover {
+    background-color: #659fdd; /* 鼠标悬停时的背景颜色 */
+    color: white; /* 鼠标悬停时字体颜色保持不变 */
+}
+
+/* 导航栏折叠按钮样式 */
 .navbar-toggler {
-    border-color: #0056b3; /* 使汉堡菜单按钮变成绿色 */
+    background-color: #0056b3; /* 按钮背景色 */
+    border: none; /* 去除边框 */
 }
 
-/* General Card Styles */
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"); /* 更改图标颜色 */
+}
+
+
+/* 卡片样式 */
 .card {
     margin-top: 20px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: 0.3s;
-    border-radius: 5px; /* Slight rounded corners for all cards */
-    min-height: 400px; /* Ensures cards are of the same height */
+    border-radius: 5px;
+    min-height: 400px; /* Set a minimum height for consistency */
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-between; /* Ensures content alignment */
+    height: 550px; /* Standardize height */
 }
 
 .card:hover {
-    box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
 }
 
 .card-img-top {
     width: 100%;
-    height: 180px; /* Fixed height for all top images */
-    object-fit: cover; /* Ensures images cover the card area well */
-    border-radius: 5px 5px 0 0; /* Rounded corners on the top of the image */
+    height: 180px; /* Fixed height for all card images */
+    object-fit: cover;
+    border-radius: 5px 5px 0 0;
 }
 
 .card-body {
     padding: 15px;
     text-align: center;
+    flex-grow: 1; /* Ensures the body expands to fill available space */
 }
 
 .card-title {
     color: #333;
     font-size: 1.5rem; /* Increased size for visibility */
-    font-weight: bold;
+    margin-bottom: 10px; /* Adds space below the title */
 }
 
 .card-text {
     color: #666;
     font-size: 1.25rem; /* Slightly larger text for readability */
-    font-weight: bold;
-    margin-top: 10px;
 }
 
-/* Buttons */
+/* 按钮样式 */
 .btn-primary, .btn-success {
     padding: 10px 20px;
     margin: 5px;
@@ -193,6 +192,7 @@ p {
     font-weight: bold;
     background-color: #007bff;
     border: none;
+    
 }
 
 .btn-primary:hover, .btn-success:hover {
@@ -200,7 +200,7 @@ p {
     opacity: 0.8;
 }
 
-/* Countdown Card Specific */
+/* Countdown Card Specific Styles */
 .countdown-card {
     position: relative;
     text-align: center;
@@ -226,7 +226,8 @@ p {
     margin: 20px auto;
     display: flex;
     justify-content: center;
-    width: 100%;
+    width: 50%;
+    box-shadow: 0px 0px 20px 1px #ffffff;
 }
 
 .search-input {
@@ -234,17 +235,42 @@ p {
     padding: 10px 15px;
     border: 2px solid #0056b3;
     border-right: none;
-    border-radius: 5px 0 0 5px;
+    border-radius: 30px 0 0 30px;
+    font-size: 25px;
+    font-weight: 1000;
+    color: black;
+    
 }
 
 .search-button {
-    background-color: #0056b3;
-    color: white;
+    background-color: greenyellow;
+    color: black;
     border: none;
-    padding: 10px 20px;
-    border-radius: 0 5px 5px 0;
+    padding: 0 10px;
+    border-radius: 0 30px 30px 0;
+    font-size: 25px;
+    font-weight: 1000;
+    box-shadow: 0px 0px 20px 1px greenyellow;
+    transition: background-color 0.2s, box-shadow 0.2s, font-size 0.2s;
+    
+}
+
+.search-button:hover {
+    background-color: green;
+    box-shadow: 0px 0px 20px 1px green;
+    font-size: 30px;
     cursor: pointer;
 }
+
+
+
+/* Adjust the input field styles */
+input[type="text"], input[type="email"], input[type="number"], select.form-select {
+    width: 100%; /* Adjustable percentage for controlling width */
+    margin: auto; /* Centering */
+    display: block; /* Ensures each input is on a new line */
+}
+
 
 /* Input and Select Styling */
 input[type="text"], input[type="email"], input[type="number"], select.form-select {
@@ -261,54 +287,67 @@ input[type="text"], input[type="email"], input[type="number"], select.form-selec
     padding: 50px 20px;
 }
 
-
-/* Filter & Refine样式优化 */
+/* Filter & Refine Styles */
 .filter-refine {
-    background-color: #ffffff; /* 设置背景颜色为白色，增加对比 */
-    padding: 20px;
-    border-radius: 8px; /* 设置圆角 */
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1); /* 添加阴影，增加立体感 */
-    margin-bottom: 20px; /* 增加底部外边距，与其他内容分隔 */
+    background-color: #f2cfb2; /* 白色背景 */
+    padding: 20px; /* 内边距 */
+    border-radius: 12px; /* 边框圆角 */
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.06); /* 更细腻的阴影效果 */
+    margin-bottom: 30px; /* 下边距 */
+    border: 1px solid #eaeaea; /* 轻微的边框增加边缘定义 */
 }
 
 .filter-refine .form-control, .filter-refine .form-select {
-    border: 1px solid #ccc; /* 细边框 */
-    border-radius: 5px; /* 轻微的圆角，与其他元素保持一致 */
-    margin-bottom: 10px; /* 为每个控件增加底部外边距，防止挤压 */
+    border: 1px solid #e0e0e0; /* 更轻的边框颜色 */
+    border-radius: 8px; /* 增加圆角 */
+    margin-bottom: 15px; /* 增加间距 */
+    padding: 10px 15px; /* 增加填充以改善触感 */
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05); /* 内嵌阴影增加深度感 */
 }
 
 .filter-refine .btn-primary {
-    width: 100%; /* 让按钮宽度与输入框相匹配 */
+    width: 100%; /* 按钮宽度与输入字段匹配 */
+    border-radius: 8px; /* 按钮圆角 */
+    background-color: #0056b3; /* 按钮颜色 */
+    color: #ffffff; /* 文字颜色 */
+    padding: 12px 20px; /* 按钮内边距 */
+    border: none; /* 去掉边框 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 给按钮添加阴影 */
+    font-weight: bold; /* 加粗字体 */
+    width: 100%; /* Button width matches input field */
 }
+
+
 
 /* Back to top button */
 .back-to-top {
-    display: none;
+    display: none; /* Hidden by default */
     position: fixed;
     bottom: 20px;
     right: 20px;
-    z-index: 9999;/* Set a high z-index to bring the button to the top layer */
+    z-index: 9999; /* Set a high z-index to bring the button to the top layer */
 }
-.back-to-top img{
-    display:block;
+
+.back-to-top img {
+    display: block;
     width: 70px;
     height: 70px;
 }
 
-/* 调整Go按钮的样式 */
+/* Go button style adjustments */
 .filter-refine .btn-primary {
-    width: auto; /* 自动宽度 */
-    padding: 8px 16px; /* 增加内边距，让按钮看起来更均衡 */
-    margin: 10px auto; /* 增加自动外边距实现按钮居中 */
-    display: block; /* 设置为块状元素使得自动外边距有效 */
+    width: auto; /* Auto width */
+    padding: 8px 16px; /* Padding adjusted for balance */
+    margin: 10px auto; /* Centered horizontally */
+    display: block; /* Block display for centering */
 }
 
-/* 调整Contact Us部分Message textarea的尺寸 */
+/* Contact Us Message textarea size adjustments */
 #contactMessage {
-    width: 100%; /* 将宽度调整为容器的10% */
-    max-width: 500px; /* 设置最大宽度为40px，这个值非常小，通常不推荐这么小除非有特殊需要 */
-    margin: 0 auto; /* 水平居中显示 */
-    display: block; /* 确保它作为块级元素显示 */
+    width: 100%; /* Width to match the container */
+    max-width: 500px; /* Max width to fit content */
+    margin: 0 auto; /* Centered horizontally */
+    display: block; /* Block display ensures proper alignment */
+    
+
 }
-
-

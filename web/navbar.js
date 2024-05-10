@@ -157,3 +157,4 @@ document.querySelector('.back-to-top').addEventListener('click', function(f) {
     f.preventDefault(); // prevent default anchor click navigation
     window.scrollTo({ top: 0, behavior: 'smooth' }); // set animation property to "smoothly scroll"
 });
+
