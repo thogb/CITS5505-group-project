@@ -18,7 +18,8 @@ class User(UserMixin, db.Model):
     last_login = db.Column(db.DateTime(), nullable=False, default=datetime.datetime.now)
     
     saved_items = db.relationship("UserItemSaved", backref="user", lazy="dynamic")
-    item_requests = db.relationship('ItemRequest', backref='user', lazy="dynamic")
+    sender_item_request = db.relationship('ItemRequest', backref='user', lazy="dynamic", foreign_keys="ItemRequest.sender_id")
+    receiver_item_request = db.relationship('ItemRequest', backref='user', lazy="dynamic", foreign_keys="ItemRequest.receiver_id")
     comments = db.relationship('Comment', backref='user', lazy="dynamic")
     items = db.relationship('Item', backref='user', lazy="dynamic")
     address = db.relationship('Address', backref='user', uselist=False)
@@ -83,6 +84,8 @@ class Item(db.Model):
     used = db.Column(db.Boolean, nullable=False, default=False)
     create_time = db.Column(db.DateTime(), nullable=False, default=datetime.datetime.now)
     price = db.Column(db.Float, nullable=False, default=0.0)
+    deleted_time = db.Column(db.DateTime(), nullable=True)
+    sold = db.Column(db.Boolean, nullable=False, default=False)
 
     # photos = db.relationship('Photo', backref='item', lazy="dynamic")
     photos = db.relationship('Photo', backref='item')
@@ -109,21 +112,27 @@ class Item(db.Model):
 class ItemAuction(db.Model):
     __tablename__ = 'item_auction'
     id = db.Column(db.Integer, primary_key=True)
-    current_bid_id = db.Column(db.Integer, db.ForeignKey('bid.id'), unique=True, nullable=True)
+    # current_bid_id = db.Column(db.Integer, db.ForeignKey('bid.id'), unique=True, nullable=True)
     start_price = db.Column(db.Float)
     current_price = db.Column(db.Float)
     end_time = db.Column(db.DateTime())
 
-    current_bid = db.relationship('Bid', uselist=False, foreign_keys=[current_bid_id])
+    current_bid_price = db.Column(db.Float)
+
+    # Mutual relationship causes problem
+    # current_bid = db.relationship('Bid', uselist=False, post_update=True, foreign_keys=[current_bid_id])
     bids = db.relationship('Bid', backref='item_auction', lazy="dynamic", foreign_keys="Bid.item_auction_id")
     # bids = db.relationship('Bid', back_populates='item_auction', lazy="dynamic")
 
 class Bid(db.Model):
     __tablename__ = 'bid'
     id = db.Column(db.Integer, primary_key=True)
+    
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
     item_auction_id = db.Column(db.Integer, db.ForeignKey('item_auction.id'))
     price = db.Column(db.Float)
+
     time = db.Column(db.DateTime(), nullable=False, default=datetime.datetime.now)
 
     # item_auction = db.relationship('ItemAuction', back_populates='bids')
@@ -169,11 +178,13 @@ class UserItemSaved(db.Model):
 class ItemRequest(db.Model):
     __table_name = 'item_request'
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    # sender_id = db.Column(db.Integer, db.ForeignKey('user.id', name='item_request_sender_id_fkey'))
+    # receiver_id = db.Column(db.Integer, db.ForeignKey('user.id', name='item_request_receiver_id_fkey'))
+    sender_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    receiver_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     item_id = db.Column(db.Integer, db.ForeignKey('item.id'))
     create_time = db.Column(db.DateTime(), nullable=False, default=datetime.datetime.now)
     message = db.Column(db.String(512))
     offer_amount = db.Column(db.Float, nullable=False, default=0.0)
-
-
+    accepted = db.Column(db.Boolean)
 
