@@ -1,7 +1,7 @@
 from app import cache, db
 from app.models import City
 
-@cache.cached(timeout=7200)
+@cache.cached(timeout=7200, key_prefix="get_cities")
 def getCities():
     cities = db.session.query(City).all()
     return cities

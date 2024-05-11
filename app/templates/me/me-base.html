@@ -4,6 +4,10 @@
     Profile
 {% endblock %}
 
+{% block css_styles %}
+    {{ super() }}
+{% endblock %}
+
 {% block content %} 
     <!-- TODO: Need update, this is here for testing -->
     <div class="row mt-5">
@@ -14,7 +18,7 @@
                         <a class="list-group-item list-group-item-action text-end {{ 'active' if active_page == 'me' else '' }}" href="/me">Profile</a>
                         <a class="list-group-item list-group-item-action text-end {{ 'active' if active_page == 'me/saved' else '' }}" href="/me/saved">Saved</a>
                         <a class="list-group-item list-group-item-action text-end {{ 'active' if active_page == 'me/items' else '' }}" href="/me/items">Items</a>
-                        <a class="list-group-item list-group-item-action text-end {{ 'active' if active_page == 'me/Bids' else '' }}" href="/me/bids">Bids</a>
+                        <a class="list-group-item list-group-item-action text-end {{ 'active' if active_page == 'me/bids' else '' }}" href="/me/bids">Bids</a>
                     </ul>
                 </div>
             {% endblock %}
@@ -26,3 +30,7 @@
         </div>
     </div>
 {% endblock %}s
+
+{% block js_scripts %}
+    {{ super() }}
+{% endblock %}

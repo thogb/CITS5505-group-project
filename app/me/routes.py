@@ -1,9 +1,11 @@
-from flask import (Blueprint, abort, flash, redirect, render_template, url_for)
+from flask import (Blueprint, abort, flash, redirect, render_template, request, url_for)
 from flask_login import current_user, login_required
 from app import db  
 from app.me.forms import ProfileForm
-from app.models import Address, User
+from app.models import Address, Item, User, UserItemSaved
+from app import awsS3_service
 from app.services.city import checkIfCityExists, getCities
+from app.shared.base_filtering_parameters import BaseFilteringParameters
 
 me_blueprint = Blueprint('me', __name__, template_folder='templates' , url_prefix="/me")
 
@@ -60,3 +62,43 @@ def me():
         
 
     return render_template('me/me.html', form=form)
+
+@me_blueprint.route('/saved', methods=['GET'])
+@me_blueprint.route('/saved/', methods=['GET'])
+def saved():
+    filter = BaseFilteringParameters()
+    filter.from_request(request)
+    
+    saved_items = UserItemSaved\
+        .query\
+        .filter_by(user_id=current_user.id)\
+        .order_by(UserItemSaved.create_time.desc())\
+        .paginate(page=filter.page, per_page=filter.per_page)
+
+    for saved_item in saved_items:
+        if len(saved_item.item.photos) > 1:
+            thumb_photo = saved_item.item.photos[0]
+            saved_item.item.thumb_photo_url = awsS3_service.generate_presigned_url(f"{thumb_photo.id}.{thumb_photo.extension}")
+
+    return render_template('me/saved.html', saved_items=saved_items, filter=filter)
+
+@me_blueprint.route('/items', methods=['GET'])
+def items():
+    filter = BaseFilteringParameters()
+    filter.from_request(request)
+
+    items = Item.query\
+        .filter_by(user_id=current_user.id)\
+        .order_by(Item.create_time.desc())\
+        .paginate(page=filter.page, per_page=filter.per_page)
+    
+    for item in items:
+        if len(item.photos) > 1:
+            thumb_photo = item.photos[0]
+            item.thumb_photo_url = awsS3_service.generate_presigned_url(f"{thumb_photo.id}.{thumb_photo.extension}")
+
+    return render_template('me/items.html', items=items, filter=filter)
+
+@me_blueprint.route('/bids', methods=['GET'])
+def bids():
+    return render_template('me/bids.html')

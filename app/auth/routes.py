@@ -1,23 +1,12 @@
 import datetime
-from functools import wraps
 from flask import (Blueprint, flash, redirect, render_template, request, url_for)
 from flask_login import current_user, login_required, login_user, logout_user
-
 from app.auth.forms import LoginForm, RegisterForm
+from app.decorators.only_anonymous import only_anonymous
 from app.models import User
 from app import db
 
 auth_blueprint = Blueprint('auth', __name__, template_folder='templates')
-
-def only_anonymous(f):
-    @wraps(f)
-    def decorated_function(*args, **kwargs):
-        if current_user.is_authenticated:
-            # return redirect(url_for('login', next=request.url))
-            return redirect(url_for('main.home'))
-        return f(*args, **kwargs)
-    
-    return decorated_function
 
 @auth_blueprint.route('/login', methods=['GET', 'POST'])
 @only_anonymous
