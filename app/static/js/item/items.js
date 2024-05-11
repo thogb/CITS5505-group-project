@@ -1,3 +1,5 @@
+// import { baseUrl } from "../base";
+
 const attrDataItemSaved = "data-item-saved";
 
 function onItemSavedClick(e) {
@@ -16,7 +18,7 @@ function onItemSavedClick(e) {
   icon_btn.attr(attrDataItemSaved, null);
 
   $.post({
-    url: `${baseUrl}/items/${itemId}/save/${param}`,
+    url: `${baseApiUrl}/items/${itemId}/save/${param}`,
     // data: JSON.stringify({ message: "test" }),
     success: function (data, status) {
       if (param) {

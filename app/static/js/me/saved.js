@@ -16,7 +16,7 @@ function onItemSavedClick(e) {
 
   if (action === "unSave") {
     $.post({
-      url: `${baseUrl}/items/${itemId}/save/0`,
+      url: `${baseApiUrl}/items/${itemId}/save/0`,
       success: function (data, status) {
         parent.remove();
       },
