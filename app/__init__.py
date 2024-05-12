@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, abort, request
 from flask_caching import Cache
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
@@ -9,7 +9,7 @@ from config import Config
 db = SQLAlchemy()
 migrate = Migrate()
 cache = Cache()
-awsS3 = AWSS3()
+awsS3_service = AWSS3()
 
 def create_app(config_class=Config):
     app = Flask(__name__)
@@ -18,7 +18,7 @@ def create_app(config_class=Config):
     db.init_app(app)
     migrate.init_app(app, db)
     cache.init_app(app)
-    awsS3.create_from_app(app)
+    awsS3_service.create_from_app(app, cache=cache)
 
     from .models import State, City, Category, Item, User, Address, UserItemSaved, ItemAuction, Comment, Bid, Photo, UserItemSaved
 
@@ -35,6 +35,12 @@ def create_app(config_class=Config):
     @app.route("/test",)
     def test():
         return "<div>Hello, World!</div>"
+
+    @app.route("/test-two", methods=["GET"])
+    def test_two():
+        print(request.is_json)
+        print("test")
+        return "test two"
 
     # blue prints
 

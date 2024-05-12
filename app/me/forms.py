@@ -4,6 +4,9 @@ from wtforms.validators import DataRequired, Length, Regexp
 
 class ProfileForm(FlaskForm):
     email = EmailField('Email')
+    # Retrieved from https://stackoverflow.com/questions/39990179/regex-for-australian-phone-number-validation#answer-56266834
+    # The australia phone number regex is been used here
+    # Date: 2024/05/05
     phone_number = StringField('Phone Number', validators=[DataRequired(),
                                                            Regexp(r'^(\+?\(61\)|\(\+?61\)|\+?61|\(0[1-9]\)|0[1-9])?( ?-?[0-9]){7,9}$', message="Invalid phone number"),
                                                             Length(max=20)])
