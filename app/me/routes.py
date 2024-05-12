@@ -2,7 +2,7 @@ from flask import (Blueprint, abort, flash, redirect, render_template, request, 
 from flask_login import current_user, login_required
 from app import db  
 from app.me.forms import ProfileForm
-from app.models import Address, Item, User, UserItemSaved
+from app.models import Address, Item, ItemRequest, User, UserItemSaved
 from app import awsS3_service
 from app.services.city import checkIfCityExists, getCities
 from app.shared.base_filtering_parameters import BaseFilteringParameters
@@ -102,3 +102,15 @@ def items():
 @me_blueprint.route('/bids', methods=['GET'])
 def bids():
     return render_template('me/bids.html')
+
+@me_blueprint.route('/received-requests', methods=['GET'])
+def received_requests():
+    filter = BaseFilteringParameters()
+    filter.from_request(request)
+
+    received_requests = ItemRequest.query\
+        .filter_by(receiver_id=current_user.id)\
+        .order_by(ItemRequest.create_time.desc())\
+        .paginate(page=filter.page, per_page=filter.per_page)
+    
+    return render_template('me/received-requests.html', received_requests=received_requests, filter=filter)

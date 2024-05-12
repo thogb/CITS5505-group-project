@@ -18,7 +18,7 @@ class User(UserMixin, db.Model):
     last_login = db.Column(db.DateTime(), nullable=False, default=datetime.datetime.now)
     
     saved_items = db.relationship("UserItemSaved", backref="user", lazy="dynamic")
-    sender_item_requests = db.relationship('ItemRequest', backref='user', lazy="dynamic", foreign_keys="ItemRequest.sender_id")
+    sender_item_requests = db.relationship('ItemRequest', backref='sender', lazy="dynamic", foreign_keys="ItemRequest.sender_id")
     # receiver_item_requests = db.relationship('ItemRequest', backref='user', lazy="dynamic", foreign_keys="ItemRequest.receiver_id")
     comments = db.relationship('Comment', backref='user', lazy="dynamic")
     items = db.relationship('Item', backref='user', lazy="dynamic")
