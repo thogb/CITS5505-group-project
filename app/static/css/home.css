@@ -1,0 +1,23 @@
+.hero-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 50vh;
+  width: 100%;
+  background-image: url('../img/top.jpg'); /* Adjust the path as needed */
+  background-size: cover;
+  background-position: center;
+}
+
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+.back-to-top {
+  /* Here you can add styles for your back to top button if needed */
+}
