@@ -24,7 +24,9 @@ def items():
     filter.from_request(request)
 
     query = filter.getQuery(Item.query.order_by(Item.create_time.desc()))
-    query = query.options(joinedload(Item.photos))
+    query = query\
+        .filter_by(sold_time=None, delete_time=None)\
+        .options(joinedload(Item.photos))
     items = query.paginate(
         page=filter.page,
         per_page=filter.per_page
