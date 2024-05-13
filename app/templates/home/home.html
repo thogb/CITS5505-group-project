@@ -3,7 +3,37 @@
 {% block title %} Home {% endblock %}
 
 {% block content %}
-<!-- TODO: remove and replace with a proper home page -->
+<div id="homepageCarousel" class="carousel slide" data-bs-ride="carousel">
+    <!-- Indicators/dots -->
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#homepageCarousel" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#homepageCarousel" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#homepageCarousel" data-bs-slide-to="2"></button>
+    </div>
+
+    <!-- The slideshow/carousel -->
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="{{ url_for('static', filename='img/product1.gif') }}" alt="home image" style="width:100%;">
+        </div>
+        <div class="carousel-item">
+            <img src="{{ url_for('static', filename='img/product2.gif') }}" alt="Chicago" style="width:100%;">
+        </div>
+        <div class="carousel-item">
+            <img src="{{ url_for('static', filename='img/product3.jpg') }}" alt="New York" style="width:100%;">
+        </div>
+    </div>
+
+    <!-- Left and right controls/icons -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#homepageCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#homepageCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </button>
+</div>
+
+<!-- Your existing links section -->
 <div class="card border-secondary">
     <div class="card-header">
         Links 123
