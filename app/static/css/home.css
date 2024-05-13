@@ -3,16 +3,20 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  height: 50vh;
-  width: 100%;
-  background-image: url('../img/top.jpg'); /* Adjust the path as needed */
+  height: 45vh; /* 维持之前的设置 */
+  width: 100vw; /* 使用视口宽度单位确保覆盖整个屏幕宽度 */
+  background-image: url('../img/top.jpg');
   background-size: cover;
-  background-position: center;
+  background-position: center 10%;
+  margin-left: -50vw; /* 将左边距设置为负的一半视口宽度 */
+  left: 50%; /* 并将元素向左偏移50% */
+  right: 50%; /* 并将元素向右偏移50% */
+  margin-bottom: 50px; /* 添加底部外边距 */
 }
 
 .overlay-text {
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
