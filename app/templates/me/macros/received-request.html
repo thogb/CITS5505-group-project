@@ -16,13 +16,13 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" style="margin-right: auto;" data-bs-dismiss="modal">Close</button>
-        <button id="btnRejectRequest" type="button" class="btn btn-danger">
+        <button id="btnRejectRequest" type="button" class="btn btn-danger" data-action="reject">
             <span class="spinner-border spinner-border-sm" aria-hidden="true" style="display: none;"></span>
-            <span>Reject</span>
+            <span class="btn-text">Reject</span>
         </button>
-        <button id="btnAcceptRequest" type="button" class="btn btn-primary">
+        <button id="btnAcceptRequest" type="button" class="btn btn-primary" data-action="accept">
             <span class="spinner-border spinner-border-sm" aria-hidden="true" style="display: none;"></span>
-            <span>Accept</span>
+            <span class="btn-text">Accept</span>
         </button>
       </div>
     </div>
@@ -30,8 +30,8 @@
 </div>
 {% endmacro %}
 
-{% macro render_received_request_button(item, disable_button) %}
-<button type="button" class="btn btn-primary btn-received-request" {{ 'disabled' if disable_button }} data-item-id="{{ item.id }}" data-bs-toggle="modal" data-bs-target="#receivedRequestModal">
+{% macro render_received_request_button(item_request, disable_button) %}
+<button id="btnOpenReceivedRequestModal" type="button" class="btn btn-primary btn-received-request" {{ 'disabled' if disable_button }} data-item-request-id="{{ item_request.id }}" data-item="{{ item_request.item.id }}" data-bs-toggle="modal" data-bs-target="#receivedRequestModal">
     <span>Respond</span>
 </button>
 {% endmacro %}

@@ -17,3 +17,7 @@ def item_save(item_id, save_status):
 @item_api_blueprint.route("/<int:item_id>/request", methods=['POST'])
 def send_request(item_id):
     return ItemService.send_request(item_id)
+
+@item_api_blueprint.route("/<int:item_id>/request/<int:item_request_id>/respond", methods=['POST'])
+def respond_request(item_id, item_request_id):
+    return ItemService.respond_item_request(item_id, item_request_id)

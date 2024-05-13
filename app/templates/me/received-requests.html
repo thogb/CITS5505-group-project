@@ -17,58 +17,52 @@
                     <h5 class="card-title">{{ request.item.title }}</h5>
                 </div>
                 <div class="card-body border-bottom">
-                    <div class="row">
-                        <div class="col-2">
-                            <p>Sender:</p>
-                        </div>
-                        <div class="col-10">
-                            <p>{{ request.sender.first_name + " " + request.sender.last_name }}</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-2">
-                            <p>Offer Amount:</p>
-                        </div>
-                        <div class="col-10">
-                            <p>{{ request.offer_amount }}</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-2">
-                            <p>Message:</p>
-                        </div>
-                        <div class="col-10">
-                            <p>{{ request.sender_message }}</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-2">
-                            <p>Date:</p>
-                        </div>
-                        <div class="col-10">
-                            <p>{{ request.create_time.strftime("%Y-%m-%d %H:%M:%S") }}</p>
-                        </div>
-                    </div>
+                    <dl class="row mb-0">
+                        <dt class="col-2 mb-2">
+                            Sender:
+                        </dt>
+                        <dd class="col-10">
+                            {{ request.sender.first_name + " " + request.sender.last_name }}
+                        </dd>
+                        <dt class="col-2 mb-2">
+                            Offer Amount:
+                        </dt>
+                        <dd class="col-10">
+                            {{ request.offer_amount }}
+                        </dd>
+                        <dt class="col-2 mb-2">
+                            Message:
+                        </dt>
+                        <dd class="col-10">
+                            {{ request.sender_message }}
+                        </dd>
+                        <dt class="col-2 mb-2">
+                            Date:
+                        </dt>
+                        <dd class="col-10">
+                            {{ request.create_time.strftime("%Y-%m-%d %H:%M:%S") }}
+                        </dd>
+                    </dl>
                 </div>
                 <div class="card-body">
-                    <div class="row">
-                        <div class="col-2">
-                            <p>Status:</p>
-                        </div>
-                        <div class="col-10">
-                            <p>{{ "Pending" if request.accepted is none else "Accepted" if request.accepted else "Rejected"}}</p>
-                        </div>
-                    </div>
-                    {% if request.accepted is not none %}
-                        <div class="row">
-                            <div class="col-2">
-                                <p>Response:</p>
-                            </div>
-                            <div class="col-10">
-                                <p>{{ request.receiver_message }}</p>
-                            </div>
-                        </div>
-                    {% endif %}
+                    <dl class="row mb-0">
+                        <dt class="col-2 mb-2">
+                            Status:
+                        </dt>
+                        <dd class="col-10">
+                            <span class="{{ "text-primary" if request.accepted is none else "text-success" if request.accepted else "text-danger"}}">
+                                {{ "Pending" if request.accepted is none else "Accepted" if request.accepted else "Rejected"}}
+                            </span>
+                        </dd>
+                        {% if request.accepted is not none %}
+                            <dt class="col-2 mb-2">
+                                Response:
+                            </dt>
+                            <dd class="col-10">
+                                {{ request.receiver_message }}
+                            </dd>
+                        {% endif %}
+                    </dl>
                 </div>
                 {% if request.accepted is none %}
                     <div class="card-footer text-end">

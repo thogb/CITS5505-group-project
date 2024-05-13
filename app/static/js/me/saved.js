@@ -1,7 +1,6 @@
 const attrDataAction = "data-action";
 
 function onItemSavedClick(e) {
-  console.log("ran");
   const icon_btn = $(this);
 
   const itemId = icon_btn.data("item-id");
