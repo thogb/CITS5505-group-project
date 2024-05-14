@@ -114,3 +114,15 @@ def received_requests():
         .paginate(page=filter.page, per_page=filter.per_page)
     
     return render_template('me/received-requests.html', received_requests=received_requests, filter=filter)
+
+@me_blueprint.route('/send-requests', methods=['GET'])
+def send_requests():
+    filter = BaseFilteringParameters()
+    filter.from_request(request)
+
+    send_requests = ItemRequest.query\
+        .filter_by(sender_id=current_user.id)\
+        .order_by(ItemRequest.create_time.desc())\
+        .paginate(page=filter.page, per_page=filter.per_page)
+
+    return render_template('me/send-requests.html', send_requests=send_requests, filter=filter)

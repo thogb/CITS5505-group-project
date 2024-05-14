@@ -19,7 +19,7 @@ class User(UserMixin, db.Model):
     
     saved_items = db.relationship("UserItemSaved", backref="user", lazy="dynamic")
     sender_item_requests = db.relationship('ItemRequest', backref='sender', lazy="dynamic", foreign_keys="ItemRequest.sender_id")
-    # receiver_item_requests = db.relationship('ItemRequest', backref='user', lazy="dynamic", foreign_keys="ItemRequest.receiver_id")
+    receiver_item_requests = db.relationship('ItemRequest', backref='receiver', lazy="dynamic", foreign_keys="ItemRequest.receiver_id")
     comments = db.relationship('Comment', backref='user', lazy="dynamic")
     items = db.relationship('Item', backref='user', lazy="dynamic")
     address = db.relationship('Address', backref='user', uselist=False)

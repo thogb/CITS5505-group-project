@@ -1,18 +1,17 @@
 {% extends 'me/me-base.html' %}
 
-{% set active_page = "me/received-requests" %}
+{% set active_page = "me/send-requests" %}
 
 {% import 'macros/pagination.html' as pagination %}
-{% import 'me/macros/received-request.html' as macro_received_request %}
 
 {% block title %}
-    Received Requests
+    Send Requests
 {% endblock %}
 
 {% block right_content %}
     <div class="gap-3 row">
-        {% for request in received_requests %}
-            <div class="card received-request-card p-0" data-item-request-id="{{ request.id }}">
+        {% for request in send_requests %}
+            <div class="card p-0" data-item-request-id="{{ request.id }}">
                 <div class="card-header {{ "bg-primary" if request.accepted is none else "bg-success" if request.accepted else "bg-danger"}}">
                     <a class="link-underline link-underline-opacity-0" href="{{ url_for('item.item', item_id=request.item.id) }}">
                         <h5 class="card-title text-white">{{ request.item.title }}</h5>
@@ -20,12 +19,6 @@
                 </div>
                 <div class="card-body border-bottom">
                     <dl class="row mb-0">
-                        <dt class="col-2 mb-2">
-                            Sender:
-                        </dt>
-                        <dd class="col-10">
-                            {{ request.sender.first_name + " " + request.sender.last_name }}
-                        </dd>
                         <dt class="col-2 mb-2">
                             Offer Amount:
                         </dt>
@@ -49,6 +42,12 @@
                 <div class="card-body">
                     <dl class="row mb-0">
                         <dt class="col-2 mb-2">
+                            Receiver:
+                        </dt>
+                        <dd class="col-10">
+                            {{ request.receiver.first_name + " " + request.receiver.last_name }}
+                        </dd>
+                        <dt class="col-2 mb-2">
                             Status:
                         </dt>
                         <dd class="col-10">
@@ -66,24 +65,8 @@
                         {% endif %}
                     </dl>
                 </div>
-                {% if request.accepted is none %}
-                    <div class="card-footer text-end">
-                        <!-- <button class="btn btn-primary">Respond</button> -->
-                        {{ macro_received_request.render_received_request_button(request, False) }}
-                    </div>
-                {% endif %}
             </div>
         {% endfor %}
     </div>
-    {{ pagination.render_pagination('me.saved', received_requests, filter) }}
-{% endblock %}
-
-{% block js_scripts %}
-    {{ super() }}
-    <script src="{{ url_for('static', filename='js/me/received-request.js') }}"></script>
-{% endblock %}
-
-{% block modals %}
-    {{ super() }}
-    {{ macro_received_request.render_received_request_modal() }}
+    {{ pagination.render_pagination('me.saved', send_requests, filter) }}
 {% endblock %}

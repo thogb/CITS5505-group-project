@@ -40,7 +40,9 @@
             <p class="card-text">{{ item.city.name }}</p>
             <p class="card-text">{{ item.city.state.name }}</p>
             <p class="card-text">{{ item.user.first_name + " " + item.user.last_name}}</p>
-            {{ item_request.render_item_request_button(item, already_requested) }}
+            {% if current_user.id != item.user.id %}
+                {{ item_request.render_item_request_button(item, already_requested) }}
+            {% endif %}
         </div>
     </div>
 </div>
