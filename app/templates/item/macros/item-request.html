@@ -1,0 +1,34 @@
+{% macro render_item_request_modal(item, disable_button) %}
+<div class="modal fade" id="itemRequestModal" tabindex="-1" aria-labelledby="itemRequestModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="itemRequestModalLabel">Request Item</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="item-request-amount" class="col-form-label">Offer Amount</label>
+            <input type="number" class="form-control" id="item-request-sender-amount">
+          </div>
+          <div class="mb-3">
+            <label for="item-request-sender-message" class="col-form-label">Message</label>
+            <textarea class="form-control" id="item-request-sender-message"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary btn-item-send-request-modal" {{ 'disabled' if disable_button }} data-item-id="{{ item.id }}">
+          Send Request
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endmacro %}
+
+{% macro render_item_request_button(item, disable_button) %}
+<button type="button" class="btn btn-primary btn-item-request" {{ 'disabled' if disable_button }} data-item-id="{{ item.id }}" data-bs-toggle="modal" data-bs-target="#itemRequestModal">Request</button>
+{% endmacro %}

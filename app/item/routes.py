@@ -1,4 +1,3 @@
-from multiprocessing.pool import ThreadPool
 from flask import (Blueprint, flash, redirect, render_template, request, url_for)
 from flask_login import current_user, login_required
 from app import db
@@ -6,7 +5,7 @@ from app.decorators.only_json import validate_json
 from app.item.forms import NewItemForm
 from app.item.items_filtering_parameters import ItemFilteringParameters
 from app.item.service import ItemService
-from app.models import Item, Photo, UserItemSaved
+from app.models import Item, ItemRequest, Photo, UserItemSaved
 from app import awsS3_service
 from app.services.category import getAllCategories
 from app.services.city import getCities
@@ -25,11 +24,15 @@ def items():
     filter.from_request(request)
 
     query = filter.getQuery(Item.query.order_by(Item.create_time.desc()))
-    query = query.options(joinedload(Item.photos))
+    query = query\
+        .filter_by(sold_time=None, delete_time=None)\
+        .options(joinedload(Item.photos))
     items = query.paginate(
         page=filter.page,
         per_page=filter.per_page
     )
+
+    print(filter.page)
 
     item_ids = [ item.id for item in items.items ]
     
@@ -55,17 +58,25 @@ def items():
 
 @item_blueprint.route('/<int:item_id>', methods=['GET'])
 def item(item_id):
-    item = Item.query.get_or_404(item_id)
+    item = Item.query\
+        .filter(Item.delete_time.is_(None), Item.sold_time.is_(None), Item.id == item_id)\
+    .first_or_404()
     
+    item_request = ItemRequest.query\
+        .filter(ItemRequest.sender_id == current_user.id, ItemRequest.item_id == item_id)\
+        .first()
+    
+    already_requested = item_request is not None
+
     for photo in item.photos:
         photo.photo_url = awsS3_service.generate_presigned_url(f"{photo.id}.{photo.extension}")
 
-    return render_template('item/item.html', item=item)
+    return render_template('item/item.html', item=item, already_requested=already_requested)
 
-@item_blueprint.route('/<int:item_id>/save/<int:save_status>', methods=['POST'])
-@validate_json
-def item_save(item_id, save_status):
-    return ItemService.save(item_id, save_status);
+# @item_blueprint.route('/<int:item_id>/save/<int:save_status>', methods=['POST'])
+# @validate_json
+# def item_save(item_id, save_status):
+#     return ItemService.save(item_id, save_status);
 
 @item_blueprint.route('/new', methods=['GET', 'POST'])
 def item_new():
