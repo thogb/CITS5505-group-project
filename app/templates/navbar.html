@@ -19,4 +19,17 @@
       <button class="btn btn-outline-success" type="submit">Search</button>
     </form>
   </div>
+
+    <!-- User profile and dropdown menu -->
+    <div class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarUserDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img src="{{ url_for('static', filename='img/profile.jpg') }}" alt="Profile" class="rounded-circle" style="width: 40px; height: 40px;">
+      </a>
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarUserDropdown">
+          <a class="dropdown-item" href="/me">My Profile</a>
+          <a class="dropdown-item" href="/me/saved">Favorites</a>
+          <a class="dropdown-item" href="/me/items">My Listings</a>
+          <a class="dropdown-item" href="/me/bids">My Bids</a>
+      </div>
+  </div>
 </nav>
