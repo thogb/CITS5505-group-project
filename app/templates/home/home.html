@@ -15,7 +15,7 @@
     <div class="row">
         <!-- Product 1 Card -->
         <div class="col-md-3">
-            <div class="card">
+            <div class="card product-card">
                 <img src="{{ url_for('static', filename='img/product1.gif') }}" class="card-img-top" alt="Holiday Season Sale">
                 <div class="card-body">
                     <h5 class="card-title">Holiday Season Sale</h5>
@@ -27,7 +27,7 @@
 
         <!-- Product 2 Card -->
         <div class="col-md-3">
-            <div class="card">
+            <div class="card product-card">
                 <img src="{{ url_for('static', filename='img/product2.gif') }}" class="card-img-top" alt="Product 2">
                 <div class="card-body">
                     <h5 class="card-title">Hot Deals</h5>
@@ -41,7 +41,7 @@
 
         <!-- Product 3 Card -->
         <div class="col-md-3">
-            <div class="card">
+            <div class="card product-card">
                 <img src="{{ url_for('static', filename='img/product3.jpg') }}" class="card-img-top" alt="weather">
                 <div class="card-body">
                     <h5 class="card-title">Local Weather</h5>
@@ -58,7 +58,7 @@
 
         <!-- Product 4 Card -->
         <div class="col-md-3">
-            <div class="card">
+            <div class="card product-card">
                 <img src="{{ url_for('static', filename='img/product4.jpg') }}" class="card-img-top" alt="End of Season Sale Countdown">
                 <div class="card-body">
                     <h5 class="card-title">End of Season Sale Countdown</h5>
@@ -71,18 +71,37 @@
 </div>
 
 <!-- Back to top button -->
-<a href="#" class="back-to-top"><img src="{{ url_for('static', filename='img/back to top.jpg') }}" alt="back to top"></a>
+<a href="#" class="back-to-top">
+    <img src="{{ url_for('static', filename='img/back to top.jpg') }}" alt="back to top">
+</a>
 
 <!-- Links section -->
 <div class="card border-secondary">
-    <div class="card-header">
-        Links 123
-    </div>
-    <div class="card-body p-0 list-group">
+    <div class="card-body list-group">
         <a href="{{ url_for('me.me') }}" class="list-group-item list-group-item-action">me</a>
         <a href="{{ url_for('item.item_new') }}" class="list-group-item list-group-item-action">new item</a>
         <a href="{{ url_for('item.items') }}" class="list-group-item list-group-item-action">items</a>
     </div>
+</div>
+
+<!-- Contact Us Section -->
+<div id="contact" class="container text-center mt-5">
+    <h2>Contact Us</h2>
+    <form>
+        <div class="mb-3">
+            <label for="contactName" class="form-label">Name:</label>
+            <input type="text" class="form-control" id="contactName" required>
+        </div>
+        <div class="mb-3">
+            <label for="contactEmail" class="form-label">E-mail:</label>
+            <input type="email" class="form-control" id="contactEmail" required>
+        </div>
+        <div class="mb-3">
+            <label for="contactMessage" class="form-label">Message:</label>
+            <textarea class="form-control" id="contactMessage" rows="3" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
 </div>
 
 <!-- Footer -->
@@ -138,7 +157,6 @@
         </div>
         <!--Grid row-->
     </div>
-
 
     <!-- Student Information -->
     <div class="mt-3 text-center"> <!-- 使用text-center类使内容居中 -->

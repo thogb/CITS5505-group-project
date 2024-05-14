@@ -22,6 +22,132 @@
   color: white;
 }
 
+
+
+/* Reduce the width of the form fields in the Contact Us section */
+#contact form .form-control {
+  max-width: 400px; /* Adjust this value as needed */
+  margin: 0 auto; /* Center align the form fields */
+}
+
+/*  adjust the width of the entire form */
+#contact form {
+  max-width: 500px; /* Adjust this value as needed */
+  margin: 0 auto; /* Center align the form */
+}
+
+/* Add margin below the submit button */
+#contact form button[type="submit"] {
+  margin-bottom: 30px; /* Adjust this value as needed */
+}
+
+/* Links section styles */
+.card.border-secondary {
+  border-radius: 10px; /* Add rounded corners to the card */
+  overflow: hidden; /* Ensure rounded corners are visible */
+  max-width: 400px; /* Set a maximum width for the card */
+  margin: 0 auto; /* Center align the card */
+}
+
+.card-body .list-group-item {
+  position: relative;
+  padding: 20px; /* Increase padding for better spacing */
+  margin: 10px; /* Add margin between items */
+  border-radius: 10px; /* Add rounded corners to items */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef); /* Gradient background */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add box shadow */
+  color: #495057; /* Text color */
+  text-align: center; /* Center align text */
+  text-decoration: none; /* Remove underline */
+}
+
+.card-body .list-group-item:hover {
+  background: linear-gradient(135deg, #e9ecef, #f8f9fa); /* Change gradient on hover */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Increase shadow on hover */
+  transform: translateY(-5px); /* Slightly lift the item on hover */
+  color: #007bff; /* Change text color on hover */
+}
+
+.card-body .list-group-item::before {
+  content: ''; /* Create a pseudo-element for the hover effect */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3); /* Semi-transparent overlay */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 10px; /* Match the rounded corners */
+}
+
+.card-body .list-group-item:hover::before {
+  opacity: 1; /* Show overlay on hover */
+}
+
+/* Back to top button */
 .back-to-top {
-  /* Here you can add styles for your back to top button if needed */
+  position: fixed;
+  bottom: 20px; /* Adjust the bottom value as needed */
+  right: 20px;  /* Adjust the right value as needed */
+  z-index: 100; /* Ensure the button is above other content */
+}
+
+.back-to-top img {
+  width: 50px; /* Adjust the size of the button as needed */
+  height: 50px;
+  cursor: pointer;
+}
+
+/* Product card styles */
+.product-card {
+  flex: 1 0 21%; /* Each card takes up approximately 21% of the width */
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 400px; /* Set a fixed height for all cards */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+}
+
+.product-card .card-img-top {
+  width: 100%; /* Ensure the images take the full width of the card */
+  height: 180px; /* Set a fixed height for the images */
+  object-fit: cover; /* Ensure the images cover the entire area without distortion */
+  border-radius: 5px 5px 0 0; /* Optional: Add rounded corners to match the card */
+}
+
+.product-card .card-body {
+  padding: 15px;
+  text-align: center;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-card .card-title {
+  font-size: 1.5rem; /* Increased size for visibility */
+  margin-bottom: 10px; /* Adds space below the title */
+}
+
+.product-card .card-text {
+  font-size: 1.25rem; /* Slightly larger text for readability */
+}
+
+.product-card .btn {
+  height: 50px; /* Ensure all buttons have the same height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto; /* Ensure the button is at the bottom */
+}
+
+/* Ensure cards have consistent height */
+.container .row > div {
+  display: flex;
+  flex-direction: column;
 }
