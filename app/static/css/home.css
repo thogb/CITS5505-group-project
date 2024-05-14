@@ -151,3 +151,99 @@
   display: flex;
   flex-direction: column;
 }
+
+/* Contact Us Section */
+#contact {
+  max-width: 400px;
+  max-height: 500px;
+  background-color: #f8f9fa; /* Light grey background for better contrast */
+  padding: 20px;
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  margin-bottom: 30px; /* Separate from other sections */
+  font-size: 0.9rem;
+}
+
+#contact h2 {
+  font-size: 1.2rem;
+  color: #007bff; /* Bootstrap primary blue for heading */
+  margin-bottom: 20px; /* Space below heading */
+}
+
+#contact .form-control {
+  border-radius: 0.25rem; /* Rounded borders for form inputs */
+  background-color: #fff; /* White background for input fields */
+  border: 1px solid #ced4da; /* Standard Bootstrap input border */
+}
+
+#contact button[type="submit"] {
+  background-color: #007bff; /* Primary button color */
+  border: none;
+  padding: 10px 20px; /* Button padding */
+  border-radius: 0.25rem; /* Rounded button corners */
+  transition: background-color 0.15s; /* Smooth transition for hover effect */
+}
+
+#contact button[type="submit"]:hover {
+  background-color: #0056b3; /* Darken button on hover */
+}
+
+/* Footer Section */
+footer {
+  background-color: #343a40; /* Dark footer background */
+  color: #fff; /* White text color */
+  padding-top: 30px; /* Padding at the top of the footer */
+}
+
+footer a {
+  color: #dee2e6; /* Light grey color for links */
+  text-decoration: none; /* No underline */
+}
+
+footer a:hover {
+  color: #adb5bd; /* Change color on hover */
+}
+
+footer .container {
+  padding-bottom: 20px; /* Padding at the bottom */
+}
+
+footer h5 {
+  margin-bottom: 15px; /* Space below headings */
+  color: #0b0900; /* Bootstrap yellow for visibility */
+}
+
+footer ul {
+  list-style: none; /* Remove list style */
+  padding: 0; /* Remove padding */
+}
+
+footer .social-icon {
+  color: #007bff; /* Primary blue for social icons */
+  margin-right: 10px; /* Space between icons */
+}
+
+footer .social-icon:hover {
+  color: #0056b3; /* Darken icon on hover */
+}
+
+/* Student Information Section */
+footer .student-info {
+  background-color: #495057; /* Different background for clear distinction */
+  color: #ced4da; /* Lighter text color for visibility */
+  padding: 20px 0; /* Padding for the section */
+  margin-top: 30px; /* Space above the student info section */
+  font-size: 0.9rem; /* Appropriate font size for information */
+}
+
+/* General styles to improve legibility and spacing */
+.container, .row, .col-lg-3, .col-md-6 {
+  margin-top: 10px;
+}
+
+/* Copyright Section */
+footer .text-center {
+  font-size: 0.9rem; /* Smaller font size for copyright and student info */
+  color: #6c757d; /* Grey text for subtle effect */
+  padding: 10px 0; /* Padding for the section */
+}
