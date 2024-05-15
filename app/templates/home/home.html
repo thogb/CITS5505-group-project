@@ -3,15 +3,210 @@
 {% block title %} Home {% endblock %}
 
 {% block content %}
-<!-- TODO: remove and replace with a proper home page -->
-<div class="card border-secondary">
-    <div class="card-header">
-        Links
-    </div>
-    <div class="card-body p-0 list-group">
-        <a href="{{ url_for('me.me') }}" class="list-group-item list-group-item-action " >me</a>
-        <a href="{{ url_for('item.item_new') }}" class="list-group-item list-group-item-action " >new item</a>
-        <a href="{{ url_for('item.items') }}" class="list-group-item list-group-item-action " >items</a>
+<!-- Hero Image and Card Section -->
+<div class="hero-image text-center" style="position: relative;">
+    <a href="{{ url_for('item.item_new') }}" class="btn btn-post-ad" style="position: absolute; top: 20px; right: 20px;">Post an Ad</a>
+    <div class="overlay-text">
+        <h1>Welcome to Dreamers Market!</h1>
+        <p>Your premier destination for prized second-hand treasures</p>
+        <!-- Icon centered below the text -->
+        <div class="d-flex justify-content-center mt-3">
+            <i class="bi bi-cart-check large-icon"></i> <!-- Adjust the icon size and type as needed -->
+        </div>
     </div>
 </div>
+<div class="container">
+    <div class="row">
+        <!-- Product 1 Card -->
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="{{ url_for('static', filename='img/product1.gif') }}" class="card-img-top" alt="Holiday Season Sale">
+                <div class="card-body">
+                    <h5 class="card-title">Holiday Season Sale</h5>
+                    <div id="notificationMessages1" class="card-text">
+                        <p>Unwrap the joy of savings with our spectacular holiday discounts on electronics!</p>
+                        <a href="#" class="btn btn-primary">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 2 Card -->
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="{{ url_for('static', filename='img/product2.gif') }}" class="card-img-top" alt="Product 2">
+                <div class="card-body">
+                    <h5 class="card-title">Hot Deals</h5>
+                    <div id="notificationMessages" class="card-text">
+                        <p>Flash Sale: Books at up to 40% off!</p>
+                        <a href="#" class="btn btn-primary">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 3 Card -->
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="{{ url_for('static', filename='img/product3.jpg') }}" class="card-img-top" alt="weather">
+                <div class="card-body">
+                    <h5 class="card-title">Local Weather</h5>
+                    <p id="currentTime" class="card-text">Time here.</p>
+                    <button id="weather-btn" class="btn btn-primary">Check Weather</button>
+                    <a href="https://www.weatherapi.com/">(Learn more from Weather API)</a>
+                    <div id="weather"></div>
+                    <p id="curlocation"></p>
+                    <p id="temp"></p>
+                    <p id="sunny"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 4 Card -->
+        <div class="col-md-3">
+            <div class="card product-card">
+                <img src="{{ url_for('static', filename='img/product4.jpg') }}" class="card-img-top" alt="End of Season Sale Countdown">
+                <div class="card-body">
+                    <h5 class="card-title">End of Season Sale Countdown</h5>
+                    <p id="countdown-timer" class="card-text">Loading countdown...</p>
+                    <a href="#" class="btn btn-primary">Shop Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Filter & Refine Section -->
+<div class="container text-center my-4 filter-refine">
+    <h2 class="mb-4">Filter & Refine</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="mb-3">
+                <label for="locationSelect" class="form-label">Location</label>
+                <select class="form-select" id="locationSelect">
+                    <option selected>Choose...</option>
+                    <option value="Perth Central">Perth Central</option>
+                    <option value="Northbridge">Northbridge</option>
+                    <option value="Cottesloe">Cottesloe</option>
+                    <option value="Fremantle">Fremantle</option>
+                    <option value="Scarborough">Scarborough</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="priceMin" class="form-label">Price Range</label>
+                <input type="number" class="form-control" id="priceMin" placeholder="$ Min">
+                <input type="number" class="form-control mt-2" id="priceMax" placeholder="$ Max">
+            </div>
+            <button class="btn btn-primary mt-2" type="button" onclick="filterResults()">Go</button>
+        </div>
+    </div>
+</div>
+    <!-- View More button -->
+    <!-- <a href="{{ url_for('item.items') }}" class="btn btn-secondary mt-3">View More</a>
+</div> -->
+
+
+<!-- Back to top button -->
+<a href="#" class="back-to-top">
+    <img src="{{ url_for('static', filename='img/back to top.jpg') }}" alt="back to top">
+</a>
+
+<!-- Links section -->
+<!-- <div class="card border-secondary">
+    <div class="card-body list-group"> -->
+        <!-- <a href="{{ url_for('me.me') }}" class="list-group-item list-group-item-action">me</a> -->
+        
+        <!-- <a href="{{ url_for('item.items') }}" class="list-group-item list-group-item-action">items</a> -->
+    <!-- </div>
+</div> -->
+
+<!-- Contact Us Section -->
+<div id="contact" class="container text-center mt-5">
+    <h2>Contact Us</h2>
+    <form>
+        <div class="mb-3">
+            <label for="contactName" class="form-label">Name:</label>
+            <input type="text" class="form-control" id="contactName" required>
+        </div>
+        <div class="mb-3">
+            <label for="contactEmail" class="form-label">E-mail:</label>
+            <input type="email" class="form-control" id="contactEmail" required>
+        </div>
+        <div class="mb-3">
+            <label for="contactMessage" class="form-label">Message:</label>
+            <textarea class="form-control" id="contactMessage" rows="3" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+<!-- Footer -->
+<footer class="bg-light text-center text-lg-start">
+    <div class="container p-4">
+        <!--Grid row-->
+        <div class="row">
+            <!--Grid column-->
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <h5 class="text-uppercase">Tips & Help</h5>
+                <ul class="list-unstyled mb-0">
+                    <li><a href="about_us.html" class="text-dark">About Dreamers Market</a></li>
+                    <li><a href="help.html" class="text-dark">Help</a></li>
+                    <li><a href="register.html" class="text-dark">Register</a></li>
+                </ul>
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <h5 class="text-uppercase">For Business</h5>
+                <ul class="list-unstyled mb-0">
+                    <li><a href="display-ads.html" class="text-dark">Display Ads</a></li>
+                </ul>
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <h5 class="text-uppercase">Top Categories</h5>
+                <ul class="list-unstyled mb-0">
+                    <li><a href="electronics.html" class="text-dark">Electronics</a></li>
+                    <li><a href="books-learning.html" class="text-dark">Books & Learning Materials</a></li>
+                    <li><a href="furniture-decor.html" class="text-dark">Furniture & Home Decor</a></li>
+                    <li><a href="clothing-accessories.html" class="text-dark">Clothing & Accessories</a></li>
+                    <li><a href="sports-outdoors.html" class="text-dark">Sports & Outdoors</a></li>
+                    <li><a href="all-categories.html" class="text-dark">All Categories</a></li>
+                </ul>
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <h5 class="text-uppercase">Follow Us</h5>
+                <a href="https://facebook.com/yourfacebookpage" target="_blank" class="social-icon">
+                    <i class="fa-brands fa-facebook" style="font-size: 24px; color: #333;"></i>
+                </a>
+                <a href="https://instagram.com/yourinstagramhandle" target="_blank" class="social-icon">
+                    <i class="fab fa-instagram" style="font-size: 24px; color: #333;"></i>
+                </a>
+            </div>
+            <!--Grid column-->
+        </div>
+        <!--Grid row-->
+    </div>
+
+    
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+        © 2007-2024 Dreamers Market. All Rights Reserved.
+    </div>
+</footer>
+
+<!-- Student Information -->
+<div class="mt-3 text-center"> 
+    <p>Students Name: Hao Bao & Tao Hu</p> 
+    <p>Students ID: 23888818 & 23805764</p> 
+    <p>CITS5505 Agile Web Development Project 2</p>
+</div>
+
 {% endblock %}
