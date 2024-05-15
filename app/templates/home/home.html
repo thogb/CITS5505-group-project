@@ -9,9 +9,12 @@
     <div class="overlay-text">
         <h1>Welcome to Dreamers Market!</h1>
         <p>Your premier destination for prized second-hand treasures</p>
+        <!-- Icon centered below the text -->
+        <div class="d-flex justify-content-center mt-3">
+            <i class="bi bi-cart-check large-icon"></i> <!-- Adjust the icon size and type as needed -->
+        </div>
     </div>
 </div>
-
 <div class="container">
     <div class="row">
         <!-- Product 1 Card -->
@@ -94,8 +97,8 @@
         <button class="btn btn-primary mt-2" type="button" onclick="filterResults()">Go</button>
     </div>
     <!-- View More button -->
-    <a href="{{ url_for('item.items') }}" class="btn btn-secondary mt-3">View More</a>
-</div>
+    <!-- <a href="{{ url_for('item.items') }}" class="btn btn-secondary mt-3">View More</a>
+</div> -->
 
 
 <!-- Back to top button -->
@@ -104,13 +107,13 @@
 </a>
 
 <!-- Links section -->
-<div class="card border-secondary">
-    <div class="card-body list-group">
+<!-- <div class="card border-secondary">
+    <div class="card-body list-group"> -->
         <!-- <a href="{{ url_for('me.me') }}" class="list-group-item list-group-item-action">me</a> -->
         
         <!-- <a href="{{ url_for('item.items') }}" class="list-group-item list-group-item-action">items</a> -->
-    </div>
-</div>
+    <!-- </div>
+</div> -->
 
 <!-- Contact Us Section -->
 <div id="contact" class="container text-center mt-5">

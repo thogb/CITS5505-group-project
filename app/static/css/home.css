@@ -14,6 +14,10 @@
   margin-bottom: 50px; /* 添加底部外边距 */
 }
 
+.large-icon {
+  font-size: 4rem; /* 或者根据你的需求设置更大或更小 */
+}
+
 .overlay-text {
   position: absolute;
   top: 40%;
@@ -51,50 +55,6 @@
   margin-bottom: 30px; /* Adjust this value as needed */
 }
 
-/* Links section styles */
-.card.border-secondary {
-  border-radius: 10px; /* Add rounded corners to the card */
-  overflow: hidden; /* Ensure rounded corners are visible */
-  max-width: 400px; /* Set a maximum width for the card */
-  margin: 0 auto; /* Center align the card */
-}
-
-.card-body .list-group-item {
-  position: relative;
-  padding: 20px; /* Increase padding for better spacing */
-  margin: 10px; /* Add margin between items */
-  border-radius: 10px; /* Add rounded corners to items */
-  transition: all 0.3s ease; /* Smooth transition for hover effects */
-  background: linear-gradient(135deg, #f8f9fa, #e9ecef); /* Gradient background */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add box shadow */
-  color: #495057; /* Text color */
-  text-align: center; /* Center align text */
-  text-decoration: none; /* Remove underline */
-}
-
-.card-body .list-group-item:hover {
-  background: linear-gradient(135deg, #e9ecef, #f8f9fa); /* Change gradient on hover */
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Increase shadow on hover */
-  transform: translateY(-5px); /* Slightly lift the item on hover */
-  color: #007bff; /* Change text color on hover */
-}
-
-.card-body .list-group-item::before {
-  content: ''; /* Create a pseudo-element for the hover effect */
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.3); /* Semi-transparent overlay */
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  border-radius: 10px; /* Match the rounded corners */
-}
-
-.card-body .list-group-item:hover::before {
-  opacity: 1; /* Show overlay on hover */
-}
 
 /* Back to top button */
 .back-to-top {
