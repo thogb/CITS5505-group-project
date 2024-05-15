@@ -1,0 +1,37 @@
+{% macro render_received_request_modal() %}
+<div class="modal fade modal-lg" id="receivedRequestModal" tabindex="-1" aria-labelledby="receivedRequestModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="receivedRequestModalLabel">Send Response</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="receivedRequestForm">
+          <div class="mb-3">
+            <label for="message" class="col-form-label">Message</label>
+            <textarea class="form-control" id="message"></textarea>
+          </div> 
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" style="margin-right: auto;" data-bs-dismiss="modal">Close</button>
+        <button id="btnRejectRequest" type="button" class="btn btn-danger" data-action="reject">
+            <span class="spinner-border spinner-border-sm" aria-hidden="true" style="display: none;"></span>
+            <span class="btn-text">Reject</span>
+        </button>
+        <button id="btnAcceptRequest" type="button" class="btn btn-primary" data-action="accept">
+            <span class="spinner-border spinner-border-sm" aria-hidden="true" style="display: none;"></span>
+            <span class="btn-text">Accept</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endmacro %}
+
+{% macro render_received_request_button(item_request, disable_button) %}
+<button id="btnOpenReceivedRequestModal" type="button" class="btn btn-primary btn-received-request" {{ 'disabled' if disable_button }} data-item-request-id="{{ item_request.id }}" data-item="{{ item_request.item.id }}" data-bs-toggle="modal" data-bs-target="#receivedRequestModal">
+    <span>Respond</span>
+</button>
+{% endmacro %}

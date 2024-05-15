@@ -9,6 +9,6 @@ class BasePaginationParameters:
     def from_request(self, request) -> None:
         try:
             self.page = int(request.args.get('page', 1))
-            self.per_page = max(min(int(request.args.get('per_page', 9)), 20), 20)
+            self.per_page = max(min(int(request.args.get('per_page', 9)), 20), 1)
         except:
             return

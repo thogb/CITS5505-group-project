@@ -2,11 +2,25 @@ from flask import Flask, abort, request
 from flask_caching import Cache
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import MetaData
 from .services.awsS3 import AWSS3
 
 from config import Config
 
-db = SQLAlchemy()
+# Retrieved from https://stackoverflow.com/questions/62640576/flask-migrate-valueerror-constraint-must-have-a-name
+# Date: 11/05/2024
+
+convention = {
+    "ix": 'ix_%(column_0_label)s',
+    "uq": "uq_%(table_name)s_%(column_0_name)s",
+    "ck": "ck_%(table_name)s_%(constraint_name)s",
+    "fk": "fk_%(table_name)s_%(column_0_name)s_%(referred_table_name)s",
+    "pk": "pk_%(table_name)s"
+}
+
+metadata = MetaData(naming_convention=convention)
+
+db = SQLAlchemy(metadata=metadata)
 migrate = Migrate()
 cache = Cache()
 awsS3_service = AWSS3()
