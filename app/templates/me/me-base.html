@@ -7,7 +7,13 @@
 {% block css_styles %}
     {{ super() }}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/me-base.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"> 
 {% endblock %}
+
+{% block content %}
+    <div class="container h-100">
+        <!-- Including the custom sidebar -->
+        {% include 'me-base-sidebar.html' %}
 
 {% block content %}
     <div class="row mt-5">
@@ -19,6 +25,8 @@
                         <a class="list-group-item list-group-item-action {{ 'active' if active_page == 'me/saved' else '' }}" href="/me/saved">Saved</a>
                         <a class="list-group-item list-group-item-action {{ 'active' if active_page == 'me/items' else '' }}" href="/me/items">Items</a>
                         <a class="list-group-item list-group-item-action {{ 'active' if active_page == 'me/bids' else '' }}" href="/me/bids">Bids</a>
+                        <a class="list-group-item list-group-item-action text-end {{ 'active' if active_page == 'me/send-requests' else '' }}" href="/me/send-requests">Send Requests</a>
+                        <a class="list-group-item list-group-item-action text-end {{ 'active' if active_page == 'me/received-requests' else '' }}" href="/me/received-requests">Received Requests</a>
                     </ul>
                 </div>
             {% endblock %}
