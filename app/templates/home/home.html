@@ -73,6 +73,31 @@
     </div>
 </div>
 
+<!-- Filter & Refine Section -->
+<div class="container text-center mt-3 filter-refine">
+    <h2>Filter & Refine</h2>
+    <div class="mb-3">
+        <label for="locationSelect" class="form-label">Location</label>
+        <select class="form-select" id="locationSelect">
+            <option selected>Choose...</option>
+            <option value="Perth Central">Perth Central</option>
+            <option value="Northbridge">Northbridge</option>
+            <option value="Cottesloe">Cottesloe</option>
+            <option value="Fremantle">Fremantle</option>
+            <option value="Scarborough">Scarborough</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="priceMin" class="form-label">Price Range</label>
+        <input type="number" class="form-control" id="priceMin" placeholder="$ Min">
+        <input type="number" class="form-control mt-2" id="priceMax" placeholder="$ Max">
+        <button class="btn btn-primary mt-2" type="button" onclick="filterResults()">Go</button>
+    </div>
+    <!-- View More button -->
+    <a href="{{ url_for('item.items') }}" class="btn btn-secondary mt-3">View More</a>
+</div>
+
+
 <!-- Back to top button -->
 <a href="#" class="back-to-top">
     <img src="{{ url_for('static', filename='img/back to top.jpg') }}" alt="back to top">
@@ -83,7 +108,7 @@
     <div class="card-body list-group">
         <!-- <a href="{{ url_for('me.me') }}" class="list-group-item list-group-item-action">me</a> -->
         
-        <a href="{{ url_for('item.items') }}" class="list-group-item list-group-item-action">items</a>
+        <!-- <a href="{{ url_for('item.items') }}" class="list-group-item list-group-item-action">items</a> -->
     </div>
 </div>
 
