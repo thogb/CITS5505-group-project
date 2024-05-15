@@ -66,6 +66,8 @@ document.addEventListener('DOMContentLoaded', function() {
       }
   }
 
+  
+  // Product 3
   // Start the countdown timer and update every second
   let interval = setInterval(updateCountdown, 1000);
 });
