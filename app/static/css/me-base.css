@@ -1,10 +1,6 @@
 
 /* 基本颜色和字体设置 */
-:root {
-  --primary-color: #28a745;  /* 绿色调 */
-  --secondary-color: #4a5568;  /* 深灰色 */
-  --background-light: #f4f4f4;  /* 浅灰背景 */
-}
+
 
 body {
   font-family: 'Arial', sans-serif;
