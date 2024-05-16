@@ -1,6 +1,6 @@
 /* 基本颜色和字体设置 */
 :root {
-  --primary-color: #1a5e20;  /* 绿色调 */
+  --primary-color: #28a745;  /* 绿色调 */
   --secondary-color: #4a5568;  /* 深灰色 */
   --background-light: #f4f4f4;  /* 浅灰背景 */
 }
@@ -50,4 +50,6 @@ body {
 .bi-currency-dollar{
   margin-right: 8px;  /* 可以根据需要调整这个值 */
 }
+
+/* Profile页面整体背景和字体颜色 */
 
