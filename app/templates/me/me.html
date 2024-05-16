@@ -4,6 +4,11 @@
 
 {% set active_page = "me" %}
 
+{% block css_styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/me/me.css') }}">
+{% endblock %}
+
 {% block right_content %}
     <div class="card border-info">
         <div class="card-body">
@@ -40,4 +45,9 @@
 
         </div>
     </div>
+{% endblock %}
+
+{% block js_scripts %}
+    {{ super() }}
+    <script src="{{ url_for('static', filename='js/me/me.js') }}"></script>
 {% endblock %}
