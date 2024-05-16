@@ -1,3 +1,9 @@
 dt {
   font-weight: 600;
 }
+
+:root {
+  --primary-color: #28a745;  /* 绿色调 */
+  --secondary-color: #4a5568;  /* 深灰色 */
+  --background-light: #f4f4f4;  /* 浅灰背景 */
+}

@@ -1,9 +1,6 @@
+
 /* 基本颜色和字体设置 */
-:root {
-  --primary-color: #28a745;  /* 绿色调 */
-  --secondary-color: #4a5568;  /* 深灰色 */
-  --background-light: #f4f4f4;  /* 浅灰背景 */
-}
+
 
 body {
   font-family: 'Arial', sans-serif;
@@ -53,3 +50,105 @@ body {
 
 /* Profile页面整体背景和字体颜色 */
 
+/* 页面整体背景和字体颜色 */
+body {
+  background-color: #e8e8e8; /* 更深的灰色背景 */
+  color: #333; /* 深灰色文字 */
+  font-family: 'Arial', sans-serif;
+}
+
+/* 卡片样式 */
+.card {
+  background-color: #fff; /* 白色背景 */
+  border: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* 增强阴影效果 */
+  border-radius: 8px; /* 圆角边框 */
+}
+
+.card-header, .card-body {
+  background-color: #fff;
+  color: #333;
+}
+
+/* 表单控件样式 */
+.form-control {
+  background-color: #fff; /* 白色背景 */
+  color: #333;
+  border: 2px solid #aaa; /* 更深的灰色边框 */
+  border-radius: 4px; /* 轻微的圆角 */
+  padding: 10px;
+}
+
+.form-control:focus {
+  border-color: #28a745; /* 更鲜明的绿色 */
+  box-shadow: 0 0 8px rgba(40, 167, 69, 0.75); /* 鲜明绿色的阴影 */
+}
+
+/* 标签样式 */
+.form-label {
+  display: block;
+  margin-bottom: .5rem;
+  color: #555; /* 更深的灰色 */
+  font-weight: bold; /* 加粗字体 */
+  font-size: 14px;
+}
+
+/* 按钮样式 */
+.btn-primary {
+  background-color: #28a745; /* 鲜明绿色按钮 */
+  border-color: #28a745; /* 鲜明绿色边框 */
+  padding: 10px 20px;
+  border-radius: 4px; /* 轻微的圆角 */
+  font-weight: bold; /* 加粗字体 */
+}
+
+.btn-primary:hover {
+  background-color: #218838; /* 深绿色 */
+  border-color: #1e7e34;
+}
+
+/* 链接样式 */
+a {
+  color: #28a745; /* 鲜明绿色链接 */
+  text-decoration: none; /* 无下划线 */
+}
+
+a:hover {
+  color: #218838; /* 深绿色 */
+  text-decoration: underline; /* 悬停时下划线 */
+}
+
+/* top图片 */
+
+.top-image {
+  position: relative; /* 设置为相对定位 */
+  width: 100%; /* 图片覆盖整个容器宽度 */
+  height: 100px; /* 调整高度为需要的值 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  margin-top: 60px;
+}
+
+.top-image img {
+  width: 100%; /* 图片宽度为100% */
+  height: auto; /* 高度自动 */
+  display: block; /* 图片独占一行 */
+}
+
+.image-overlay {
+  position: absolute; /* 绝对定位，相对于其最近的相对定位的祖先元素 */
+  top: 0; /* 顶部对齐 */
+  left: 0; /* 左侧对齐 */
+  right: 0; /* 右侧对齐 */
+  bottom: 0; /* 底部对齐 */
+  display: flex; /* 使用Flexbox来居中内容 */
+  align-items: center; /* 垂直居中 */
+  justify-content: center; /* 水平居中 */
+  color: white; /* 文字颜色为白色 */
+  font-size: 2rem; /* 字体大小 */
+  font-weight: bold; /* 加粗字体 */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6); /* 文字阴影，增加可读性 */
+}
