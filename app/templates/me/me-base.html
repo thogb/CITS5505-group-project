@@ -10,9 +10,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"> 
 {% endblock %}
 
-
-
 {% block content %}
+
+    <div class="top-image">
+        <img src="{{ url_for('static', filename='img/top-second.jpg') }}" alt="Top Image" style="width: 100%; height: auto; display: block;">
+        <div class="image-overlay">
+            <h1>Dreamers Market!</h1>
+        </div>
+    </div>
+
     <div class="row mt-5">
         <div class="col-lg-3">
             {% block left_side_nav %}
