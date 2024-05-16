@@ -32,8 +32,6 @@ def items():
         per_page=filter.per_page
     )
 
-    print(filter.page)
-
     item_ids = [ item.id for item in items.items ]
     
     # Find out which items are saved by the user
@@ -44,7 +42,6 @@ def items():
             .filter(UserItemSaved.item_id.in_(item_ids), UserItemSaved.user_id == current_user.id)\
             .all()
         saved_item_id_set = set([ item.item_id for item in user_item_saved ])
-        print(saved_item_id_set)
         for item in items.items:
             item.saved_by_user = item.id in saved_item_id_set
 

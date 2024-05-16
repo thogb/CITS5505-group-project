@@ -42,11 +42,15 @@
     {% block navbar %}
       {% include 'navbar.html' %}
     {% endblock %}
-    <div class="container h-100">
+    <div class="container mt-0">
       {% block content %}
-      <div>test</div>
+
       {% endblock %}
     </div>
+
+    {% block footer %}
+    
+    {% endblock %}
 
     {% import 'macros/toast.html' as toast %}
 

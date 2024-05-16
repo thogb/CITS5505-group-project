@@ -1,24 +1,24 @@
 // Product 1
 document.addEventListener('DOMContentLoaded', function() {
   // Define all advertisement messages for Product 1
-  const notificationsProduct1 = [
-      "Unwrap the joy of savings with our spectacular holiday discounts on electronics!",
-      "Festive deals: Up to 50% off on home appliances!",
-      "Celebrate the new year with exclusive tech bargains!",
-      "Season's greetings with special pricing on the latest gadgets!"
-  ];
+//   const notificationsProduct1 = [
+//       "Unwrap the joy of savings with our spectacular holiday discounts on electronics!",
+//       "Festive deals: Up to 50% off on home appliances!",
+//       "Celebrate the new year with exclusive tech bargains!",
+//       "Season's greetings with special pricing on the latest gadgets!"
+//   ];
 
-  let currentNotificationProduct1 = 0;  // Initial index for Product 1
-  function rotateNotificationsProduct1() {
-      // Update the displayed message for Product 1
-      document.getElementById('notificationMessages1').innerHTML = `<p>${notificationsProduct1[currentNotificationProduct1]}</p><a href="#" class="btn btn-primary">Shop Now</a>`;
-      // Calculate the index for the next message
-      currentNotificationProduct1 = (currentNotificationProduct1 + 1) % notificationsProduct1.length;
-  }
+//   let currentNotificationProduct1 = 0;  // Initial index for Product 1
+//   function rotateNotificationsProduct1() {
+//       // Update the displayed message for Product 1
+//       document.getElementById('notificationMessages1').innerHTML = `<p>${notificationsProduct1[currentNotificationProduct1]}</p><a href="#" class="btn btn-primary">Shop Now</a>`;
+//       // Calculate the index for the next message
+//       currentNotificationProduct1 = (currentNotificationProduct1 + 1) % notificationsProduct1.length;
+//   }
 
-  // Change advertisement every 2000 milliseconds (2 seconds)
-  setInterval(rotateNotificationsProduct1, 2000);
-});
+//   // Change advertisement every 2000 milliseconds (2 seconds)
+//   setInterval(rotateNotificationsProduct1, 2000);
+// });
 
 // Product 2
 document.addEventListener('DOMContentLoaded', function() {

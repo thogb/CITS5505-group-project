@@ -13,13 +13,47 @@
 {% import 'macros/pagination.html' as pagination %}
 
 {% block content %}
-    <div class="row my-4">
-        {% for item in items %}         
-            {% set posted_by_user = item.user_id == current_user.id %}
-            {% set saved_by_user = item.saved_by_user %}
-
-            {{ item_card.render_item_card(item, posted_by_user, saved_by_user) }}
-        {% endfor %}
+    <div class="row">
+        <div class="col-3">
+            <!-- Filter & Refine Section -->
+            <div id="itemsFilter" class="container text-center my-4 filter-refine">
+                <h4 class="mb-4">Filter & Refine</h4>
+                <div class="col justify-content-center w-100 text-start">
+                    <div class="mb-3">
+                        <label for="locationSelect" class="form-label">Location</label>
+                        <select class="form-select" id="locationSelect">
+                            <option selected>Choose...</option>
+                            <option value="Perth Central">Perth Central</option>
+                            <option value="Northbridge">Northbridge</option>
+                            <option value="Cottesloe">Cottesloe</option>
+                            <option value="Fremantle">Fremantle</option>
+                            <option value="Scarborough">Scarborough</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="priceMin" class="form-label">Price Range</label>
+                        <input type="number" class="form-control" id="priceMin" placeholder="$ Min">
+                        <input type="number" class="form-control mt-2" id="priceMax" placeholder="$ Max">
+                    </div>
+                    <button class="btn btn-primary mt-2 end-0 w-100" type="button" onclick="filterResults()">
+                        apply
+                    </button>
+                </div>
+            </div>
+                <!-- View More button -->
+                <!-- <a href="{{ url_for('item.items') }}" class="btn btn-secondary mt-3">View More</a>
+            </div> -->
+        </div>
+        <div class="col-9">            
+            <div class="row my-4">
+                {% for item in items %}         
+                    {% set posted_by_user = item.user_id == current_user.id %}
+                    {% set saved_by_user = item.saved_by_user %}
+                    
+                    {{ item_card.render_item_card(item, posted_by_user, saved_by_user) }}
+                {% endfor %}
+            </div>
+        </div>
     </div>
 
     {{ pagination.render_pagination('item.items', items, filter) }}
