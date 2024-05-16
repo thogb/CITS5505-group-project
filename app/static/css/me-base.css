@@ -1,0 +1,53 @@
+/* 基本颜色和字体设置 */
+:root {
+  --primary-color: #1a5e20;  /* 绿色调 */
+  --secondary-color: #4a5568;  /* 深灰色 */
+  --background-light: #f4f4f4;  /* 浅灰背景 */
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  color: var(--secondary-color);
+}
+
+/* 导航菜单样式 */
+.me-nav-list {
+  background-color: var(--background-light);
+  border-radius: 0.25rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.me-nav-list .list-group-item {
+  color: var(--secondary-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.me-nav-list .list-group-item:hover, .me-nav-list .list-group-item.active {
+  background-color: var(--primary-color);
+  color: white;  /* 确保颜色对比明显，文字始终可见 */
+}
+
+/* 右侧内容区域样式 */
+.right-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 0.25rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.bi-person-circle {
+  margin-right: 8px;  /* 可以根据需要调整这个值 */
+}
+
+.bi-heart-fill{
+  margin-right: 8px;  /* 可以根据需要调整这个值 */
+}
+
+.bi-calendar2-minus{
+  margin-right: 8px;  /* 可以根据需要调整这个值 */
+}
+
+.bi-currency-dollar{
+  margin-right: 8px;  /* 可以根据需要调整这个值 */
+}
+
