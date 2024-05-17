@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
   let currentNotificationProduct1 = 0;  // Initial index for Product 1
   function rotateNotificationsProduct1() {
       // Update the displayed message for Product 1
-      document.getElementById('notificationMessages1').innerHTML = `<p>${notificationsProduct1[currentNotificationProduct1]}</p><a href="#" class="btn btn-primary">Shop Now</a>`;
+      document.getElementById('notificationMessages1').innerHTML = `<p>${notificationsProduct1[currentNotificationProduct1]}</p><a href="#" class="btn btn-success">Shop Now</a>`;
       // Calculate the index for the next message
       currentNotificationProduct1 = (currentNotificationProduct1 + 1) % notificationsProduct1.length;
   }
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
   let currentNotification = 0;  // Initial index
   function rotateNotifications() {
       // Update the displayed message
-      document.getElementById('notificationMessages').innerHTML = `<p>${notifications[currentNotification]}</p><a href="#" class="btn btn-primary">Shop Now</a>`;
+      document.getElementById('notificationMessages').innerHTML = `<p>${notifications[currentNotification]}</p><a href="#" class="btn btn-success">Shop Now</a>`;
       // Calculate the index for the next message
       currentNotification = (currentNotification + 1) % notifications.length;
   }
