@@ -76,7 +76,7 @@ def saved():
         .paginate(page=filter.page, per_page=filter.per_page)
 
     for saved_item in saved_items:
-        if len(saved_item.item.photos) > 1:
+        if len(saved_item.item.photos) >= 1:
             thumb_photo = saved_item.item.photos[0]
             saved_item.item.thumb_photo_url = awsS3_service.generate_presigned_url(f"{thumb_photo.id}.{thumb_photo.extension}")
 
@@ -93,7 +93,7 @@ def items():
         .paginate(page=filter.page, per_page=filter.per_page)
     
     for item in items:
-        if len(item.photos) > 1:
+        if len(item.photos) >= 1:
             thumb_photo = item.photos[0]
             item.thumb_photo_url = awsS3_service.generate_presigned_url(f"{thumb_photo.id}.{thumb_photo.extension}")
 
