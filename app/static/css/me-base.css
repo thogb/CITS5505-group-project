@@ -185,3 +185,89 @@ a:hover {
   border-radius: 5px;  /* 轻微的圆角边缘 */
 }
 
+/* my listing */
+
+/* 基本页面样式 */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+/* 顶部提示条样式 */
+.alert {
+  background-color: #28a745;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 18px;
+}
+
+/* 商品卡片样式 */
+.item-card {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.item-card:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* 商品状态徽章样式 */
+.badge {
+  display: inline-block;
+  padding: 5px 10px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.bg-success {
+  background-color: #28a745; /* 统一绿色主题 */
+}
+
+.bg-info {
+  background-color: #17a2b8;
+}
+
+/* 商品行布局 */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+/* 分页控件样式 */
+.pagination {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+
+.pagination li {
+  padding: 5px 10px;
+  margin: 5px;
+  background-color: #17a2b8;
+  color: white;
+  border-radius: 5px;
+}
+
+.pagination li:hover {
+  background-color: #218838;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .row {
+      flex-direction: column;
+  }
+}
+
