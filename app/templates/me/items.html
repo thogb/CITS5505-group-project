@@ -10,9 +10,23 @@
 {% import 'macros/pagination.html' as pagination %}
 
 {% block right_content %}
+    <div class="alert alert-info" role="alert">
+        for sale now..
+    <div>
+    
     <div class="gap-3 row">
         {% for item in items %}
-            {{ item_card.render_item_card(item) }}
+            <div>
+                {{ item_card.render_item_card(item) }}
+                <!-- sale or sold out -->
+                <div>
+                    {% if item.sold %}
+                        <span class="badge bg-success">Sold Out</span>
+                    {% else %}
+                        <span class="badge bg-info">Available</span>
+                    {% endif %}
+                </div>
+            </div>
         {% endfor %}
     </div>
     {{ pagination.render_pagination('me.items', items, filter) }}
