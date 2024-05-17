@@ -26,16 +26,7 @@
   color: white;
 }
 
-.btn-post-ad {
-  background-color: #28a745 !important;
-  border-color: #28a745 !important;
-  color: white !important;
-}
 
-.btn-post-ad:hover {
-  background-color: #28a745 !important;
-  border-color: #28a745 !important;
-}
 
 /* Filter & Refine styles */
 .filter-refine {
@@ -53,13 +44,7 @@
   border: 1px solid #ced4da;
 }
 
-.filter-refine .btn-primary {
-  background-color: #28a745; /* Primary button color */
-  border: none;
-  padding: 10px 20px;
-  border-radius: 0.25rem; /* Rounded button corners */
-  transition: background-color 0.15s; /* Smooth transition for hover effect */
-}
+
 
 
 /* Ensuring the spacing and layout are visually pleasing */
@@ -178,17 +163,6 @@
   border: 1px solid #ced4da; /* Standard Bootstrap input border */
 }
 
-#contact button[type="submit"] {
-  background-color: #007bff; /* Primary button color */
-  border: none;
-  padding: 10px 20px; /* Button padding */
-  border-radius: 0.25rem; /* Rounded button corners */
-  transition: background-color 0.15s; /* Smooth transition for hover effect */
-}
-
-#contact button[type="submit"]:hover {
-  background-color: #0056b3; /* Darken button on hover */
-}
 
 /* Footer Section */
 footer {

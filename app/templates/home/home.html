@@ -5,7 +5,7 @@
 {% block content %}
 <!-- Hero Image and Card Section -->
 <div class="hero-image text-center" style="position: relative;">
-    <a href="{{ url_for('item.item_new') }}" class="btn btn-post-ad" style="position: absolute; top: 20px; right: 20px;">Post an Ad</a>
+    <a href="{{ url_for('item.item_new') }}" class="btn btn-success" style="position: absolute; top: 20px; right: 20px;">Post an Ad</a>
     <div class="overlay-text">
         <h1>Welcome to Dreamers Market!</h1>
         <p>Your premier destination for prized second-hand treasures</p>
@@ -25,7 +25,8 @@
                     <h5 class="card-title">Holiday Season Sale</h5>
                     <div id="notificationMessages1" class="card-text">
                         <p>Unwrap the joy of savings with our spectacular holiday discounts on electronics!</p>
-                        <a href="#" class="btn btn-primary">Shop Now</a>
+                        <a href="#" class="btn btn-success">Shop Now</a>
+                        
                     </div>
                 </div>
             </div>
@@ -39,7 +40,7 @@
                     <h5 class="card-title">Hot Deals</h5>
                     <div id="notificationMessages" class="card-text">
                         <p>Flash Sale: Books at up to 40% off!</p>
-                        <a href="#" class="btn btn-primary">Shop Now</a>
+                        <a href="#" class="btn btn-success">Shop Now</a>
                     </div>
                 </div>
             </div>
@@ -52,7 +53,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Local Weather</h5>
                     <p id="currentTime" class="card-text">Time here.</p>
-                    <button id="weather-btn" class="btn btn-primary">Check Weather</button>
+                    <button id="weather-btn" class="btn btn-success">Check Weather</button>
                     <a href="https://www.weatherapi.com/">(Learn more from Weather API)</a>
                     <div id="weather"></div>
                     <p id="curlocation"></p>
@@ -69,7 +70,7 @@
                 <div class="card-body">
                     <h5 class="card-title">End of Season Sale Countdown</h5>
                     <p id="countdown-timer" class="card-text">Loading countdown...</p>
-                    <a href="#" class="btn btn-primary">Shop Now</a>
+                    <a href="#" class="btn btn-success">Shop Now</a>
                 </div>
             </div>
         </div>
@@ -97,7 +98,7 @@
                 <input type="number" class="form-control" id="priceMin" placeholder="$ Min">
                 <input type="number" class="form-control mt-2" id="priceMax" placeholder="$ Max">
             </div>
-            <button class="btn btn-primary mt-2" type="button" onclick="filterResults()">Go</button>
+            <button class="btn btn-success mt-2" type="button" onclick="filterResults()">Go</button>
         </div>
     </div>
 </div>
@@ -136,7 +137,7 @@
             <label for="contactMessage" class="form-label">Message:</label>
             <textarea class="form-control" id="contactMessage" rows="3" required></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-success">Submit</button>
     </form>
 </div>
 
