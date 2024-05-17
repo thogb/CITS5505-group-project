@@ -93,19 +93,6 @@ body {
   font-size: 14px;
 }
 
-/* 按钮样式 */
-.btn-primary {
-  background-color: #28a745; /* 鲜明绿色按钮 */
-  border-color: #28a745; /* 鲜明绿色边框 */
-  padding: 10px 20px;
-  border-radius: 4px; /* 轻微的圆角 */
-  font-weight: bold; /* 加粗字体 */
-}
-
-.btn-primary:hover {
-  background-color: #218838; /* 深绿色 */
-  border-color: #1e7e34;
-}
 
 /* 链接样式 */
 a {
@@ -251,8 +238,8 @@ body {
 .pagination li {
   padding: 5px 10px;
   margin: 5px;
-  background-color: #17a2b8;
-  color: white;
+  background-color: #218838;
+  color: #218838;
   border-radius: 5px;
 }
 

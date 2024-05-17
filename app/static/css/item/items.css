@@ -1,11 +1,97 @@
-.i-btn-save-item {
-  cursor: pointer;
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* 轻微减小文字阴影 */
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 15px; /* 调小内边距 */
+}
 
-  &[data-item-saved="true"] {
-    color: orange;
-  }
 
-  &:hover {
-    color: orange;
-  }
+/* General styling for the form within the container */
+#form-container form {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+}
+
+#form-container form:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+}
+
+/* Styling labels within the container */
+#form-container label {
+  display: block;
+  margin-bottom: .5rem;
+  color: #333;
+  font-weight: 700;
+  transition: color 0.3s;
+}
+
+#form-container label:hover {
+  color: #28a745;
+}
+
+/* Enhancing the appearance of input and select boxes within the container */
+#form-container .form-control {
+  display: block;
+  width: 100%;
+  padding: .375rem .75rem;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 2px solid #ced4da;
+  border-radius: .5rem;
+  transition: all 0.3s ease-in-out;
+}
+
+#form-container .form-control:focus {
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 5px rgba(128, 189, 255, 0.5);
+}
+
+/* Custom styles for checkboxes within the container */
+#form-container .form-check-input {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  vertical-align: middle;
+  transition: transform 0.2s;
+}
+
+#form-container .form-check-input:checked {
+  transform: scale(1.2);
+  border-color: #28a745;
+  background-color: #28a745;
+}
+
+/* Adding subtle hover effects to inputs for better user experience */
+#form-container .form-control:hover {
+  background-color: #f8f9fa;
+}
+
+/* Enhance file input style */
+#form-container .form-control[type="file"] {
+  border: none;
+  background-color: #f7f7f7;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+}
+
+#form-container .form-control[type="file"]:hover {
+  background-color: #e9ecef;
 }

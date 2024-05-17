@@ -6,7 +6,7 @@
 
 {% block right_content %}
 
-    <div class="card border-info">
+    <div class="card border-info border-success">
         <div class="card-body">
             <form action="" method="post" class="p-3">
     {{ form.csrf_token() }}
@@ -35,7 +35,7 @@
         {{ form.city(class="form-control") }}
     </div>
     <div class="form-group">
-        {{ form.submit(class="btn btn-primary")}}
+        {{ form.submit(class="btn btn-success")}}
     </div>
 </form>
 
