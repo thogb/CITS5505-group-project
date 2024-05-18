@@ -243,10 +243,20 @@ body {
   background-color: #218838;
 }
 
-/* 响应式设计 */
-@media (max-width: 768px) {
-  .row {
-      flex-direction: column;
-  }
+.card-title {
+  background-color: #e8f5e9;
+  padding: 12px 20px;
+  margin-top: 10px;
+  box-shadow: 0 4px 8px rgba(0, 128, 0, 0.2);
+  font-size: 1.5rem;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+  color: #2E7D32;
 }
+
+.card-title:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
 
