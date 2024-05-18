@@ -7,18 +7,34 @@
 {% block css_styles %}
     {{ super() }}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/me-base.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"> 
 {% endblock %}
 
 {% block content %}
+
+    <div class="top-image">
+        <img src="{{ url_for('static', filename='img/top-second.jpg') }}" alt="Top Image" style="width: 100%; height: auto; display: block;">
+        <div class="image-overlay">
+            <h1>Dreamers Market</h1>
+        </div>
+    </div>
+
     <div class="row mt-5">
         <div class="col-lg-3">
             {% block left_side_nav %}
                 <div class="card">
-                    <ul class="list-group">
-                        <a class="list-group-item list-group-item-action {{ 'active' if active_page == 'me' else '' }}" href="/me">Profile</a>
-                        <a class="list-group-item list-group-item-action {{ 'active' if active_page == 'me/saved' else '' }}" href="/me/saved">Saved</a>
-                        <a class="list-group-item list-group-item-action {{ 'active' if active_page == 'me/items' else '' }}" href="/me/items">Items</a>
-                        <a class="list-group-item list-group-item-action {{ 'active' if active_page == 'me/bids' else '' }}" href="/me/bids">Bids</a>
+                    <div class="card-header text-center">
+                        <a href="/me">
+                            <div class="profile-initials rounded-circle" style="width: 80px; height: 80px; background-color: var(--primary-color); color: white; display: flex; justify-content: center; align-items: center; font-weight: bold;">
+                                {{ current_user.first_name[0] | upper }}{{ current_user.last_name[-1] | upper }}
+                            </div>
+                        </a>
+                    </div>
+                    <ul class="list-group me-nav-list">
+                        <a class="list-group-item list-group-item-action {{ 'active' if active_page == 'me' else '' }}" href="/me"><i class="bi bi-person-circle"></i>Profile</a>
+                        <a class="list-group-item list-group-item-action {{ 'active' if active_page == 'me/saved' else '' }}" href="/me/saved"><i class="bi bi-heart-fill"></i>Favorites</a>
+                        <a class="list-group-item list-group-item-action {{ 'active' if active_page == 'me/items' else '' }}" href="/me/items"><i class="bi bi-calendar2-minus"></i>My Listings</a>
+                        <a class="list-group-item list-group-item-action {{ 'active' if active_page == 'me/bids' else '' }}" href="/me/bids"><i class="bi bi-currency-dollar"></i>My Bids</a>
                         <a class="list-group-item list-group-item-action text-end {{ 'active' if active_page == 'me/send-requests' else '' }}" href="/me/send-requests">Send Requests</a>
                         <a class="list-group-item list-group-item-action text-end {{ 'active' if active_page == 'me/received-requests' else '' }}" href="/me/received-requests">Received Requests</a>
                     </ul>

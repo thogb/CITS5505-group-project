@@ -7,8 +7,8 @@
             <div class="col-7">
                 <h5 class="card-title">{{ item.title }}</h5>
                 <p class="card-text">{{ item.description }}</p>
-                <p class="card-text">{{ item.price }}</p>
-                <p class="card-text">{{ item.used }}</p>
+                <p class="card-text">price is {{ item.price }}</p>
+                <p class="card-text">used is {{ item.used }}</p>
                 <p class="card-text">{{ item.category.name }}</p>
                 <p class="card-text">{{ item.city.name }} {{ item.city.state.name }}</p>
                 <p class="card-text">Posted at {{ item.create_time }}</p>

@@ -79,3 +79,5 @@ $(function () {
   $(document).on("click", "#btnApplyFilter", onApplyFilterClick);
   $(document).on("click", "#btnResetFilter", onResetFilterClick);
 });
+
+

@@ -15,9 +15,18 @@
 {% endblock %}
 
 {% block right_content %}
+    <!-- 新增标题和一条隐约横线 -->
+    <div class="saved-items-header">
+        <h1>Saved Items</h1>
+        <hr class="subtle-line">
+    </div>
+
     <div class="gap-3 row">
         {% for item in saved_items %}
-            {{ saved_item_card.render_saved_item_card(item) }}
+            <div class="item-container">
+                <div class="item-index">{{ loop.index }}.</div>  <!-- Display item number -->
+                {{ saved_item_card.render_saved_item_card(item) }}
+            </div>
         {% endfor %}
     </div>
     {{ pagination.render_pagination('me.saved', saved_items, filter) }}

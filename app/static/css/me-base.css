@@ -1,70 +1,252 @@
-/* static/css/me-base.css */
+body {
+  font-family: 'Arial', sans-serif;
+  color: var(--secondary-color);
+}
+
+
+.me-nav-list {
+  background-color: var(--background-light);
+  border-radius: 0.25rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.me-nav-list .list-group-item {
+  color: var(--secondary-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.me-nav-list .list-group-item:hover, .me-nav-list .list-group-item.active {
+  background-color: var(--primary-color);
+  color: white;  
+}
+
+
+.right-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 0.25rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.bi-person-circle {
+  margin-right: 8px;  
+}
+
+.bi-heart-fill{
+  margin-right: 8px;  
+}
+
+.bi-calendar2-minus{
+  margin-right: 8px;  
+}
+
+.bi-currency-dollar{
+  margin-right: 8px;  
+}
+
+
+
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f8f9fa;
+  background-color: #e8e8e8; 
+  color: #333; 
+  font-family: 'Arial', sans-serif;
+}
+
+
+.card {
+  background-color: #fff; 
+  border: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
+  border-radius: 8px; 
+}
+
+.card-header, .card-body {
+  background-color: #fff;
+  color: #333;
+}
+
+
+.form-control {
+  background-color: #fff; 
+  color: #333;
+  border: 2px solid #aaa; 
+  border-radius: 4px; 
+  padding: 10px;
+}
+
+.form-control:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 8px rgba(40, 167, 69, 0.75); 
+}
+
+/* 标签样式 */
+.form-label {
+  display: block;
+  margin-bottom: .5rem;
+  color: #555; 
+  font-weight: bold; 
+  font-size: 14px;
+}
+
+
+/* 链接样式 */
+a {
+  color: #28a745; 
+  text-decoration: none; 
+}
+
+a:hover {
+  color: #218838; 
+  text-decoration: underline; 
+}
+
+/* top图片 */
+
+.top-image {
+  position: relative;
+  width: 100%; 
+  height: 100px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  margin-top: 60px;
+}
+
+.top-image img {
+  width: 100%; 
+  height: auto; 
+  display: block; 
+}
+
+.image-overlay {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  color: white; 
+  font-size: 2rem; 
+  font-weight: bold; 
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6); 
+}
+
+/* favorites */
+.saved-items-header h1 {
+  text-align: center; 
+  font-size: 24px; 
+  color: var(--primary-color); 
+}
+
+.subtle-line {
+  width: 80%; 
+  margin: 0 auto; 
+  border: 0;
+  height: 1px;
+  background-color: rgb(0, 0, 0); 
+  margin-bottom: 30px;
+}
+.item-container {
+  position: relative;
+  padding-left: 40px;  
+}
+
+.item-index {
+  position: absolute;
+  left: 0;
+  top: 10px;  
+  font-weight: bold;
+  color: var(--primary-color);  
+  font-size: 18px;  
+  background-color: rgba(255, 255, 255, 0.5);  
+  padding: 3px 8px;  
+  border-radius: 5px;  
+}
+
+/* my listing */
+
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
   margin: 0;
   padding: 0;
 }
 
-.navbar {
-  background-color: #007bff;
+
+.alert {
+  background-color: #28a745;
   color: white;
-}
-
-.navbar a {
-  color: white;
-  text-decoration: none;
-}
-
-.card {
-  margin-top: 20px;
-}
-
-.card .list-group-item.active {
-  background-color: #007bff;
-  border-color: #007bff;
-}
-
-.right-content {
-  padding: 20px;
-  background-color: white;
-  border: 1px solid #dee2e6;
+  padding: 10px;
   border-radius: 5px;
-  margin-top: 20px;
-}.form-control {
-  border: 1px solid #ced4da;
-  border-radius: 0.25rem;
-  padding: 0.375rem 0.75rem;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 18px;
 }
 
-.btn-primary {
-  background-color: #007bff;
-  border-color: #007bff;
-  color: white;
+/* 商品卡片样式 */
+.item-card {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 20px;
 }
 
-.btn-primary:hover {
-  background-color: #0056b3;
-  border-color: #004085;
+.item-card:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-.card {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border: none; /* 移除边框，使其更加现代化 */
-  margin-top: 20px;
+/* 商品状态徽章样式 */
+.badge {
+  display: inline-block;
+  padding: 5px 10px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 20px;
+  text-align: center;
 }
 
-.card-body {
-  padding: 20px;
+.bg-info {
+  background-color: #17a2b8;
 }
 
-.card.border-info {
-  border-left: 5px solid #17a2b8; /* 给卡片添加一条左边的颜色条，增加视觉效果 */
+/* 商品行布局 */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
 }
 
-.container {
-  max-width: 960px; /* 或其他适合的宽度 */
-  margin: 0 auto; /* 水平居中 */
-  padding: 15px; /* 适当的内边距 */
+/* 分页控件样式 */
+.pagination {
+  display: flex;
+  list-style: none;
+  padding: 0;
 }
+
+.pagination li {
+  padding: 5px 10px;
+  margin: 5px;
+  background-color: #218838;
+  color: #218838;
+  border-radius: 5px;
+}
+
+.pagination li:hover {
+  background-color: #218838;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .row {
+      flex-direction: column;
+  }
+}
+
