@@ -3,19 +3,19 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  height: 45vh; 
-  width: 100vw; 
-  background-image: url('../img/top.jpg');
+  height: 45vh;
+  width: 100vw;
+  background-image: url("../img/top.jpg");
   background-size: cover;
   background-position: center 10%;
-  margin-left: -50vw; 
-  left: 50%; 
-  right: 50%; 
-  margin-bottom: 50px; 
+  margin-left: -50vw;
+  left: 50%;
+  right: 50%;
+  margin-bottom: 50px;
 }
 
 .large-icon {
-  font-size: 4rem; 
+  font-size: 4rem;
 }
 
 .overlay-text {
@@ -25,8 +25,6 @@
   transform: translate(-50%, -50%);
   color: white;
 }
-
-
 
 /* Filter & Refine styles */
 .filter-refine {
@@ -38,14 +36,12 @@
 }
 
 /* Styles for form elements within the Filter & Refine section */
-.filter-refine .form-control, .filter-refine .form-select {
+.filter-refine .form-control,
+.filter-refine .form-select {
   border-radius: 0.25rem;
   background-color: #fff;
   border: 1px solid #ced4da;
 }
-
-
-
 
 /* Ensuring the spacing and layout are visually pleasing */
 .filter-refine label {
@@ -72,12 +68,11 @@
   margin-bottom: 30px; /* Adjust this value as needed */
 }
 
-
 /* Back to top button */
 .back-to-top {
   position: fixed;
   bottom: 20px; /* Adjust the bottom value as needed */
-  right: 20px;  /* Adjust the right value as needed */
+  right: 20px; /* Adjust the right value as needed */
   z-index: 100; /* Ensure the button is above other content */
 }
 
@@ -163,7 +158,6 @@
   border: 1px solid #ced4da; /* Standard Bootstrap input border */
 }
 
-
 /* Footer Section */
 footer {
   background-color: #343a40; /* Dark footer background */
@@ -213,7 +207,10 @@ footer .student-info {
 }
 
 /* General styles to improve legibility and spacing */
-.container, .row, .col-lg-3, .col-md-6 {
+.container,
+.row,
+.col-lg-3,
+.col-md-6 {
   margin-top: 10px;
 }
 
@@ -222,4 +219,11 @@ footer .text-center {
   font-size: 0.9rem; /* Smaller font size for copyright and student info */
   color: #6c757d; /* Grey text for subtle effect */
   padding: 10px 0; /* Padding for the section */
+}
+
+.card-rand-item-text {
+  -webkit-line-clamp: 3;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }

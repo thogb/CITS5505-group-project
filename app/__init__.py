@@ -4,6 +4,7 @@ from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import MetaData
 from .services.awsS3 import AWSS3
+import re
 
 from config import Config
 
@@ -25,9 +26,14 @@ migrate = Migrate()
 cache = Cache()
 awsS3_service = AWSS3()
 
+# Method to extend Jinja filter to use custom filter from ChatGPT
+def regex_search(value, pattern):
+    return re.search(pattern, value) is not None
+
 def create_app(config_class=Config):
     app = Flask(__name__)
     app.config.from_object(config_class)
+    app.jinja_env.filters["regex_search"] = regex_search
 
     db.init_app(app)
     migrate.init_app(app, db)

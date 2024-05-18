@@ -17,95 +17,20 @@
 </div>
 <div class="container">
     <div class="row">
-        <!-- Product 1 Card -->
-        <div class="col-md-3">
+        {% for item in items %}
             <div class="card product-card">
-                <img src="{{ url_for('static', filename='img/product1.gif') }}" class="card-img-top" alt="Holiday Season Sale">
+                <img src="{{ item.thumb_photo_url if item.thumb_photo_url else '/static/img/not-found.webp' }}" onerror="this.src='/static/img/not-found.webp'" class="card-img-top" alt="{{ item.title }} thumb photo">
                 <div class="card-body">
-                    <h5 class="card-title">Holiday Season Sale</h5>
-                    <div id="notificationMessages1" class="card-text">
-                        <p>Unwrap the joy of savings with our spectacular holiday discounts on electronics!</p>
-                        <a href="#" class="btn btn-success">Shop Now</a>
-                        
+                    <h5 class="card-title card-rand-item-text">{{ item.title }}</h5>
+                    <div id="notificationMessages1" class="card-text card-rand-item-text">
+                        <p>{{ item.description }}</p>
                     </div>
+                    <a href="{{ url_for('item.item', item_id=item.id) }}" class="btn btn-primary">Shop Now</a>
                 </div>
             </div>
-        </div>
-
-        <!-- Product 2 Card -->
-        <div class="col-md-3">
-            <div class="card product-card">
-                <img src="{{ url_for('static', filename='img/product2.gif') }}" class="card-img-top" alt="Product 2">
-                <div class="card-body">
-                    <h5 class="card-title">Hot Deals</h5>
-                    <div id="notificationMessages" class="card-text">
-                        <p>Flash Sale: Books at up to 40% off!</p>
-                        <a href="#" class="btn btn-success">Shop Now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Product 3 Card -->
-        <div class="col-md-3">
-            <div class="card product-card">
-                <img src="{{ url_for('static', filename='img/product3.jpg') }}" class="card-img-top" alt="weather">
-                <div class="card-body">
-                    <h5 class="card-title">Local Weather</h5>
-                    <p id="currentTime" class="card-text">Time here.</p>
-                    <button id="weather-btn" class="btn btn-success">Check Weather</button>
-                    <a href="https://www.weatherapi.com/">(Learn more from Weather API)</a>
-                    <div id="weather"></div>
-                    <p id="curlocation"></p>
-                    <p id="temp"></p>
-                    <p id="sunny"></p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Product 4 Card -->
-        <div class="col-md-3">
-            <div class="card product-card">
-                <img src="{{ url_for('static', filename='img/product4.jpg') }}" class="card-img-top" alt="End of Season Sale Countdown">
-                <div class="card-body">
-                    <h5 class="card-title">End of Season Sale Countdown</h5>
-                    <p id="countdown-timer" class="card-text">Loading countdown...</p>
-                    <a href="#" class="btn btn-success">Shop Now</a>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 </div>
-
-<!-- Filter & Refine Section -->
-<div class="container text-center my-4 filter-refine">
-    <h2 class="mb-4">Filter & Refine</h2>
-    <div class="row justify-content-center">
-        <div class="col-md-4">
-            <div class="mb-3">
-                <label for="locationSelect" class="form-label">Location</label>
-                <select class="form-select" id="locationSelect">
-                    <option selected>Choose...</option>
-                    <option value="Perth Central">Perth Central</option>
-                    <option value="Northbridge">Northbridge</option>
-                    <option value="Cottesloe">Cottesloe</option>
-                    <option value="Fremantle">Fremantle</option>
-                    <option value="Scarborough">Scarborough</option>
-                </select>
-            </div>
-            <div class="mb-3">
-                <label for="priceMin" class="form-label">Price Range</label>
-                <input type="number" class="form-control" id="priceMin" placeholder="$ Min">
-                <input type="number" class="form-control mt-2" id="priceMax" placeholder="$ Max">
-            </div>
-            <button class="btn btn-success mt-2" type="button" onclick="filterResults()">Go</button>
-        </div>
-    </div>
-</div>
-    <!-- View More button -->
-    <!-- <a href="{{ url_for('item.items') }}" class="btn btn-secondary mt-3">View More</a>
-</div> -->
-
 
 <!-- Back to top button -->
 <a href="#" class="back-to-top">
@@ -141,7 +66,10 @@
     </form>
 </div>
 
-<!-- Footer -->
+{% endblock %}
+
+{% block footer %}
+    <!-- Footer -->
 <footer class="bg-light text-center text-lg-start">
     <div class="container p-4">
         <!--Grid row-->
@@ -150,9 +78,8 @@
             <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
                 <h5 class="text-uppercase">Tips & Help</h5>
                 <ul class="list-unstyled mb-0">
-                    <li><a href="about_us.html" class="text-dark">About Dreamers Market</a></li>
-                    <li><a href="help.html" class="text-dark">Help</a></li>
-                    <li><a href="register.html" class="text-dark">Register</a></li>
+                    <li><a href="#contact" class="text-dark">About Dreamers Market</a></li>
+                    <li><a href="#" class="text-dark">Help</a></li>
                 </ul>
             </div>
             <!--Grid column-->
@@ -161,21 +88,22 @@
             <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
                 <h5 class="text-uppercase">For Business</h5>
                 <ul class="list-unstyled mb-0">
-                    <li><a href="display-ads.html" class="text-dark">Display Ads</a></li>
+                    <li><a href="#" class="text-dark">Display Ads</a></li>
                 </ul>
             </div>
             <!--Grid column-->
 
             <!--Grid column-->
             <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                <h5 class="text-uppercase">Top Categories</h5>
-                <ul class="list-unstyled mb-0">
-                    <li><a href="electronics.html" class="text-dark">Electronics</a></li>
-                    <li><a href="books-learning.html" class="text-dark">Books & Learning Materials</a></li>
-                    <li><a href="furniture-decor.html" class="text-dark">Furniture & Home Decor</a></li>
-                    <li><a href="clothing-accessories.html" class="text-dark">Clothing & Accessories</a></li>
-                    <li><a href="sports-outdoors.html" class="text-dark">Sports & Outdoors</a></li>
-                    <li><a href="all-categories.html" class="text-dark">All Categories</a></li>
+                <h5 class="text-uppercase">Categories</h5>
+                 <ul class="list-unstyled mb-0">
+                    {% for category in categories %}
+                        <li>
+                            <a href="{{ url_for('item.items', category=category.id) }}" class="text-dark">
+                                {{ category.name }}
+                            </a>
+                        </li>
+                    {% endfor %}
                 </ul>
             </div>
             <!--Grid column-->
@@ -209,5 +137,4 @@
     <p>Students ID: 23888818 & 23805764</p> 
     <p>CITS5505 Agile Web Development Project 2</p>
 </div>
-
 {% endblock %}

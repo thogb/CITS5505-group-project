@@ -2,31 +2,39 @@
     {% set icon_class = 'fa-solid' if saved_by_user else 'fa-regular' %}
     {% set data_item_saved = 'true' if saved_by_user else 'false' %}
 
-    <div class="col-sm-4 mb-3 mb-sm-0">
-        <div class="card">
-            <img class="card-img-top" alt="image" onerror="this.src='/static/img/not-found.webp'" src="{{ item.thumb_photo_url if item.thumb_photo_url else '/static/img/not-found.webp' }}" style="height: 300px;">
-            <hr/>
-            <div class="card-body">
-                <a href="{{ url_for('item.item', item_id=item.id) }}">
-                    <h5 class="card-title">{{ item.title }}</h5>
-                </a>
-                <p class="card-text">{{ item.description }}</p>
-                <p class="card-text">{{ item.price }}</p>
-                <p class="card-text">{{ item.create_time }}</p>
-                <p class="card-text">{{ item.used }}</p>
-                <p class="card-text">{{ item.category.name }}</p>
-                <p class="card-text">{{ item.city.name }}</p>
-                <p class="card-text">{{ item.city.state.name }}</p>
-                <span>
-                    <!-- User can only save item that is posted by some one else -->
-                    {% if not posted_by_user %}
-                        <i class="{{ icon_class }} fa-bookmark i-btn-save-item" data-item-saved="{{ data_item_saved }}" data-item-id="{{ item.id }}"></i>
-                    {% endif %}
-                </span>
-                {% if posted_by_user %}
-                    <p class="card-text">Posted by you</p>
+    <div class="col-sm-4 mb-3 items-item-card-container">
+        <a href="{{ url_for('item.item', item_id=item.id) }}">
+            <div class="card">
+                <img class="card-img-top" alt="image" onerror="this.src='/static/img/not-found.webp'" src="{{ item.thumb_photo_url if item.thumb_photo_url else '/static/img/not-found.webp' }}" style="height: 200px;">
+                <hr class="border-secondary my-1"/>
+                <div class="card-body">
+                    <h6 class="card-title">
+                        {{ item.title }}
+                    </h6>
+
+                    <div class="card-price-container mb-1">
+                        <span class="card-text card-text-price">${{ item.price }}</span>
+                        <div class="badge badge-used {{ "badge-success" if not item.used else "badge-warning" }}">
+                            {{ "New" if not item.used else "Used" }}
+                        </div>
+                    </div>
+                    <p class="card-text card-text-description">
+                        {{ item.description }}
+                    </p>
+                    <p class="card-text font-weight-light">{{ item.city.name }}, {{ item.city.state.name }}</p>
+                </div>
+                <!-- User can only save item that is posted by some one else -->
+            </div>
+        </a>
+        <div class="card-bottom-container">
+            <div class="category-container">
+                <span>{{ item.category.name }}</span>
+            </div>
+            <div class="i-btn-saved-item-container">
+                {% if not posted_by_user %}
+                    <i class="{{ icon_class }} fa-bookmark i-btn-save-item" data-item-saved="{{ data_item_saved }}" data-item-id="{{ item.id }}"></i>
                 {% else %}
-                    <p class="card-text">Posted by {{ item.user.first_name + " " + item.user.last_name }}</p>
+                    <p class="card-text">Posted by you</p>
                 {% endif %}
             </div>
         </div>

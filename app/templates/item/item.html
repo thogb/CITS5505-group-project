@@ -11,8 +11,13 @@
 
 {% import 'item/macros/item-request.html' as item_request %}
 
+{% block css_styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/item/item.css') }}">
+{% endblock %}
+
 {% block content %}
-<div class="card mt-4">
+<div id="itemCard" class="card mt-4" data-item-id="{{ item.id }}">
     <div class="row">
         <div class="col-sm-12 col-lg-5">
             <div id="carouselExampleIndicators" class="carousel slide">
@@ -50,6 +55,62 @@
         </div>
     </div>
 </div>
+<div class="comment-container mt-5">
+    <h5 class="h5">
+        Post a comment
+    </h5>
+    <div class="comment-box-container">
+        <textarea id="commentInput" class="form-control" rows="4" required></textarea>
+        <button id="btnPostComment" class="btn btn-primary ml-auto mt-3">
+            Post
+        </button>
+    </div>
+    <div class="comment-list-container">
+        <h5 class="h5 mb-3">
+            Comments
+        </h5>
+        <div id="commentList">
+            {% for comment in comments %}
+                <div class="comment" data-comment-id="{{ comment.id }}">
+                    <div class="comment-avatar">
+                        <span>
+                            {{ comment.user.first_name[0] }}
+                        </span>
+                        <span>
+                            {{ comment.user.last_name[0] }}
+                        </span>
+                    </div>
+                    <div class="comment-content">
+                        <div>
+                            <span class="comment-name">
+                                {{ comment.user.first_name + " " + comment.user.last_name }}
+                            </span>
+                            <span class="comment-time text-secondary">
+                                {% if comment.days_ago == 0 %}
+                                    Today
+                                {% else %}
+                                    {% if comment.is_a_month_ago %}
+                                        {{ comment.days_ago }}+ days ago
+                                    {% else %}
+                                        {{ comment.days_ago }} days ago
+                                    {% endif %}    
+                                {% endif %}                      
+                            </span>
+                        </div>
+                        <p>
+                            {{ comment.description }}
+                        </p>
+                        {% if current_user.id == comment.user.id %}
+                            <span class="icon-button-delete" data-action="delete">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </span>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
 {% endblock %}
 
 {% block modals %}
@@ -60,4 +121,5 @@
 {% block js_scripts %}
     {{ super() }}
     <script src="{{ url_for('static', filename='js/item/item-request.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/item/item.js') }}"></script>
 {% endblock %}
