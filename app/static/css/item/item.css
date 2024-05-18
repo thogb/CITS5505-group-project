@@ -3,6 +3,10 @@
   flex-direction: column;
 }
 
+.comment-container {
+  padding-bottom: 48px;
+}
+
 .comment-list-container {
   margin-top: 48px;
 }

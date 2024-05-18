@@ -4,17 +4,14 @@
 
 {% block css_styles %}
     {{ super() }}
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/item/items.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/item/item-new.css') }}">
 {% endblock %}
 
 
 {% block content %}
 
-<div class="top-image" style="position: relative; overflow: hidden;">
-    <img src="{{ url_for('static', filename='img/top-second.jpg') }}" alt="Top Image" style="width: 100%; height: auto; display: block;">
-    <div class="image-overlay" style="font-weight: 100;">
-        <h1 style="font-size:1rem">Welcome to Dreamers' Market,<br> where your pre-loved items find their new homes. Pass on the value and create joy together!</h1>
-    </div>
+<div class="top-container">
+    <h1 style="font-size:1rem">Welcome to Dreamers' Market,<br> where your pre-loved items find their new homes. Pass on the value and create joy together!</h1>
 </div>
 
 

@@ -5,7 +5,7 @@
                 <img class="card-img" src="{{ item.thumb_photo_url }}" alt="Item Image" onerror="this.src='/static/img/not-found.webp'" style="max-height: 400px; width: 100%; object-fit: cover;">
             </div>
             <div class="col-7">
-                <h5 class="card-title">{{ item.title }}</h5>
+                <h5 class="card-title card-item-title">{{ item.title }}</h5>
                 <p class="card-text"><strong>Description:</strong> {{ item.description }}</p>
                 <p class="card-text"><strong>Price:</strong> ${{ '%.2f' | format(item.price) }}</p>
                 <p class="card-text"><strong>Condition:</strong> {{ 'Used' if item.used else 'New' }}</p>

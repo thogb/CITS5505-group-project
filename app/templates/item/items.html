@@ -14,7 +14,7 @@
 
 {% block content %}
     <div class="row">
-        <div class="col-3">
+        <div class="col-sm-12 col-lg-3">
             <!-- Filter & Refine Section -->
             <div id="itemsFilter" class="container text-center my-4 filter-refine">
                 <h4 class="mb-4">Filter & Refine</h4>
@@ -58,7 +58,7 @@
                 <!-- <a href="{{ url_for('item.items') }}" class="btn btn-secondary mt-3">View More</a>
             </div> -->
         </div>
-        <div class="col-9">            
+        <div class="col-sm-12">            
             <div class="row my-4">
                 {% for item in items %}         
                     {% set posted_by_user = item.user_id == current_user.id %}

@@ -4,11 +4,6 @@
 
 {% block title %} {{ item.title }} {% endblock %}
 
-{% block css_styles %}
-    {{ super() }}
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/item/items.css') }}">
-{% endblock %}
-
 {% import 'item/macros/item-request.html' as item_request %}
 
 {% block css_styles %}

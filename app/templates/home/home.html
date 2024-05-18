@@ -4,9 +4,8 @@
 
 {% block content %}
 <!-- Hero Image and Card Section -->
-<div class="hero-image text-center" style="position: relative;">
-    <a href="{{ url_for('item.item_new') }}" class="btn btn-success" style="position: absolute; top: 20px; right: 20px;">Post an Ad</a>
-    <div class="overlay-text">
+<div class="top-container text-center" style="position: relative;">
+    <div>
         <h1>Welcome to Dreamers Market!</h1>
         <p>Your premier destination for prized second-hand treasures</p>
         <!-- Icon centered below the text -->
@@ -14,18 +13,23 @@
             <i class="bi bi-cart-check large-icon"></i> <!-- Adjust the icon size and type as needed -->
         </div>
     </div>
+    <a id="btnPostCard" href="{{ url_for('item.item_new') }}" class="btn btn-success">
+        Post an Ad
+    </a>
 </div>
 <div class="container">
     <div class="row">
         {% for item in items %}
-            <div class="card product-card">
-                <img src="{{ item.thumb_photo_url if item.thumb_photo_url else '/static/img/not-found.webp' }}" onerror="this.src='/static/img/not-found.webp'" class="card-img-top" alt="{{ item.title }} thumb photo">
-                <div class="card-body">
-                    <h5 class="card-title card-rand-item-text">{{ item.title }}</h5>
-                    <div id="notificationMessages1" class="card-text card-rand-item-text">
-                        <p>{{ item.description }}</p>
+            <div class="col-sm-6 col-lg-3">
+                <div class="card product-card">
+                    <img src="{{ item.thumb_photo_url if item.thumb_photo_url else '/static/img/not-found.webp' }}" onerror="this.src='/static/img/not-found.webp'" class="card-img-top" alt="{{ item.title }} thumb photo">
+                    <div class="card-body">
+                        <h5 class="card-title card-rand-item-text">{{ item.title }}</h5>
+                        <div id="notificationMessages1" class="card-text card-rand-item-text">
+                            <p>{{ item.description }}</p>
+                        </div>
+                        <a href="{{ url_for('item.item', item_id=item.id) }}" class="btn btn-primary">Shop Now</a>
                     </div>
-                    <a href="{{ url_for('item.item', item_id=item.id) }}" class="btn btn-primary">Shop Now</a>
                 </div>
             </div>
         {% endfor %}
