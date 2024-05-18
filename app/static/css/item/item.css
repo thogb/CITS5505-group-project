@@ -31,10 +31,10 @@
   border-radius: 100%;
   text-transform: capitalize;
   margin-right: 16px;
+}
 
-  & span {
-    font-size: 1.5rem;
-  }
+.comment-avatar span {
+  font-size: 1.5rem;
 }
 
 .comment-content {
@@ -43,19 +43,19 @@
   padding: 8px;
   border-radius: 4px;
   position: relative;
+}
 
-  & .icon-button-delete {
-    cursor: pointer;
-    color: var(--red);
-    opacity: 0.75;
-    position: absolute;
-    top: 8px;
-    right: 8px;
+.comment-content .icon-button-delete {
+  cursor: pointer;
+  color: var(--red);
+  opacity: 0.75;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
 
-    &:hover {
-      opacity: 1;
-    }
-  }
+.comment-content .icon-button-delete:hover {
+  opacity: 1;
 }
 
 .comment-name {
