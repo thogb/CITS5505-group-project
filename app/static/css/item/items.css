@@ -190,25 +190,25 @@ textarea {
 
 /* Enhance the card appearance */
 .card {
-  border: 1px solid #ddd; /* Subtle border color */
-  border-radius: 10px; /* Rounded corners for a softer look */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
-  transition: box-shadow 0.3s ease-in-out, transform 0.2s; /* Smooth transitions for hover effects */
-  background: #fff; /* White background */
-  margin-top: 20px; /* Spacing from the top */
-  overflow: hidden; /* Ensures no content spills out */
+  border: 1px solid #ddd;
+  border-radius: 10px; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+  transition: box-shadow 0.3s ease-in-out, transform 0.2s; 
+  background: #fff; 
+  margin-top: 20px; 
+  overflow: hidden; 
 }
 
 .card:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow when hovered */
-  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+  transform: translateY(-5px); 
 }
 
 /* Style for the image carousel */
 .carousel-inner img {
-  height: 400px; /* Fixed height for images */
-  width: 100%; /* Responsive image width */
-  object-fit: cover; /* Ensures images cover the area properly */
+  height: 400px; 
+  width: 100%; 
+  object-fit: cover;
 }
 
 
