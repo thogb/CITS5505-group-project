@@ -1,8 +1,8 @@
 .i-btn-save-item {
   cursor: pointer;
   color: orange;
+}
 
-  &:hover {
-    color: red;
-  }
+.i-btn-save-item:hover {
+  color: var(--red);
 }
