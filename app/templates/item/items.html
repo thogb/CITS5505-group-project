@@ -20,23 +20,37 @@
                 <h4 class="mb-4">Filter & Refine</h4>
                 <div class="col justify-content-center w-100 text-start">
                     <div class="mb-3">
+                        <label for="categorySelect" class="form-label">Category</label>
+                        <select id="itemsFilterCategory" class="form-select">
+                            <option value="" {{ "selected" if not filter.category else '' }}>All</option>
+                            {% for category in categories %}
+                                <option value="{{ category.id }}" {{ "selected" if category.id == filter.category else "" }}>
+                                    {{ category.name }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="mb-3">
                         <label for="locationSelect" class="form-label">Location</label>
-                        <select class="form-select" id="locationSelect">
-                            <option selected>Choose...</option>
-                            <option value="Perth Central">Perth Central</option>
-                            <option value="Northbridge">Northbridge</option>
-                            <option value="Cottesloe">Cottesloe</option>
-                            <option value="Fremantle">Fremantle</option>
-                            <option value="Scarborough">Scarborough</option>
+                        <select id="itemsFilterCity" class="form-select">
+                            <option value="" {{ "selected" if not filter.city else '' }}>All</option>
+                            {% for city in cities %}
+                                <option value="{{ city.id }}" {{ "selected" if city.id == filter.city else "" }}>
+                                    {{ city.name }}
+                                </option>
+                            {% endfor %}
                         </select>
                     </div>
                     <div class="mb-3">
                         <label for="priceMin" class="form-label">Price Range</label>
-                        <input type="number" class="form-control" id="priceMin" placeholder="$ Min">
-                        <input type="number" class="form-control mt-2" id="priceMax" placeholder="$ Max">
+                        <input id="itemsFilterMinPrice" type="number" class="form-control" placeholder="$ Min" value="{{ filter.min_price }}">
+                        <input id="itemsFilterMaxPrice" type="number" class="form-control mt-2" placeholder="$ Max" value="{{ filter.max_price }}">
                     </div>
-                    <button class="btn btn-primary mt-2 end-0 w-100" type="button" onclick="filterResults()">
-                        apply
+                    <button id="btnApplyFilter" class="btn btn-primary mt-2 end-0 w-100" type="button">
+                        Apply
+                    </button>
+                    <button id="btnResetFilter" class="btn btn-primary mt-2 end-0 w-100" type="button">
+                        Reset
                     </button>
                 </div>
             </div>

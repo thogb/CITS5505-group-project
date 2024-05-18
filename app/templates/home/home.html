@@ -21,11 +21,11 @@
             <div class="card product-card">
                 <img src="{{ item.thumb_photo_url if item.thumb_photo_url else '/static/img/not-found.webp' }}" onerror="this.src='/static/img/not-found.webp'" class="card-img-top" alt="{{ item.title }} thumb photo">
                 <div class="card-body">
-                    <h5 class="card-title">{{ item.title }}</h5>
-                    <div id="notificationMessages1" class="card-text">
+                    <h5 class="card-title card-rand-item-text">{{ item.title }}</h5>
+                    <div id="notificationMessages1" class="card-text card-rand-item-text">
                         <p>{{ item.description }}</p>
-                        <a href="{{ url_for('item.item', item_id=item.id) }}" class="btn btn-primary">Shop Now</a>
                     </div>
+                    <a href="{{ url_for('item.item', item_id=item.id) }}" class="btn btn-primary">Shop Now</a>
                 </div>
             </div>
         {% endfor %}
@@ -79,8 +79,7 @@
                 <h5 class="text-uppercase">Tips & Help</h5>
                 <ul class="list-unstyled mb-0">
                     <li><a href="#contact" class="text-dark">About Dreamers Market</a></li>
-                    <li><a href="help.html" class="text-dark">Help</a></li>
-                    <li><a href="register.html" class="text-dark">Register</a></li>
+                    <li><a href="#" class="text-dark">Help</a></li>
                 </ul>
             </div>
             <!--Grid column-->
@@ -89,7 +88,7 @@
             <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
                 <h5 class="text-uppercase">For Business</h5>
                 <ul class="list-unstyled mb-0">
-                    <li><a href="display-ads.html" class="text-dark">Display Ads</a></li>
+                    <li><a href="#" class="text-dark">Display Ads</a></li>
                 </ul>
             </div>
             <!--Grid column-->

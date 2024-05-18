@@ -51,7 +51,13 @@ def items():
             # photo.photo_url = awsS3.generate_presigned_url(f"{photo.id}.{photo.extension}")
             item.thumb_photo_url = awsS3_service.generate_presigned_url(f"{photo.id}.{photo.extension}")
 
-    return render_template('item/items.html', items=items, filter=filter)
+    return render_template(
+        'item/items.html', 
+        items=items, 
+        filter=filter,
+        categories=getAllCategories(),
+        cities=getCities()
+    )
 
 @item_blueprint.route('/<int:item_id>', methods=['GET'])
 def item(item_id):

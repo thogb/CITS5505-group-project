@@ -3,25 +3,21 @@
     <!-- Logo or branding can go here -->
     <ul class="navbar-nav me-auto">
       <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="/">Home</a>
+        <a class="nav-link {{ 'active' if  request.path == '/'  else '' }}" aria-current="page" href="/">
+          Home
+        </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/me">Profile</a>
+        <a class="nav-link {{ 'active' if request.path | regex_search("^" + url_for('me.me')) else '' }}" href="{{ url_for('me.me') }}">Profile</a>
       </li>
       <!-- Add Explore Market before Log Out -->
       <li class="nav-item">
-        <a class="nav-link" href="{{ url_for('item.items') }}">Explore Market</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/logout">Log Out</a>
+        <a class="nav-link {{ 'active' if request.path | regex_search("^" + url_for('item.items')) else '' }}" href="{{ url_for('item.items') }}">Explore Market</a>
       </li>
     </ul>
 
-    <!-- Search form -->
-    <form class="d-flex ms-auto">  <!-- ms-auto will push the form to the right -->
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success" type="submit">Search</button>
-    </form>
+      <input id="navbarSearchInput" name="search_text" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button id="btnNavbarSearch" class="btn btn-outline-success">Search</button>
   </div>
 
     <!-- User profile and dropdown menu -->
@@ -30,10 +26,12 @@
           <img src="{{ url_for('static', filename='img/profile.jpg') }}" alt="Profile" class="rounded-circle" style="width: 40px; height: 40px;">
       </a>
       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarUserDropdown">
-          <a class="dropdown-item" href="/me">My Profile</a>
-          <a class="dropdown-item" href="/me/saved">Favorites</a>
-          <a class="dropdown-item" href="/me/items">My Listings</a>
+          <a class="dropdown-item {{ 'active' if request.path == url_for('me.me') else '' }}" href="{{ url_for('me.me') }}">My Profile</a>
+          <a class="dropdown-item {{ 'active' if request.path | regex_search("^" + url_for('me.saved')) else '' }}" href="{{ url_for('me.saved') }}">Favorites</a>
+          <a class="dropdown-item {{ 'active' if request.path | regex_search("^" + url_for('me.items')) else '' }}" href="{{ url_for('me.items') }}">My Listings</a>
           <a class="dropdown-item" href="/me/bids">My Bids</a>
+          <hr class="m-1"/>
+          <a class="dropdown-item"href="{{ url_for('auth.logout') }}">Log Out</a>
       </div>
   </div>
 </nav>
