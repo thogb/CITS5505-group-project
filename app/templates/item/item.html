@@ -38,13 +38,12 @@
         <div class="col-sm-12 col-lg-7 bg-light">
             <h5 class="card-title">{{ item.title }}</h5>
             <p class="card-text">{{ item.description }}</p>
-            <p class="card-text">{{ item.price }}</p>
-            <p class="card-text">{{ item.create_time }}</p>
-            <p class="card-text">{{ item.used }}</p>
-            <p class="card-text">{{ item.category.name }}</p>
-            <p class="card-text">{{ item.city.name }}</p>
-            <p class="card-text">{{ item.city.state.name }}</p>
-            <p class="card-text">{{ item.user.first_name + " " + item.user.last_name}}</p>
+            <p class="card-text">$ {{ "%.2f"|format(item.price) }}</p> <!-- Format price assuming item.price is a numeric type -->
+            <p class="card-text">Posted: {{ item.create_time.strftime('%Y-%m-%d %H:%M') if item.create_time }}</p> <!-- Format date and time -->
+            <p class="card-text">Condition: {{ item.used }}</p>
+            <p class="card-text">Category: {{ item.category.name }}</p>
+            <p class="card-text">City: {{ item.city.name }}, {{ item.city.state.name }}</p>
+            <p class="card-text">Posted by: {{ item.user.first_name + " " + item.user.last_name }}</p>
             {% if current_user.id != item.user.id %}
                 {{ item_request.render_item_request_button(item, already_requested) }}
             {% endif %}

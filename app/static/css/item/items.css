@@ -166,25 +166,6 @@ button {
   transition: background-color 0.2s, box-shadow 0.2s, transform 0.1s;
 }
 
-.btn-primary {
-  background-color: #007bff;
-  color: white;
-}
-
-.btn-primary:hover {
-  background-color: #0056b3;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  transform: translateY(-2px);
-}
-
-.btn-secondary {
-  background-color: #6c757d;
-  color: white;
-}
-
-.btn-secondary:hover {
-  background-color: #545b62;
-}
 
 /* Input and Textarea Styles */
 input[type="number"], textarea {
@@ -230,11 +211,6 @@ textarea {
   object-fit: cover; /* Ensures images cover the area properly */
 }
 
-/* Details area within the card */
-.col-lg-7 {
-  background-color: #f8f9fa; /* Lighter background for the text area */
-  padding: 20px; /* Padding for spacing */
-}
 
 .card-title, .card-text {
   margin-bottom: 10px; /* Spacing between text elements */
