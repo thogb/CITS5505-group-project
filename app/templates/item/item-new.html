@@ -2,8 +2,24 @@
 
 {% block title %} New Item {% endblock %}
 
+{% block css_styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/item/items.css') }}">
+{% endblock %}
+
+
 {% block content %}
+
+<div class="top-image" style="position: relative; overflow: hidden;">
+    <img src="{{ url_for('static', filename='img/top-second.jpg') }}" alt="Top Image" style="width: 100%; height: auto; display: block;">
+    <div class="image-overlay" style="font-weight: 100;">
+        <h1 style="font-size:1rem">Welcome to Dreamers' Market,<br> where your pre-loved items find their new homes. Pass on the value and create joy together!</h1>
+    </div>
+</div>
+
+
 <!-- TODO: Need update, this is here for testing -->
+<div id="form-container" class="mb-3">
 <form action="" method="post" enctype="multipart/form-data">
     {{ form.csrf_token() }}
     <div class="mb-3">
@@ -38,6 +54,6 @@
 
     <!-- TODO: multi photo update over here -->
 
-    <div>{{ form.submit(class="btn btn-primary mt-3")}}</div>
+    <div>{{ form.submit(class="btn btn-success mt-3")}}</div>
 </form>
 {% endblock %}
