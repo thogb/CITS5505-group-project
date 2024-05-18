@@ -147,6 +147,14 @@ class Comment(db.Model):
     create_time = db.Column(db.DateTime(), nullable=False, default=datetime.datetime.now)
     description = db.Column(db.String(255))
 
+    is_a_month_ago = False;
+    days_ago = 0;
+
+    def __init__(self, user_id, item_id, description) -> None:
+        self.user_id = user_id
+        self.item_id = item_id
+        self.description = description
+
 class Photo(db.Model):
     __tablename__ = 'photo'
     id = db.Column(db.Integer, primary_key=True)

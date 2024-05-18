@@ -1,3 +1,4 @@
+from datetime import date, datetime
 from flask import (Blueprint, flash, redirect, render_template, request, url_for)
 from flask_login import current_user, login_required
 from app import db
@@ -5,7 +6,7 @@ from app.decorators.only_json import validate_json
 from app.item.forms import NewItemForm
 from app.item.items_filtering_parameters import ItemFilteringParameters
 from app.item.service import ItemService
-from app.models import Item, ItemRequest, Photo, UserItemSaved
+from app.models import Comment, Item, ItemRequest, Photo, UserItemSaved
 from app import awsS3_service
 from app.services.category import getAllCategories
 from app.services.city import getCities
@@ -74,7 +75,15 @@ def item(item_id):
     for photo in item.photos:
         photo.photo_url = awsS3_service.generate_presigned_url(f"{photo.id}.{photo.extension}")
 
-    return render_template('item/item.html', item=item, already_requested=already_requested)
+    comments = item.comments.order_by(Comment.create_time.desc()).all();
+
+    today = datetime.now()
+    for comment in comments:
+        days = (today - comment.create_time).days
+        comment.is_a_month_ago = days >= 30
+        comment.days_ago = days
+
+    return render_template('item/item.html', item=item, already_requested=already_requested, comments=comments)
 
 # @item_blueprint.route('/<int:item_id>/save/<int:save_status>', methods=['POST'])
 # @validate_json

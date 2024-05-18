@@ -2,9 +2,10 @@ import datetime
 from flask import jsonify, request
 from flask_login import current_user
 from marshmallow import ValidationError
+from app.item.dto.item_comments_dto import ItemCommentNewDTO
 from app.item.dto.item_request_respond_dto import ItemRequestRespondDTO
 from app.item.dto.item_request_send_dto import ItemRequestSendDTO
-from app.models import Item, ItemRequest, UserItemSaved
+from app.models import Comment, Item, ItemRequest, UserItemSaved
 from app import db
 
 class ItemService:
@@ -110,4 +111,45 @@ class ItemService:
 
         db.session.commit()
         
+        return jsonify({"message": "Success"}), 200
+    
+    def post_comment(item_id: int):
+        try:
+            data = ItemCommentNewDTO().load(request.json)
+        except ValidationError as err:
+            return jsonify(err.messages), 400
+        
+        item = Item.query\
+            .get(item_id)
+        
+        if not item:
+            return jsonify({"message": "Item not found"}), 404
+        
+        comment = Comment(
+            user_id=current_user.id,
+            item_id=item_id,
+            description=data['message']
+        )
+
+        db.session.add(comment)
+        db.session.commit()
+
+        return jsonify({
+            "id": comment.id,
+            "description": comment.description,
+            "message": "Success"
+            }), 200
+    
+    def delete_comment(item_id: int, comment_id: int):
+        comment = Comment.query.get(comment_id)
+
+        if not comment:
+            return jsonify({"message": "Comment not found"}), 404
+        
+        if comment.user_id != current_user.id:
+            return jsonify({"message": "Comment not owned by user"}), 403
+        
+        db.session.delete(comment)
+        db.session.commit()
+
         return jsonify({"message": "Success"}), 200

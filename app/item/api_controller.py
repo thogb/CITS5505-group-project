@@ -21,3 +21,11 @@ def send_request(item_id):
 @item_api_blueprint.route("/<int:item_id>/request/<int:item_request_id>/respond", methods=['POST'])
 def respond_request(item_id, item_request_id):
     return ItemService.respond_item_request(item_id, item_request_id)
+
+@item_api_blueprint.route("/<int:item_id>/comments", methods=['POST'])
+def post_comment(item_id):
+    return ItemService.post_comment(item_id)
+
+@item_api_blueprint.route("/<int:item_id>/comments/<int:comment_id>", methods=['DELETE'])
+def delete_comment(item_id, comment_id):
+    return ItemService.delete_comment(item_id, comment_id)
