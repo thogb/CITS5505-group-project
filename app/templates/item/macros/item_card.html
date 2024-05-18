@@ -2,7 +2,7 @@
     {% set icon_class = 'fa-solid' if saved_by_user else 'fa-regular' %}
     {% set data_item_saved = 'true' if saved_by_user else 'false' %}
 
-    <div class="col-sm-4 mb-3 items-item-card-container">
+    <div class="col-sm-6 col-md-4 mb-3 items-item-card-container">
         <a href="{{ url_for('item.item', item_id=item.id) }}">
             <div class="card">
                 <img class="card-img-top" alt="image" onerror="this.src='/static/img/not-found.webp'" src="{{ item.thumb_photo_url if item.thumb_photo_url else '/static/img/not-found.webp' }}" style="height: 200px;">

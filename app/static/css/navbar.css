@@ -1,0 +1,16 @@
+.nav-dropdown-container {
+  display: flex;
+  flex-direction: row;
+}
+
+#navSearchContainer {
+  display: flex;
+  flex-direction: row;
+  margin-right: 8px;
+}
+
+#navRightContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

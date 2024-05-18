@@ -1,29 +1,17 @@
-.hero-image {
+.top-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   position: relative;
-  height: 45vh;
-  width: 100vw;
-  background-image: url("../img/top.jpg");
-  background-size: cover;
-  background-position: center 10%;
-  margin-left: -50vw;
-  left: 50%;
-  right: 50%;
+  background-color: grey;
   margin-bottom: 50px;
+  color: white;
+  padding: 20px;
 }
 
 .large-icon {
   font-size: 4rem;
-}
-
-.overlay-text {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
 }
 
 /* Filter & Refine styles */

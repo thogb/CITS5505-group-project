@@ -1,5 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarDM" aria-controls="navbarDM" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div id="navbarDM" class="collapse navbar-collapse">
     <!-- Logo or branding can go here -->
     <ul class="navbar-nav me-auto">
       <li class="nav-item">
@@ -16,24 +19,28 @@
       </li>
     </ul>
 
-      <input id="navbarSearchInput" name="search_text" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-      <button id="btnNavbarSearch" class="btn btn-outline-success">Search</button>
-  </div>
-
-    <!-- User profile and dropdown menu -->
-    <div class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" id="navbarUserDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <div id="navRightContainer">
+      <div id="navSearchContainer">
+        <input id="navbarSearchInput" name="search_text" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button id="btnNavbarSearch" class="btn btn-outline-success">Search</button>
+      </div>
+      
+      <!-- User profile and dropdown menu -->
+      <div class="nav-item dropdown nav-dropdown-container">
         <div class="profile-initials rounded-circle" style="width: 40px; height: 40px; background-color: var(--primary-color); color: white; display: flex; justify-content: center; align-items: center; font-weight: bold;">
           {{ current_user.first_name[0] | upper }}{{ current_user.last_name[-1] | upper }}
         </div>
-      </a>
-      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarUserDropdown">
-          <a class="dropdown-item {{ 'active' if request.path == url_for('me.me') else '' }}" href="{{ url_for('me.me') }}">My Profile</a>
-          <a class="dropdown-item {{ 'active' if request.path | regex_search("^" + url_for('me.saved')) else '' }}" href="{{ url_for('me.saved') }}">Favorites</a>
-          <a class="dropdown-item {{ 'active' if request.path | regex_search("^" + url_for('me.items')) else '' }}" href="{{ url_for('me.items') }}">My Listings</a>
-          <a class="dropdown-item" href="/me/bids">My Bids</a>
-          <hr class="m-1"/>
-          <a class="dropdown-item"href="{{ url_for('auth.logout') }}">Log Out</a>
+        <div class="nav-link dropdown-toggle" id="navbarUserDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        </div>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarUserDropdown">
+            <a class="dropdown-item {{ 'active' if request.path == url_for('me.me') else '' }}" href="{{ url_for('me.me') }}">My Profile</a>
+            <a class="dropdown-item {{ 'active' if request.path | regex_search("^" + url_for('me.saved')) else '' }}" href="{{ url_for('me.saved') }}">Favorites</a>
+            <a class="dropdown-item {{ 'active' if request.path | regex_search("^" + url_for('me.items')) else '' }}" href="{{ url_for('me.items') }}">My Listings</a>
+            <!-- <a class="dropdown-item" href="/me/bids">My Bids</a> -->
+            <hr class="m-1"/>
+            <a class="dropdown-item"href="{{ url_for('auth.logout') }}">Log Out</a>
+        </div>
       </div>
+    </div>
   </div>
 </nav>
