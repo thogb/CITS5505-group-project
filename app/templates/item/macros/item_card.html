@@ -2,7 +2,7 @@
     {% set icon_class = 'fa-solid' if saved_by_user else 'fa-regular' %}
     {% set data_item_saved = 'true' if saved_by_user else 'false' %}
 
-    <div class="col-sm-4 mb-3 mb-sm-0 items-item-card-container">
+    <div class="col-sm-4 mb-3 items-item-card-container">
         <a href="{{ url_for('item.item', item_id=item.id) }}">
             <div class="card">
                 <img class="card-img-top" alt="image" onerror="this.src='/static/img/not-found.webp'" src="{{ item.thumb_photo_url if item.thumb_photo_url else '/static/img/not-found.webp' }}" style="height: 200px;">
@@ -34,7 +34,7 @@
                 {% if not posted_by_user %}
                     <i class="{{ icon_class }} fa-bookmark i-btn-save-item" data-item-saved="{{ data_item_saved }}" data-item-id="{{ item.id }}"></i>
                 {% else %}
-                        <p class="card-text">Posted by you</p>
+                    <p class="card-text">Posted by you</p>
                 {% endif %}
             </div>
         </div>
