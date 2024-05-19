@@ -37,3 +37,20 @@ flask db upgrade
 If in the project root directory
 
 flask run
+
+## Existing database
+
+The repository has a database with some already populated data for the easy of
+showing.
+
+The file app.db is the one that contains the sqlite database. To start from
+scratch, this file is to be removed and then the above migration instruction
+for migration can be followed to create an new empty database.
+
+For the existing database, there are two accounts already created.
+
+email: test@gmail.com
+password: password1234
+
+email: test2@gmail.com
+password: password1234
