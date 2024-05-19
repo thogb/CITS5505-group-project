@@ -223,15 +223,15 @@ listing-card-img {
   object-fit: cover;
 }
 
-#receivedRequestModal .model-footer .btn-cancel {
+#receivedRequestModal .modal-footer .btn-cancel {
   margin-right: auto;
 }
 
-#receivedRequestModal .model-footer .btn-reject .spinner-border {
+#receivedRequestModal .modal-footer .btn-reject .spinner-border {
   display: none;
 }
 
-#receivedRequestModal .model-footer .btn-accept .spinner-border {
+#receivedRequestModal .modal-footer .btn-accept .spinner-border {
   display: none;
 }
 
