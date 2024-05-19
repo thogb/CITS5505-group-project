@@ -15,21 +15,19 @@
 <div id="itemCard" class="card mt-4" data-item-id="{{ item.id }}">
     <div class="row">
         <div class="col-sm-12 col-lg-5">
-            <div id="carouselExampleIndicators" class="carousel slide">
+            <div id="carouselExample" class="carousel slide">
                 <div class="carousel-inner">
                     {% for photo in item.photos %}
                         <div class="carousel-item {{ 'active' if loop.first }}">
-                            <img src="{{ photo.photo_url }}" class="d-block w-100" style="height: 400px;" alt="image" onerror="this.src='/static/img/not-found.webp'">
+                            <img src="{{ photo.photo_url }}" alt="image" onerror="this.src='/static/img/not-found.webp'">
                         </div>
                     {% endfor %}
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                    <!-- <span class="material-symbols-outlined" style="font-size: 50px; color: black;">chevron_left</span> -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
                     <i class="fa-solid fa-chevron-left text-black"></i>
                     <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                    <!-- <span class="material-symbols-outlined" style="font-size: 50px; color: black;">chevron_right</span> -->
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
                     <i class="fa-solid fa-chevron-right text-black "></i>
                     <span class="visually-hidden">Next</span>
                 </button>

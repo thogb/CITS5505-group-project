@@ -1,8 +1,3 @@
-body {
-  font-family: "Arial", sans-serif;
-  color: var(--secondary-color);
-}
-
 .me-nav-list {
   background-color: var(--background-light);
   border-radius: 0.25rem;
@@ -113,6 +108,9 @@ a:hover {
   width: 100%;
   height: auto;
   display: block;
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .image-overlay {
@@ -165,7 +163,6 @@ a:hover {
 /* my listing */
 
 body {
-  font-family: "Arial", sans-serif;
   background-color: #f4f4f4;
   margin: 0;
   padding: 0;
@@ -181,7 +178,6 @@ body {
   font-size: 18px;
 }
 
-/* 商品卡片样式 */
 .item-card {
   background-color: white;
   border: 1px solid #ddd;
@@ -192,46 +188,6 @@ body {
 
 .item-card:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* 商品状态徽章样式 */
-.badge {
-  display: inline-block;
-  padding: 5px 10px;
-  font-size: 14px;
-  font-weight: bold;
-  border-radius: 20px;
-  text-align: center;
-}
-
-.bg-info {
-  background-color: #17a2b8;
-}
-
-/* 商品行布局 */
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
-}
-
-/* 分页控件样式 */
-.pagination {
-  display: flex;
-  list-style: none;
-  padding: 0;
-}
-
-.pagination li {
-  padding: 5px 10px;
-  margin: 5px;
-  color: #218838;
-  border-radius: 5px;
-}
-
-.pagination li:hover {
-  background-color: #218838;
 }
 
 .card-item-title {
@@ -248,4 +204,47 @@ body {
 .card-item-title:hover {
   background-color: #4caf50;
   color: white;
+}
+
+.me-profile-initials {
+  width: 80px;
+  height: 80px;
+  background-color: var(--primary-color);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+listing-card-img {
+  max-height: 400px;
+  width: 100%;
+  object-fit: cover;
+}
+
+#receivedRequestModal .model-footer .btn-cancel {
+  margin-right: auto;
+}
+
+#receivedRequestModal .model-footer .btn-reject .spinner-border {
+  display: none;
+}
+
+#receivedRequestModal .model-footer .btn-accept .spinner-border {
+  display: none;
+}
+
+.listing-item-card {
+  position: relative;
+}
+
+.listing-item-card .item-badge-container {
+  position: absolute;
+  top: 4px;
+  right: 24px;
+}
+
+.listing-item-card .listing-item-card-content {
+  padding-bottom: 16px;
 }

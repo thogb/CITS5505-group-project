@@ -1,10 +1,10 @@
 {% macro render_item_card(item) %}
-    <div class="card">
+    <div class="card listing-item-card">
         <div class="row">
             <div class="col-5">
-                <img class="card-img" src="{{ item.thumb_photo_url }}" alt="Item Image" onerror="this.src='/static/img/not-found.webp'" style="max-height: 400px; width: 100%; object-fit: cover;">
+                <img class="card-img listing-card-img" src="{{ item.thumb_photo_url }}" alt="Item Image" onerror="this.src='/static/img/not-found.webp'">
             </div>
-            <div class="col-7">
+            <div class="col-7 listing-item-card-content">
                 <h5 class="card-title card-item-title">{{ item.title }}</h5>
                 <p class="card-text"><strong>Description:</strong> {{ item.description }}</p>
                 <p class="card-text"><strong>Price:</strong> ${{ '%.2f' | format(item.price) }}</p>
@@ -12,6 +12,13 @@
                 <p class="card-text"><strong>Category:</strong> {{ item.category.name }}</p>
                 <p class="card-text"><strong>Location:</strong> {{ item.city.name }}, {{ item.city.state.name }}</p>
                 <p class="card-text"><strong>Posted on:</strong> {{ item.create_time.strftime('%Y-%m-%d %H:%M') }}</p>
+                <div class=item-badge-container>
+                    {% if item.sold %}
+                        <span class="badge bg-success">Sold Out</span>
+                    {% else %}
+                        <span class="badge bg-info">Available</span>
+                    {% endif %}
+                </div>
             </div>
         </div>
     </div>

@@ -122,6 +122,36 @@
   font-size: 1rem;
 }
 
+.item-card .item-card-img-top {
+  height: 200px;
+}
+
+/* Filter & Refine styles */
+.filter-refine {
+  background-color: #e2e4e6; /* Light background for the section */
+  padding: 20px;
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  margin-top: 30px; /* Separate from other sections */
+}
+
+/* Styles for form elements within the Filter & Refine section */
+.filter-refine .form-control,
+.filter-refine .form-select {
+  border-radius: 0.25rem;
+  background-color: #fff;
+  border: 1px solid #ced4da;
+}
+
+/* Ensuring the spacing and layout are visually pleasing */
+.filter-refine label {
+  margin-bottom: 0.5rem;
+}
+
+.filter-refine .mb-3 {
+  margin-bottom: 16px;
+}
+
 #itemsFilter label {
   font-weight: 500;
   font-size: 0.975rem;

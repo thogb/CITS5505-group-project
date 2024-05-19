@@ -14,14 +14,6 @@
         {% for item in items %}
             <div>
                 {{ item_card.render_item_card(item) }}
-                <!-- sale or sold out -->
-                <div>
-                    {% if item.sold %}
-                        <span class="badge bg-success">Sold Out</span>
-                    {% else %}
-                        <span class="badge bg-info">Available</span>
-                    {% endif %}
-                </div>
             </div>
         {% endfor %}
     </div>
