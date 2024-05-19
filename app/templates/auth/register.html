@@ -2,39 +2,39 @@
 <!--  -->
 {% block title %} Register {% endblock %}
 <!--  -->
+
+{% block css_styles %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/auth/auth.css') }}">
+{% endblock %}
+
 {% block navbar %} {% endblock %}
 <!--  -->
 {% block content %}
 
 <!-- TODO: remove, for testing -->
 <div
-  class="h-100"
-  style="
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  "
+  class="auth-box"
 >
   <form action="" method="post">
     {{ form.csrf_token() }}
-    <div>
+    <div class="auth-row">
       {{ form.email.label }} {{ form.email(class="form-control") }} 
     </div>
-    <div>
+    <div class="auth-row">
       {{ form.first_name.label }} {{ form.first_name(class="form-control") }}
     </div>
-    <div>
+    <div class="auth-row">
       {{ form.last_name.label }} {{ form.last_name(class="form-control") }}
     </div>
-    <div>
+    <div class="auth-row">
       {{ form.password.label }} {{ form.password(class="form-control") }}
     </div>
-    <div>
+    <div class="auth-row">
       {{ form.confirm_password.label }} {{
       form.confirm_password(class="form-control") }}
     </div>
-    <div>{{ form.submit(class="btn btn-primary")}}</div>
+      {{ form.submit(class="btn btn-primary btn-auth-submit")}}
   </form>
 
   <!-- TODO: remove, for debugging -->

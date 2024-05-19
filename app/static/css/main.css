@@ -6,6 +6,20 @@ dt {
   width: 200px;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
 :root {
   --primary-color: #28a745; /* 绿色调 */
   --secondary-color: #4a5568; /* 深灰色 */

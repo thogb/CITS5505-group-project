@@ -13,7 +13,7 @@
 {% block content %}
 
     <div class="top-image">
-        <img src="{{ url_for('static', filename='img/top-second.jpg') }}" alt="Top Image" style="width: 100%; height: auto; display: block;">
+        <img src="{{ url_for('static', filename='img/top-second.jpg') }}" alt="Top Image">
         <div class="image-overlay">
             <h1>Dreamers Market</h1>
         </div>
@@ -25,7 +25,7 @@
                 <div class="card">
                     <div class="card-header text-center">
                         <a href="/me">
-                            <div class="profile-initials rounded-circle" style="width: 80px; height: 80px; background-color: var(--primary-color); color: white; display: flex; justify-content: center; align-items: center; font-weight: bold;">
+                            <div class="me-profile-initials rounded-circle">
                                 {{ current_user.first_name[0] | upper }}{{ current_user.last_name[-1] | upper }}
                             </div>
                         </a>

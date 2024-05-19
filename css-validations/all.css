@@ -708,3 +708,791 @@ body {
   background-color: #4caf50;
   color: white;
 }
+.top-container {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: grey;
+  margin-bottom: 50px;
+  color: white;
+  padding: 20px;
+}
+
+.large-icon {
+  font-size: 4rem;
+}
+
+/* Reduce the width of the form fields in the Contact Us section */
+#contact form .form-control {
+  max-width: 400px; /* Adjust this value as needed */
+  margin: 0 auto; /* Center align the form fields */
+}
+
+/*  adjust the width of the entire form */
+#contact form {
+  max-width: 500px; /* Adjust this value as needed */
+  margin: 0 auto; /* Center align the form */
+}
+
+/* Add margin below the submit button */
+#contact form button[type="submit"] {
+  margin-bottom: 30px; /* Adjust this value as needed */
+}
+
+/* Back to top button */
+.back-to-top {
+  position: fixed;
+  bottom: 20px; /* Adjust the bottom value as needed */
+  right: 20px; /* Adjust the right value as needed */
+  z-index: 100; /* Ensure the button is above other content */
+}
+
+.back-to-top img {
+  width: 50px; /* Adjust the size of the button as needed */
+  height: 50px;
+  cursor: pointer;
+}
+
+/* Product card styles */
+.product-card {
+  flex: 1 0 21%; /* Each card takes up approximately 21% of the width */
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 400px; /* Set a fixed height for all cards */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+}
+
+.product-card .card-img-top {
+  width: 100%; /* Ensure the images take the full width of the card */
+  height: 180px; /* Set a fixed height for the images */
+  object-fit: cover; /* Ensure the images cover the entire area without distortion */
+  border-radius: 5px 5px 0 0; /* Optional: Add rounded corners to match the card */
+}
+
+.product-card .card-body {
+  padding: 15px;
+  text-align: center;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-card .card-title {
+  font-size: 1.5rem; /* Increased size for visibility */
+  margin-bottom: 10px; /* Adds space below the title */
+}
+
+.product-card .card-text {
+  font-size: 1.25rem; /* Slightly larger text for readability */
+}
+
+.product-card .btn {
+  height: 50px; /* Ensure all buttons have the same height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto; /* Ensure the button is at the bottom */
+}
+
+/* Ensure cards have consistent height */
+.container .row > div {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Contact Us Section */
+#contact {
+  max-width: 400px;
+  max-height: 500px;
+  background-color: #f8f9fa; /* Light grey background for better contrast */
+  padding: 20px;
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  margin-bottom: 30px; /* Separate from other sections */
+  font-size: 0.9rem;
+}
+
+#contact h2 {
+  font-size: 1.2rem;
+  color: #007bff; /* Bootstrap primary blue for heading */
+  margin-bottom: 20px; /* Space below heading */
+}
+
+#contact .form-control {
+  border-radius: 0.25rem; /* Rounded borders for form inputs */
+  background-color: #fff; /* White background for input fields */
+  border: 1px solid #ced4da; /* Standard Bootstrap input border */
+}
+
+/* Footer Section */
+footer {
+  background-color: #343a40; /* Dark footer background */
+  color: #fff; /* White text color */
+  padding-top: 30px; /* Padding at the top of the footer */
+}
+
+footer a {
+  color: #dee2e6; /* Light grey color for links */
+  text-decoration: none; /* No underline */
+}
+
+footer a:hover {
+  color: #adb5bd; /* Change color on hover */
+}
+
+footer .container {
+  padding-bottom: 20px; /* Padding at the bottom */
+}
+
+footer h5 {
+  margin-bottom: 15px; /* Space below headings */
+  color: #0b0900; /* Bootstrap yellow for visibility */
+}
+
+footer ul {
+  list-style: none; /* Remove list style */
+  padding: 0; /* Remove padding */
+}
+
+footer .social-icon {
+  color: #007bff; /* Primary blue for social icons */
+  margin-right: 10px; /* Space between icons */
+}
+
+footer .social-icon:hover {
+  color: #0056b3; /* Darken icon on hover */
+}
+
+footer .social-icon i {
+  font-size: 24px;
+  color: #333;
+}
+
+/* Student Information Section */
+footer .student-info {
+  background-color: #495057; /* Different background for clear distinction */
+  color: #ced4da; /* Lighter text color for visibility */
+  padding: 20px 0; /* Padding for the section */
+  margin-top: 30px; /* Space above the student info section */
+  font-size: 0.9rem; /* Appropriate font size for information */
+}
+
+footer .copy-right {
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 24px;
+}
+
+/* General styles to improve legibility and spacing */
+.container,
+.row,
+.col-lg-3,
+.col-md-6 {
+  margin-top: 10px;
+}
+
+/* Copyright Section */
+footer .text-center {
+  font-size: 0.9rem; /* Smaller font size for copyright and student info */
+  color: #6c757d; /* Grey text for subtle effect */
+  padding: 10px 0; /* Padding for the section */
+}
+
+.footer-student {
+  padding-bottom: 24px;
+  padding-top: 24px;
+}
+
+.card-rand-item-text {
+  -webkit-line-clamp: 3;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.auth-box {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-box form {
+  padding: 24px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+.auth-box form label {
+  font-weight: 500;
+}
+
+.auth-box .auth-row {
+  margin-bottom: 16px;
+}
+
+.auth-box .btn-auth-submit {
+  margin-top: 8px;
+  width: 100%;
+}
+.nav-dropdown-container {
+  display: flex;
+  flex-direction: row;
+}
+
+#navSearchContainer {
+  display: flex;
+  flex-direction: row;
+  margin-right: 8px;
+}
+
+#navRightContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.profile-initials {
+  width: 40px;
+  height: 40px;
+  background-color: var(--primary-color);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+dt {
+  font-weight: 600;
+}
+
+#navbarSearchInput {
+  width: 200px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+:root {
+  --primary-color: #28a745; /* 绿色调 */
+  --secondary-color: #4a5568; /* 深灰色 */
+  --background-light: #f4f4f4; /* 浅灰背景 */
+}
+/* Button styles */
+.i-btn-save-item {
+  cursor: pointer;
+}
+
+.i-btn-save-item[data-item-saved="true"] {
+  color: orange;
+}
+
+.i-btn-save-item:hover {
+  color: orange;
+}
+
+.items-item-card-container {
+  position: relative;
+  font-size: 0.95rem;
+}
+
+.items-item-card-container .card-price-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.items-item-card-container .card-text-description {
+  font-size: 0.875rem;
+  -webkit-line-clamp: 4;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.items-item-card-container .card-text-price {
+  font-weight: 500;
+}
+
+.items-item-card-container .card-bottom-container {
+  position: absolute;
+  /* bottom: 10px;
+  right: 30px; */
+  z-index: 1000;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  padding-right: 15%;
+  padding-left: 5%;
+  bottom: 10px;
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+.items-item-card-container .card-bottom-container .i-btn-save-item {
+  font-size: 1rem;
+}
+
+.items-item-card-container .card {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+}
+
+.items-item-card-container .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+}
+
+.items-item-card-container .card-body {
+  height: 300px;
+}
+
+.items-item-card-container .card-title {
+  font-size: 1.175rem;
+  height: 3rem;
+}
+
+.items-item-card-container .card-title {
+  /* 
+  Retrieved from https://stackoverflow.com/questions/66370835/bootstrap-4-truncate-text-display-at-least-two-line
+  Date: 16/05/2024
+  */
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.items-item-card-container .card-price-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.items-item-card-container .card-text-description {
+  font-size: 0.875rem;
+  -webkit-line-clamp: 4;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.items-item-card-container .card-text-price {
+  font-weight: 500;
+}
+
+.items-item-card-container .card-bottom-container {
+  position: absolute;
+  /* bottom: 10px;
+  right: 30px; */
+  z-index: 1000;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  padding-right: 15%;
+  padding-left: 5%;
+  bottom: 10px;
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+.items-item-card-container .card-bottom-container .i-btn-save-item {
+  font-size: 1rem;
+}
+
+.item-card .item-card-img-top {
+  height: 200px;
+}
+
+/* Filter & Refine styles */
+.filter-refine {
+  background-color: #e2e4e6; /* Light background for the section */
+  padding: 20px;
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  margin-top: 30px; /* Separate from other sections */
+}
+
+/* Styles for form elements within the Filter & Refine section */
+.filter-refine .form-control,
+.filter-refine .form-select {
+  border-radius: 0.25rem;
+  background-color: #fff;
+  border: 1px solid #ced4da;
+}
+
+/* Ensuring the spacing and layout are visually pleasing */
+.filter-refine label {
+  margin-bottom: 0.5rem;
+}
+
+.filter-refine .mb-3 {
+  margin-bottom: 16px;
+}
+
+#itemsFilter label {
+  font-weight: 500;
+  font-size: 0.975rem;
+}
+.top-container {
+  background-color: grey;
+}
+.comment-box-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-container {
+  padding-bottom: 48px;
+}
+
+.comment-list-container {
+  margin-top: 48px;
+}
+
+.comment {
+  display: flex;
+  flex-direction: row;
+  min-height: 100px;
+  align-items: start;
+}
+
+.comment-avatar {
+  display: flex;
+  flex-direction: row;
+  background-color: green;
+  gap: 4px;
+  width: 50px;
+  height: 50px;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  text-transform: capitalize;
+  margin-right: 16px;
+}
+
+.comment-avatar span {
+  font-size: 1.5rem;
+}
+
+.comment-content {
+  border: 1px solid #dee2e6;
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  position: relative;
+}
+
+.comment-content .icon-button-delete {
+  cursor: pointer;
+  color: var(--red);
+  opacity: 0.75;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+.comment-content .icon-button-delete:hover {
+  opacity: 1;
+}
+
+.comment-name {
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.comment-time {
+  font-size: 0.875rem;
+  margin-left: 8px;
+}
+
+#commentInput {
+  resize: none;
+}
+
+.carousel-item img {
+  height: 400px;
+  display: block;
+  width: 100%;
+}
+.i-btn-save-item {
+  cursor: pointer;
+  color: orange;
+}
+
+.i-btn-save-item:hover {
+  color: var(--red);
+}
+.me-nav-list {
+  background-color: var(--background-light);
+  border-radius: 0.25rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.me-nav-list .list-group-item {
+  color: var(--secondary-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.me-nav-list .list-group-item:hover,
+.me-nav-list .list-group-item.active {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* .right-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 0.25rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+} */
+
+.bi-person-circle {
+  margin-right: 8px;
+}
+
+.bi-heart-fill {
+  margin-right: 8px;
+}
+
+.bi-calendar2-minus {
+  margin-right: 8px;
+}
+
+.bi-currency-dollar {
+  margin-right: 8px;
+}
+
+body {
+  background-color: #e8e8e8;
+  color: #333;
+  font-family: "Arial", sans-serif;
+}
+
+.card {
+  background-color: #fff;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.card-header,
+.card-body {
+  background-color: #fff;
+  color: #333;
+}
+
+.form-control {
+  background-color: #fff;
+  color: #333;
+  border: 2px solid #aaa;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.form-control:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 8px rgba(40, 167, 69, 0.75);
+}
+
+/* 标签样式 */
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #555;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* 链接样式 */
+a {
+  color: #28a745;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #218838;
+  text-decoration: underline;
+}
+
+/* top图片 */
+
+.top-image {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  margin-top: 60px;
+}
+
+.top-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* favorites */
+.saved-items-header h1 {
+  text-align: center;
+  font-size: 24px;
+  color: var(--primary-color);
+}
+
+.subtle-line {
+  width: 80%;
+  margin: 0 auto;
+  border: 0;
+  height: 1px;
+  background-color: rgb(0, 0, 0);
+  margin-bottom: 30px;
+}
+.item-container {
+  position: relative;
+  padding-left: 40px;
+}
+
+.item-index {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  font-weight: bold;
+  color: var(--primary-color);
+  font-size: 18px;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 3px 8px;
+  border-radius: 5px;
+}
+
+/* my listing */
+
+body {
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.alert {
+  background-color: #28a745;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.item-card {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.item-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-item-title {
+  background-color: #e8f5e9;
+  padding: 12px 20px;
+  margin-top: 10px;
+  box-shadow: 0 4px 8px rgba(0, 128, 0, 0.2);
+  font-size: 1.5rem;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+  color: #2e7d32;
+}
+
+.card-item-title:hover {
+  background-color: #4caf50;
+  color: white;
+}
+
+.me-profile-initials {
+  width: 80px;
+  height: 80px;
+  background-color: var(--primary-color);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+listing-card-img {
+  max-height: 400px;
+  width: 100%;
+  object-fit: cover;
+}
+
+#receivedRequestModal .model-footer .btn-cancel {
+  margin-right: auto;
+}
+
+#receivedRequestModal .model-footer .btn-reject .spinner-border {
+  display: none;
+}
+
+#receivedRequestModal .model-footer .btn-accept .spinner-border {
+  display: none;
+}
+
+.listing-item-card {
+  position: relative;
+}
+
+.listing-item-card .item-badge-container {
+  position: absolute;
+  top: 4px;
+  right: 24px;
+}
+
+.listing-item-card .listing-item-card-content {
+  padding-bottom: 16px;
+}

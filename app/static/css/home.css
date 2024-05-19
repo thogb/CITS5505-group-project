@@ -1,5 +1,6 @@
 .top-container {
   display: flex;
+  position: relative;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -14,31 +15,6 @@
   font-size: 4rem;
 }
 
-/* Filter & Refine styles */
-.filter-refine {
-  background-color: #e2e4e6; /* Light background for the section */
-  padding: 20px;
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  margin-top: 30px; /* Separate from other sections */
-}
-
-/* Styles for form elements within the Filter & Refine section */
-.filter-refine .form-control,
-.filter-refine .form-select {
-  border-radius: 0.25rem;
-  background-color: #fff;
-  border: 1px solid #ced4da;
-}
-
-/* Ensuring the spacing and layout are visually pleasing */
-.filter-refine label {
-  margin-bottom: 0.5rem;
-}
-
-.filter-refine .mb-3 {
-  margin-bottom: 16px;
-}
 /* Reduce the width of the form fields in the Contact Us section */
 #contact form .form-control {
   max-width: 400px; /* Adjust this value as needed */
@@ -185,6 +161,11 @@ footer .social-icon:hover {
   color: #0056b3; /* Darken icon on hover */
 }
 
+footer .social-icon i {
+  font-size: 24px;
+  color: #333;
+}
+
 /* Student Information Section */
 footer .student-info {
   background-color: #495057; /* Different background for clear distinction */
@@ -192,6 +173,11 @@ footer .student-info {
   padding: 20px 0; /* Padding for the section */
   margin-top: 30px; /* Space above the student info section */
   font-size: 0.9rem; /* Appropriate font size for information */
+}
+
+footer .copy-right {
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 24px;
 }
 
 /* General styles to improve legibility and spacing */
@@ -207,6 +193,11 @@ footer .text-center {
   font-size: 0.9rem; /* Smaller font size for copyright and student info */
   color: #6c757d; /* Grey text for subtle effect */
   padding: 10px 0; /* Padding for the section */
+}
+
+.footer-student {
+  padding-bottom: 24px;
+  padding-top: 24px;
 }
 
 .card-rand-item-text {

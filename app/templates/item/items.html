@@ -58,7 +58,7 @@
                 <!-- <a href="{{ url_for('item.items') }}" class="btn btn-secondary mt-3">View More</a>
             </div> -->
         </div>
-        <div class="col-sm-12">            
+        <div class="col-sm-12 col-lg-9">            
             <div class="row my-4">
                 {% for item in items %}         
                     {% set posted_by_user = item.user_id == current_user.id %}

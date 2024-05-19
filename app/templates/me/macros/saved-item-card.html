@@ -2,7 +2,7 @@
     <div class="card saved-item-card" data-item-id="{{ saved_item.item.id }}">
         <div class="row">
             <div class="col-5">
-                <img class="card-img" src="{{ saved_item.item.thumb_photo_url }}" alt="saved image" onerror="this.src='/static/img/not-found.webp'" style="max-height: 400px;">
+                <img class="card-img" src="{{ saved_item.item.thumb_photo_url }}" alt="saved image" onerror="this.src='/static/img/not-found.webp'">
             </div>
             <div class="col-7">
                 <h5 class="card-title">{{ saved_item.title }}</h5>
