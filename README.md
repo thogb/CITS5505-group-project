@@ -2,6 +2,16 @@
 
 CITS5505 - Agile Web Development Group Project
 
+### Student 1
+
+Name: Tao Hu
+Student Id: 23805764
+
+### Student 2
+
+Name: Hao Bao
+Student Id: 23888818
+
 ## Database Diagram
 
 https://dbdiagram.io/d/662fc53f5b24a634d0175770
@@ -19,14 +29,32 @@ pip install -r requirements.txt
 ## Migrations
 
 export FLASK_APP=app.py
-flask db
 
-flask db init
+### From the existing migration files
+
+This is the one that should be called based on existing migration versions.
+
+flask db upgrade
+
+## Running
+
+If in the project root directory
 
 flask run
 
-initialisation
+## Existing database
 
-flask db migrate -m "initial migration"
+The repository has a database with some already populated data for the easy of
+showing.
 
-flask db upgrade
+The file app.db is the one that contains the sqlite database. To start from
+scratch, this file is to be removed and then the above migration instruction
+for migration can be followed to create an new empty database.
+
+For the existing database, there are two accounts already created.
+
+email: test@gmail.com
+password: password1234
+
+email: test2@gmail.com
+password: password1234
