@@ -1,3 +1,11 @@
 .top-container {
   background-color: grey;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.top-container h1 {
+  color: white;
+  text-align: center;
+  font-size: 1.5rem;
 }
