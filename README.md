@@ -2,6 +2,16 @@
 
 CITS5505 - Agile Web Development Group Project
 
+### Student 1
+
+Name: Tao Hu
+Student Id: 23805764
+
+### Student 2
+
+Name: Hao Bao
+Student Id: 23888818
+
 ## Database Diagram
 
 https://dbdiagram.io/d/662fc53f5b24a634d0175770
@@ -19,12 +29,6 @@ pip install -r requirements.txt
 ## Migrations
 
 export FLASK_APP=app.py
-
-### Starting from scratch
-
-flask db init
-
-flask db migrate -m "initial migration"
 
 ### From the existing migration files
 
